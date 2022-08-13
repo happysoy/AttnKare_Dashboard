@@ -1,6 +1,7 @@
 import { useRoutes } from 'react-router-dom';
 import GeneralApp from './pages/dashboard/GeneralApp';
 import GamesTab from './pages/dashboard/GamesTab';
+import GeneralPrescription from './pages/dashboard/GeneralPrescription';
 import DashboardLayout from './layouts/dashboard';
 
 export default function Router() {
@@ -10,6 +11,7 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { path: 'app', element: <GeneralApp /> },
+        { path: 'prescription', element: <GeneralPrescription /> },
         { path: 'tab', element: <GamesTab /> },
       ],
     },
