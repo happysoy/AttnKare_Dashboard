@@ -9,7 +9,7 @@ import AnalyticsWebsiteVisits from 'src/sections/@dashboard/general/analytics/An
 // import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
 import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/BankingWidgetSummary';
 import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
-import EcommerceYearlySales from 'src/sections/@dashboard/general/e-commerce/EcommerceYearlySales';
+import AnalyticsCurrentSubject from 'src/sections/@dashboard/general/analytics/AnalyticsCurrentSubject';
 // mock
 import { _appFeatured } from '../../_mock';
 
@@ -22,34 +22,23 @@ import AppWidgetSummary from '../../sections/@dashboard/general/app/AppWidgetSum
 // assets
 import { SeoIllustration } from '../../assets';
 
-export default function GamesTab() {
+export default function GeneralApp() {
   const theme = useTheme();
 
   return (
-    <Page title="patient: Dashboard">
+    <Page title="patient | Prescription">
       <Container maxWidth="xl">
         <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={8}>
-            <EcommerceYearlySales
-              title="점수"
-              subheader="(+43%) than last week"
-              chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
+          <Grid item xs={12} md={6} lg={4}>
+            <AnalyticsCurrentSubject
+              title="Current Subject"
+              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
               chartData={[
-                {
-                  year: '2019',
-                  data: [
-                    { name: 'Total Income', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
-                    { name: 'Total Expenses', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
-                  ],
-                },
-                {
-                  year: '2020',
-                  data: [
-                    { name: 'Total Income', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                    { name: 'Total Expenses', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
-                  ],
-                },
+                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
+                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
+                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
               ]}
+              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
           </Grid>
         </Grid>
