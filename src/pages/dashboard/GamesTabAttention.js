@@ -9,6 +9,7 @@ import AnalyticsWebsiteVisits from 'src/sections/@dashboard/general/analytics/An
 // import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
 import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/BankingWidgetSummary';
 import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
+import AppAreaInstalled from 'src/sections/@dashboard/general/app/AppAreaInstalled';
 import EcommerceYearlySales from 'src/sections/@dashboard/general/e-commerce/EcommerceYearlySales';
 import AnalyticsCurrentVisits from 'src/sections/@dashboard/general/analytics/AnalyticsCurrentVisit';
 import BankingBalanceStatistics from 'src/sections/@dashboard/general/banking/BankingBalanceStatics';
@@ -24,29 +25,29 @@ import AppWidgetSummary from '../../sections/@dashboard/general/app/AppWidgetSum
 // assets
 import { SeoIllustration } from '../../assets';
 
-export default function GamesTab() {
+export default function GamesTabAttention() {
   const theme = useTheme();
 
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={6} lg={8}>
-        <EcommerceYearlySales
-          title="종합 점수"
-          subheader="(+43%) than last week"
+        <AppAreaInstalled
+          title="주의력 평가"
+          subheader="(+43%) than last year"
           chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
           chartData={[
             {
               year: '2019',
               data: [
-                { name: 'Total Income', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
-                { name: 'Total Expenses', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
+                { name: 'Asia', data: [10, 41, 35, 51, 49, 62, 69, 91, 148] },
+                { name: 'America', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
               ],
             },
             {
               year: '2020',
               data: [
-                { name: 'Total Income', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                { name: 'Total Expenses', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
+                { name: 'Asia', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
+                { name: 'America', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
               ],
             },
           ]}
@@ -69,6 +70,30 @@ export default function GamesTab() {
           ]}
         />
       </Grid>
+      <Grid item xs={12} md={6} lg={8}>
+        <EcommerceYearlySales
+          title="점수"
+          subheader="(+43%) than last week"
+          chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
+          chartData={[
+            {
+              year: '2019',
+              data: [
+                { name: 'Total Income', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
+                { name: 'Total Expenses', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
+              ],
+            },
+            {
+              year: '2020',
+              data: [
+                { name: 'Total Income', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
+                { name: 'Total Expenses', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
+              ],
+            },
+          ]}
+        />
+      </Grid>
+
       <Grid item xs={12} md={8}>
         <BankingBalanceStatistics
           title="주간 성취율"

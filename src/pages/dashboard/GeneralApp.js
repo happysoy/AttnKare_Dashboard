@@ -8,7 +8,7 @@ import AppWidget from 'src/sections/@dashboard/general/app/AppWidget';
 import AnalyticsWebsiteVisits from 'src/sections/@dashboard/general/analytics/AnalyticsWebsiteVisits';
 // import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
 import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/BankingWidgetSummary';
-import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
+// import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
 // mock
 import { _appFeatured } from '../../_mock';
 
@@ -141,21 +141,20 @@ export default function GeneralApp() {
           </Grid>
         </Grid>
         <Grid item xs={12} md={8}>
-          {/* <AppWelcome
-              title={`백시안 아동`}
-              description="Lorem ipsum dolor sit amet, A Sed hendrerit ultricies arcu, sed tristique tortor volutpat at. Proin et justo congue, maximus nunc eget, ultricies metus. Donec sed libero quis nunc lobortis viverra id sed quam. Nullam purus lorem, consequat nec dictum at, pulvinar ac erat. Nulla eget sodales metus. Nunc lectus tortor, imperdiet vel purus in, porttitor pellentesque massa."
-              img={
-                <SeoIllustration
-                  sx={{
-                    p: 3,
-                    width: 360,
-                    margin: { xs: 'auto', md: 'inherit' },
-                  }}
-                />
-              }
-              action={<Button variant="contained">자세히 보기</Button>}
-            /> */}
-          <AppPatientProfile />
+          <AppWelcome
+            title={`백시안 아동`}
+            description="Lorem ipsum dolor sit amet, A Sed hendrerit ultricies arcu, sed tristique tortor volutpat at. Proin et justo congue, maximus nunc eget, ultricies metus. Donec sed libero quis nunc lobortis viverra id sed quam. Nullam purus lorem, consequat nec dictum at, pulvinar ac erat. Nulla eget sodales metus. Nunc lectus tortor, imperdiet vel purus in, porttitor pellentesque massa."
+            img={
+              <SeoIllustration
+                sx={{
+                  p: 3,
+                  width: 360,
+                  margin: { xs: 'auto', md: 'inherit' },
+                }}
+              />
+            }
+            action={<Button variant="contained">자세히 보기</Button>}
+          />
         </Grid>
 
         <Grid item xs={12} md={4}>
