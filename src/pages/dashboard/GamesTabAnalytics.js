@@ -25,7 +25,7 @@ import AppWidgetSummary from '../../sections/@dashboard/general/app/AppWidgetSum
 // assets
 import { SeoIllustration } from '../../assets';
 
-export default function GamesTabCognitive() {
+export default function GamesTabAnalytics() {
   const theme = useTheme();
 
   return (

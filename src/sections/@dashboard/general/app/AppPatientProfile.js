@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
@@ -13,7 +14,7 @@ import useTabs from 'src/hooks/useTabs';
 import Page from 'src/components/Page';
 import GamesTab from 'src/pages/dashboard/GamesTab';
 import GamesTabAttention from 'src/pages/dashboard/GamesTabAttention';
-import GamesTabScore from 'src/pages/dashboard/GamesTabScore';
+import GamesTabAnalytics from 'src/pages/dashboard/GamesTabAnalytics';
 import ProfileCover from '../../user/profile/ProfileCover';
 import Profile from '../../user/profile/Profile';
 // import Iconify from '../../../components/Iconify';
@@ -35,8 +36,9 @@ const TabsWrapperStyle = styled('div')(({ theme }) => ({
 
 export default function AppPatientProfile() {
   const { currentTab, onChangeTab } = useTabs('종합 점수');
+  const [currentPage, setCurrentPage] = useState([]);
 
-  const PROFILE_TABS = [
+  const GAMES_TABS = [
     {
       value: '종합 점수',
       icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
@@ -51,7 +53,7 @@ export default function AppPatientProfile() {
     {
       value: '점수 분석',
       icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesTabScore />,
+      component: <GamesTabAnalytics />,
       // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
     },
     {
@@ -60,6 +62,40 @@ export default function AppPatientProfile() {
       // component: <ProfileGallery gallery={_userGallery} />,
     },
   ];
+
+  const GAMES_BIZ = [
+    {
+      value: '종합 점수',
+      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      component: <GamesTab />,
+    },
+    {
+      value: '주의력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesTabAttention />,
+      // component: <ProfileFollowers followers={_userFollowers} />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesTabAnalytics />,
+      // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
+    },
+    {
+      value: 'gallery',
+      icon: <Iconify icon={'ic:round-perm-media'} width={20} height={20} />,
+      // component: <ProfileGallery gallery={_userGallery} />,
+    },
+  ];
+
+  const path = window.location.pathname;
+  useEffect(() => {
+    if (path === '/dashboard/tab') {
+      setCurrentPage(GAMES_TABS);
+    } else if (path === '/dashboard/biz') {
+      setCurrentPage(GAMES_BIZ);
+    }
+  }, [path]);
 
   return (
     <Page title="User: Profile">
@@ -81,13 +117,13 @@ export default function AppPatientProfile() {
               value={currentTab}
               onChange={onChangeTab}
             >
-              {PROFILE_TABS.map((tab) => (
+              {currentPage.map((tab) => (
                 <Tab disableRipple key={tab.value} value={tab.value} icon={tab.icon} label={tab.value} />
               ))}
             </Tabs>
           </TabsWrapperStyle>
         </Card>
-        {PROFILE_TABS.map((tab) => {
+        {currentPage.map((tab) => {
           const isMatched = tab.value === currentTab;
           return isMatched && <Box key={tab.value}>{tab.component}</Box>;
         })}
