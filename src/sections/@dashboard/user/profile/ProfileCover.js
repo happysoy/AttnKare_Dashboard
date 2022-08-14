@@ -71,7 +71,7 @@ export default function ProfileCover({ myProfile }) {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h4">차은우</Typography>
+          <Typography variant="h4">오세훈</Typography>
           <Typography sx={{ opacity: 0.72 }}>{position}</Typography>
         </Box>
       </InfoStyle>

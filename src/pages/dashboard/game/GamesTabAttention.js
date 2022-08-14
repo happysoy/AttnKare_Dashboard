@@ -14,25 +14,25 @@ import EcommerceYearlySales from 'src/sections/@dashboard/general/e-commerce/Eco
 import AnalyticsCurrentVisits from 'src/sections/@dashboard/general/analytics/AnalyticsCurrentVisit';
 import BankingBalanceStatistics from 'src/sections/@dashboard/general/banking/BankingBalanceStatics';
 // mock
-import { _appFeatured } from '../../_mock';
+import { _appFeatured } from '../../../_mock';
 
-import Page from '../../components/Page';
+import Page from '../../../components/Page';
 
 // sections
-import AppWelcome from '../../sections/@dashboard/general/app/AppWelcome';
-import AppFeatured from '../../sections/@dashboard/general/app/AppFeatured';
-import AppWidgetSummary from '../../sections/@dashboard/general/app/AppWidgetSummary';
+import AppWelcome from '../../../sections/@dashboard/general/app/AppWelcome';
+import AppFeatured from '../../../sections/@dashboard/general/app/AppFeatured';
+import AppWidgetSummary from '../../../sections/@dashboard/general/app/AppWidgetSummary';
 // assets
-import { SeoIllustration } from '../../assets';
+import { SeoIllustration } from '../../../assets';
 
-export default function GamesTabAnalytics() {
+export default function GamesTabAttention() {
   const theme = useTheme();
 
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={6} lg={8}>
         <AppAreaInstalled
-          title="인지적 충동성 평가"
+          title="주의력 평가"
           subheader="(+43%) than last year"
           chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
           chartData={[

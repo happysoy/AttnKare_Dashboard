@@ -1,10 +1,10 @@
 import { useRoutes } from 'react-router-dom';
-import GeneralApp from './pages/dashboard/GeneralApp';
-import GeneralPrescription from './pages/dashboard/GeneralPrescription';
-import GeneralTreatment from './pages/dashboard/GeneralTreatment';
+import GeneralApp from './pages/dashboard/information/GeneralApp';
+import GeneralPrescription from './pages/dashboard/information/GeneralPrescription';
+import GeneralTreatment from './pages/dashboard/information/GeneralTreatment';
 import DashboardLayout from './layouts/dashboard';
 import AppPatientProfile from './sections/@dashboard/general/app/AppPatientProfile';
-import GeneralCognitive from './pages/dashboard/GeneralCognitive';
+import GeneralCognitive from './pages/dashboard/information/GeneralCognitive';
 
 export default function Router() {
   return useRoutes([
@@ -18,6 +18,9 @@ export default function Router() {
         { path: 'cognitive', element: <GeneralCognitive /> },
         { path: 'tab', element: <AppPatientProfile /> },
         { path: 'biz', element: <AppPatientProfile /> },
+        { path: 'room', element: <AppPatientProfile /> },
+        { path: 'card', element: <AppPatientProfile /> },
+        { path: 'racing', element: <AppPatientProfile /> },
       ],
     },
   ]);
