@@ -3,6 +3,8 @@ import { useState } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+
+import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // config
 import { HEADER, NAVBAR } from '../../config';
 
@@ -31,6 +33,7 @@ const MainStyle = styled('main', {
 }));
 
 export default function DashboardLayout() {
+  const { collapseClick, isCollapse } = useCollapseDrawer();
   const [open, setOpen] = useState(false);
 
   return (
