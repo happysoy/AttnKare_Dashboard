@@ -28,7 +28,7 @@ const navConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'general',
+    subheader: 'information',
     items: [
       { title: 'Overview', path: 'app', icon: ICONS.dashboard },
       { title: '진단', path: 'prescription', icon: ICONS.ecommerce },

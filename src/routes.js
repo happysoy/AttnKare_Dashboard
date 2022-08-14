@@ -1,8 +1,10 @@
 import { useRoutes } from 'react-router-dom';
-import GeneralApp from './pages/dashboard/GeneralApp';
-import GamesTab from './pages/dashboard/GamesTab';
-import GeneralPrescription from './pages/dashboard/GeneralPrescription';
+import GeneralApp from './pages/dashboard/information/GeneralApp';
+import GeneralPrescription from './pages/dashboard/information/GeneralPrescription';
+import GeneralTreatment from './pages/dashboard/information/GeneralTreatment';
 import DashboardLayout from './layouts/dashboard';
+import AppPatientProfile from './sections/@dashboard/general/app/AppPatientProfile';
+import GeneralCognitive from './pages/dashboard/information/GeneralCognitive';
 
 export default function Router() {
   return useRoutes([
@@ -12,7 +14,13 @@ export default function Router() {
       children: [
         { path: 'app', element: <GeneralApp /> },
         { path: 'prescription', element: <GeneralPrescription /> },
-        { path: 'tab', element: <GamesTab /> },
+        { path: 'treatment', element: <GeneralTreatment /> },
+        { path: 'cognitive', element: <GeneralCognitive /> },
+        { path: 'tab', element: <AppPatientProfile /> },
+        { path: 'biz', element: <AppPatientProfile /> },
+        { path: 'room', element: <AppPatientProfile /> },
+        { path: 'card', element: <AppPatientProfile /> },
+        { path: 'racing', element: <AppPatientProfile /> },
       ],
     },
   ]);

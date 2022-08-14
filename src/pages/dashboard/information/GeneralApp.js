@@ -1,6 +1,6 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Button, Stack } from '@mui/material';
+import { Container, Grid, Button, Stack, Card } from '@mui/material';
 
 // component
 import AppCurrentDownload from 'src/sections/@dashboard/general/app/AppCurrentDownload';
@@ -8,18 +8,18 @@ import AppWidget from 'src/sections/@dashboard/general/app/AppWidget';
 import AnalyticsWebsiteVisits from 'src/sections/@dashboard/general/analytics/AnalyticsWebsiteVisits';
 // import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
 import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/BankingWidgetSummary';
-import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
+// import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
 // mock
-import { _appFeatured } from '../../_mock';
+import { _appFeatured } from '../../../_mock';
 
-import Page from '../../components/Page';
+import Page from '../../../components/Page';
 
 // sections
-import AppWelcome from '../../sections/@dashboard/general/app/AppWelcome';
-import AppFeatured from '../../sections/@dashboard/general/app/AppFeatured';
-import AppWidgetSummary from '../../sections/@dashboard/general/app/AppWidgetSummary';
+import AppWelcome from '../../../sections/@dashboard/general/app/AppWelcome';
+import AppFeatured from '../../../sections/@dashboard/general/app/AppFeatured';
+import AppWidgetSummary from '../../../sections/@dashboard/general/app/AppWidgetSummary';
 // assets
-import { SeoIllustration } from '../../assets';
+import { SeoIllustration } from '../../../assets';
 
 export default function GeneralApp() {
   const theme = useTheme();
@@ -139,9 +139,8 @@ export default function GeneralApp() {
               />
             </Stack>
           </Grid>
-        </Grid>
-        <Grid item xs={12} md={8}>
-          {/* <AppWelcome
+          <Grid item xs={12} md={8}>
+            <AppWelcome
               title={`백시안 아동`}
               description="Lorem ipsum dolor sit amet, A Sed hendrerit ultricies arcu, sed tristique tortor volutpat at. Proin et justo congue, maximus nunc eget, ultricies metus. Donec sed libero quis nunc lobortis viverra id sed quam. Nullam purus lorem, consequat nec dictum at, pulvinar ac erat. Nulla eget sodales metus. Nunc lectus tortor, imperdiet vel purus in, porttitor pellentesque massa."
               img={
@@ -154,12 +153,12 @@ export default function GeneralApp() {
                 />
               }
               action={<Button variant="contained">자세히 보기</Button>}
-            /> */}
-          <AppPatientProfile />
-        </Grid>
+            />
+          </Grid>
 
-        <Grid item xs={12} md={4}>
-          <AppFeatured list={_appFeatured} />
+          <Grid item xs={12} md={4}>
+            <AppFeatured list={_appFeatured} />
+          </Grid>
         </Grid>
       </Container>
     </Page>

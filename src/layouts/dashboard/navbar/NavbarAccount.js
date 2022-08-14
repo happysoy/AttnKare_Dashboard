@@ -51,10 +51,10 @@ export default function NavbarAccount({ isCollapse }) {
           }}
         >
           <Typography variant="subtitle2" noWrap>
-            {'차은우'}
+            {'오세훈'}
           </Typography>
           <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
-            {'26세 / 남'}
+            {'28세 / 남'}
           </Typography>
         </Box>
       </RootStyle>

@@ -15,6 +15,7 @@ export default function NavItem({ item, depth, isCollapse, active, open, ...othe
       {icon && <ListItemIconStyle>{icon}</ListItemIconStyle>}
 
       {depth !== 1 && <DotIcon active={active && depth !== 1} />}
+
       <ListItemTextStyle
         isCollapse={isCollapse}
         primary={title}

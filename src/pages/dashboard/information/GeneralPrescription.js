@@ -11,16 +11,16 @@ import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/Bankin
 import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
 import AnalyticsCurrentSubject from 'src/sections/@dashboard/general/analytics/AnalyticsCurrentSubject';
 // mock
-import { _appFeatured } from '../../_mock';
+import { _appFeatured } from '../../../_mock';
 
-import Page from '../../components/Page';
+import Page from '../../../components/Page';
 
 // sections
-import AppWelcome from '../../sections/@dashboard/general/app/AppWelcome';
-import AppFeatured from '../../sections/@dashboard/general/app/AppFeatured';
-import AppWidgetSummary from '../../sections/@dashboard/general/app/AppWidgetSummary';
+import AppWelcome from '../../../sections/@dashboard/general/app/AppWelcome';
+import AppFeatured from '../../../sections/@dashboard/general/app/AppFeatured';
+import AppWidgetSummary from '../../../sections/@dashboard/general/app/AppWidgetSummary';
 // assets
-import { SeoIllustration } from '../../assets';
+import { SeoIllustration } from '../../../assets';
 
 export default function GeneralApp() {
   const theme = useTheme();

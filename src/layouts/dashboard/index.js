@@ -3,6 +3,9 @@ import { useState } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+
+import useCollapseDrawer from '../../hooks/useCollapseDrawer';
+import useResponsive from '../../hooks/useResponsive';
 // config
 import { HEADER, NAVBAR } from '../../config';
 
@@ -31,7 +34,9 @@ const MainStyle = styled('main', {
 }));
 
 export default function DashboardLayout() {
+  const { collapseClick, isCollapse } = useCollapseDrawer();
   const [open, setOpen] = useState(false);
+  const isDesktop = useResponsive('up', 'lg');
 
   return (
     <Box
@@ -42,7 +47,7 @@ export default function DashboardLayout() {
     >
       <DashboardHeader />
       <NavbarVertical isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
-      <MainStyle>
+      <MainStyle collapseClick={collapseClick}>
         <Outlet />
       </MainStyle>
     </Box>

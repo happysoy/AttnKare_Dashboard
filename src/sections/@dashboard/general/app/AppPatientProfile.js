@@ -1,17 +1,45 @@
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Tab, Box, Card, Tabs, Container } from '@mui/material';
+
 // utils
 // components
 import { _userAbout } from 'src/_mock';
-import ProfileCover from '../../user/profile/ProfileCover';
+import Iconify from 'src/components/Iconify';
+//  hooks
+import useTabs from 'src/hooks/useTabs';
+// components
+import Page from 'src/components/Page';
+import GamesTab from 'src/pages/dashboard/game/GamesTab';
+import GamesTabAttention from 'src/pages/dashboard/game/GamesTabAttention';
+import GamesTabAnalytics from 'src/pages/dashboard/game/GamesTabAnalytics';
+import GamesBiz from 'src/pages/dashboard/game/GamesBiz';
+import GamesBizAnalytics from 'src/pages/dashboard/game/GamesBizAnalytics';
+import GamesBizAttention from 'src/pages/dashboard/game/GamesBizAttention';
+import GamesRoom from 'src/pages/dashboard/game/GamesRoom';
+import GamesRoomAttention from 'src/pages/dashboard/game/GamesRoomAttention';
+import GamesRoomAnalytics from 'src/pages/dashboard/game/GamesRoomAnalytics';
+import GamesCard from 'src/pages/dashboard/game/GamesCard';
+import GamesCardAttention from 'src/pages/dashboard/game/GamesCardAttention';
+import GamesCardImpulsivity from 'src/pages/dashboard/game/GamesCardImpulsivity';
+import GamesCardAnalytics from 'src/pages/dashboard/game/GamesCardAnalytics';
+import GamesRacingImpulsivity from 'src/pages/dashboard/game/GamesRacingImpulsitivity';
+import GamesRacingAttention from 'src/pages/dashboard/game/GamesRacingAttention';
+import GamesRacingAnalytics from 'src/pages/dashboard/game/GamesRacingAnalytics';
+import GamesRacing from 'src/pages/dashboard/game/GamesRacing';
 
+import ProfileCover from '../../user/profile/ProfileCover';
+import Profile from '../../user/profile/Profile';
+
+// import Iconify from '../../../components/Iconify';
 const TabsWrapperStyle = styled('div')(({ theme }) => ({
   zIndex: 9,
   bottom: 0,
   width: '100%',
   display: 'flex',
+  position: 'absolute',
   backgroundColor: theme.palette.background.paper,
   [theme.breakpoints.up('sm')]: {
     justifyContent: 'center',
@@ -22,26 +50,158 @@ const TabsWrapperStyle = styled('div')(({ theme }) => ({
   },
 }));
 
-export default function AppPatientProfile({ title, subheader, ...other }) {
+export default function AppPatientProfile() {
+  const { currentTab, onChangeTab } = useTabs('종합 평가');
+  const [currentPage, setCurrentPage] = useState([]);
+
+  const GAMES_TABS = [
+    {
+      value: '종합 평가',
+      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      component: <GamesTab />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesTabAnalytics />,
+    },
+    {
+      value: '주의력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesTabAttention />,
+    },
+  ];
+
+  const GAMES_BIZ = [
+    {
+      value: '종합 평가',
+      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      component: <GamesBiz />,
+    },
+    {
+      value: '주의력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesBizAttention />,
+      // component: <ProfileFollowers followers={_userFollowers} />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesBizAnalytics />,
+      // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
+    },
+  ];
+
+  const GAMES_ROOM = [
+    {
+      value: '종합 평가',
+      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      component: <GamesRoom />,
+    },
+    {
+      value: '주의력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesRoomAttention />,
+      // component: <ProfileFollowers followers={_userFollowers} />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesRoomAnalytics />,
+      // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
+    },
+  ];
+  const GAMES_CARD = [
+    {
+      value: '종합 평가',
+      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      component: <GamesCard />,
+    },
+    {
+      value: '주의력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesCardAttention />,
+    },
+    {
+      value: '인지적 충동성 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesCardImpulsivity />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesCardAnalytics />,
+    },
+  ];
+
+  const GAMES_RACING = [
+    {
+      value: '종합 평가',
+      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      component: <GamesRacing />,
+    },
+    {
+      value: '주의력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesRacingAttention />,
+    },
+    {
+      value: '인지적 충동성 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesRacingImpulsivity />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesRacingAnalytics />,
+    },
+  ];
+  const path = window.location.pathname;
+  useEffect(() => {
+    if (path === '/dashboard/tab') {
+      setCurrentPage(GAMES_TABS);
+    } else if (path === '/dashboard/biz') {
+      setCurrentPage(GAMES_BIZ);
+    } else if (path === '/dashboard/room') {
+      setCurrentPage(GAMES_ROOM);
+    } else if (path === '/dashboard/card') {
+      setCurrentPage(GAMES_CARD);
+    } else if (path === '/dashboard/racing') {
+      setCurrentPage(GAMES_RACING);
+    }
+  }, [path]);
+
   return (
-    <Card
-      sx={{
-        mb: 3,
-        height: 280,
-        position: 'relative',
-      }}
-    >
-      <ProfileCover myProfile={_userAbout} />
-      {/* 
-      <TabsWrapperStyle>
-        <Tabs
-          allowScrollButtonsMobile
-          variant="scrollable"
-          scrollButtons="auto"
-          value={currentTab}
-          onChange={onChangeTab}
-        ></Tabs>
-      </TabsWrapperStyle> */}
-    </Card>
+    <Page title="User: Profile">
+      <Container maxWidth={'lg'}>
+        <Card
+          sx={{
+            mb: 3,
+            height: 280,
+            position: 'relative',
+          }}
+        >
+          <ProfileCover myProfile={_userAbout} />
+
+          <TabsWrapperStyle>
+            <Tabs
+              allowScrollButtonsMobile
+              variant="scrollable"
+              scrollButtons="auto"
+              value={currentTab}
+              onChange={onChangeTab}
+            >
+              {currentPage.map((tab) => (
+                <Tab disableRipple key={tab.value} value={tab.value} icon={tab.icon} label={tab.value} />
+              ))}
+            </Tabs>
+          </TabsWrapperStyle>
+        </Card>
+        {currentPage.map((tab) => {
+          const isMatched = tab.value === currentTab;
+          return isMatched && <Box key={tab.value}>{tab.component}</Box>;
+        })}
+      </Container>
+    </Page>
   );
 }

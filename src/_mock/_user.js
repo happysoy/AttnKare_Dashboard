@@ -6,7 +6,7 @@ import { randomNumberRange, randomInArray } from './funcs';
 export const _userAbout = {
   id: _mock.id(1),
   cover: _mock.image.cover(1),
-  position: '27세 / 남',
+  position: '28세 / 남',
   follower: randomNumberRange(999, 99999),
   following: randomNumberRange(999, 99999),
   quote: 'Tart I love sugar plum I love oat cake. Sweet roll caramels I love jujubes. Topping cake wafer..',
