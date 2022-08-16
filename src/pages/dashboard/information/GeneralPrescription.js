@@ -31,12 +31,11 @@ export default function GeneralApp() {
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={4}>
             <AnalyticsCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
+              title="AttnKare-D 진단 결과"
+              chartLabels={['집중력', '작업기억력', '실행기능', '행동조절', '사회성', '충동성']}
               chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
+                { name: '2022.04.05', data: [80, 50, 30, 40, 100, 20] },
+                { name: '2022.08.16', data: [44, 76, 78, 13, 43, 10] },
               ]}
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />
