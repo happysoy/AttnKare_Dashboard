@@ -9,6 +9,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider as ReduxProvider } from 'react-redux';
+// @mui
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 // redux
 import { store, persistor } from './redux/store';
 // contexts
@@ -22,11 +25,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HelmetProvider>
     <ReduxProvider store={store}>
-      <CollapseDrawerProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </CollapseDrawerProvider>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <CollapseDrawerProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CollapseDrawerProvider>
+      </LocalizationProvider>
     </ReduxProvider>
   </HelmetProvider>
 );

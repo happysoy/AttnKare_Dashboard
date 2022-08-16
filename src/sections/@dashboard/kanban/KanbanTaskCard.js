@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function KanbanTaskCard({ onDeleteTask, card, index }) {
   const { name, attachments } = card;
   // const [complete, setCompleted] = useState(card.completed);
-
+  console.log(card);
   return (
     <Draggable draggableId={card.id} index={index}>
       {(provided) => (
@@ -19,28 +19,22 @@ export default function KanbanTaskCard({ onDeleteTask, card, index }) {
               '&:hover': {
                 boxShadow: (theme) => theme.customShadows.z16,
               },
-              ...(attachments.length > 0 && {
-                pt: 2,
-              }),
             }}
           >
-            <Box sx={{ cursor: 'pointer' }}>
-              <Typography
-                noWrap
-                variant="subtitle2"
-                sx={{
-                  py: 3,
-                  pl: 5,
-                  transition: (theme) =>
-                    theme.transitions.create('opacity', {
-                      duration: theme.transitions.duration.shortest,
-                    }),
-                  // ...(completed && { opacity: 0.48 }),
-                }}
-              >
-                {name}
-              </Typography>
-            </Box>
+            <Typography
+              noWrap
+              variant="subtitle2"
+              sx={{
+                py: 3,
+                pl: 5,
+                transition: (theme) =>
+                  theme.transitions.create('opacity', {
+                    duration: theme.transitions.duration.shortest,
+                  }),
+              }}
+            >
+              {name}
+            </Typography>
           </Paper>
         </div>
       )}

@@ -1,5 +1,5 @@
 import { IconButton, MenuItem, OutlinedInput, Stack, Typography, Button } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useToggle from 'src/hooks/useToggle';
 
 import Iconify from 'src/components/Iconify';
@@ -7,13 +7,35 @@ import MenuPopover from 'src/components/MenuPopover';
 import KanbanConfirmDialog from './KanbanConfirmDialog';
 
 export default function KanbanColumnToolBar({ columnName, onDelete, onUpdate }) {
+  const renameRef = useRef(null);
   const [open, setOpen] = useState(null);
+  const [value, setValue] = useState(columnName);
+
   const { toggle: openConfirm, onOpen: onOpenConfirm, onClose: onCloseConfirm } = useToggle();
+
+  useEffect(() => {
+    if (open) {
+      if (renameRef.current) {
+        renameRef.current.focus();
+      }
+    }
+  }, [open]);
+
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
   };
   const handleClose = () => {
     setOpen(null);
+  };
+
+  const handleChangeColumnName = (event) => {
+    setValue(event.target.value);
+  };
+  const handleUpdateColumn = (event) => {
+    if (event.key === 'Enter' && renameRef.current) {
+      renameRef.current.blur();
+      onUpdate(value);
+    }
   };
   return (
     <>
@@ -21,7 +43,10 @@ export default function KanbanColumnToolBar({ columnName, onDelete, onUpdate }) 
         <OutlinedInput
           size="small"
           placeholder="Section name"
-          value={'약물치료'}
+          value={value}
+          onChange={handleChangeColumnName}
+          onKeyUp={handleUpdateColumn}
+          inputRef={renameRef}
           sx={{
             typography: 'h6',
             fontWeight: 'fontWeightBold',

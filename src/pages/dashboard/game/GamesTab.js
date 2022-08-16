@@ -36,17 +36,17 @@ export default function GamesTab() {
           chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
           chartData={[
             {
-              year: '2019',
+              year: '2021',
               data: [
-                { name: 'Total Income', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
-                { name: 'Total Expenses', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
+                { name: '집중력', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
+                { name: '작업기억력', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
               ],
             },
             {
-              year: '2020',
+              year: '2022',
               data: [
-                { name: 'Total Income', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                { name: 'Total Expenses', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
+                { name: '집중력', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
+                { name: '작업기억력', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
               ],
             },
           ]}
@@ -73,27 +73,27 @@ export default function GamesTab() {
         <BankingBalanceStatistics
           title="주간 성취율"
           subheader="(+43% Income | +12% Expense) than last year"
-          chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
+          chartLabels={['일', '월', '화', '수', '목', '금', '토', '일']}
           chartData={[
             {
-              year: 'Week',
+              year: '주간',
               data: [
-                { name: 'Income', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
-                { name: 'Expenses', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
+                { name: '성취율', data: [10, 41, 35, 151, 49, 62, 69] },
+                { name: '권장', data: [10, 34, 13, 56, 77, 88, 99] },
               ],
             },
             {
-              year: 'Month',
+              year: '월간',
               data: [
-                { name: 'Income', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                { name: 'Expenses', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
+                { name: '성취율', data: [148, 91, 69, 62, 49, 51, 35] },
+                { name: '권장', data: [45, 77, 99, 88, 77, 56, 13] },
               ],
             },
             {
-              year: 'Year',
+              year: '연간',
               data: [
-                { name: 'Income', data: [76, 42, 29, 41, 27, 138, 117, 86, 63] },
-                { name: 'Expenses', data: [80, 55, 34, 114, 80, 130, 15, 28, 55] },
+                { name: '성취율', data: [76, 42, 29, 41, 27, 138, 117] },
+                { name: '권장', data: [80, 55, 34, 114, 80, 130, 15] },
               ],
             },
           ]}

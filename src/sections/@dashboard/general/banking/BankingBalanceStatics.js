@@ -17,7 +17,7 @@ BankingBalanceStatistics.propTypes = {
 };
 
 export default function BankingBalanceStatistics({ title, subheader, chartLabels, chartData, ...other }) {
-  const [seriesData, setSeriesData] = useState('Year');
+  const [seriesData, setSeriesData] = useState('주간');
 
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);

@@ -78,17 +78,17 @@ export default function AppPatientProfile() {
       icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
       component: <GamesBiz />,
     },
+
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesBizAnalytics />,
+    },
     {
       value: '주의력 평가',
       icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
       component: <GamesBizAttention />,
       // component: <ProfileFollowers followers={_userFollowers} />,
-    },
-    {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesBizAnalytics />,
-      // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
     },
   ];
 
@@ -99,16 +99,16 @@ export default function AppPatientProfile() {
       component: <GamesRoom />,
     },
     {
-      value: '주의력 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesRoomAttention />,
-      // component: <ProfileFollowers followers={_userFollowers} />,
-    },
-    {
       value: '점수 분석',
       icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
       component: <GamesRoomAnalytics />,
       // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
+    },
+    {
+      value: '주의력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesRoomAttention />,
+      // component: <ProfileFollowers followers={_userFollowers} />,
     },
   ];
   const GAMES_CARD = [
@@ -116,6 +116,11 @@ export default function AppPatientProfile() {
       value: '종합 평가',
       icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
       component: <GamesCard />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesCardAnalytics />,
     },
     {
       value: '주의력 평가',
@@ -127,11 +132,6 @@ export default function AppPatientProfile() {
       icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
       component: <GamesCardImpulsivity />,
     },
-    {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesCardAnalytics />,
-    },
   ];
 
   const GAMES_RACING = [
@@ -139,6 +139,11 @@ export default function AppPatientProfile() {
       value: '종합 평가',
       icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
       component: <GamesRacing />,
+    },
+    {
+      value: '점수 분석',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesRacingAnalytics />,
     },
     {
       value: '주의력 평가',
@@ -149,11 +154,6 @@ export default function AppPatientProfile() {
       value: '인지적 충동성 평가',
       icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
       component: <GamesRacingImpulsivity />,
-    },
-    {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesRacingAnalytics />,
     },
   ];
   const path = window.location.pathname;

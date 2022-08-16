@@ -17,7 +17,7 @@ EcommerceYearlySales.propTypes = {
 };
 
 export default function EcommerceYearlySales({ title, subheader, chartLabels, chartData, ...other }) {
-  const [seriesData, setSeriesData] = useState('2019');
+  const [seriesData, setSeriesData] = useState('2022');
 
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);

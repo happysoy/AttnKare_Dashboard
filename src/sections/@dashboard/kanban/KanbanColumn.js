@@ -1,8 +1,9 @@
 import { Button, Stack, Paper } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import Iconify from 'src/components/Iconify';
-import { useDispatch, useSelector } from 'src/redux/store';
+import { useDispatch } from 'src/redux/store';
+import { useSelector } from 'react-redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import KanbanColumnToolBar from './KanbanColumnToolBar';
 import KanbanTaskAdd from './KanbanTaskAdd';
@@ -26,7 +27,7 @@ export default function KanbanColumn({ column, index }) {
     try {
       if (newName !== name) {
         dispatch(updateColumn(id, { ...column, name: newName }));
-        enqueueSnackbar('Update success!');
+        enqueueSnackbar('성공적으로 업데이트 되었습니다');
       }
     } catch (error) {
       console.error(error);
@@ -36,20 +37,22 @@ export default function KanbanColumn({ column, index }) {
   const handleDeleteColumn = async () => {
     try {
       dispatch(deleteColumn(id));
-      enqueueSnackbar('Delete success!');
+      enqueueSnackbar('성공적으로 삭제되었습니다');
     } catch (error) {
       console.error(error);
     }
   };
   const handleDeleteTask = (cardId) => {
     dispatch(deleteTask({ cardId, columnId: id }));
-    enqueueSnackbar('삭제되었습니다');
+    enqueueSnackbar('성공적으로 삭제되었습니다');
   };
 
   const handleAddTask = (task) => {
     dispatch(addTask({ card: task, columnId: id }));
     handleCloseAddTask();
   };
+
+  cardIds.map((cardId, index) => console.log(board?.cards[cardId]));
 
   return (
     <Draggable draggableId={id} index={index}>
@@ -63,7 +66,7 @@ export default function KanbanColumn({ column, index }) {
           <Stack spacing={3} {...provided.dragHandleProps}>
             <KanbanColumnToolBar columnName={name} onDelete={handleDeleteColumn} onUpdate={handleUpdateColumn} />
 
-            <Droppable droppableId={id} type="task">
+            {/* <Droppable droppableId={id} type="task">
               {(provided) => (
                 <Stack ref={provided.innerRef} {...provided.droppableProps} spacing={2} width={280}>
                   {cardIds.map((cardId, index) => (
@@ -77,7 +80,7 @@ export default function KanbanColumn({ column, index }) {
                   {provided.placeholder}
                 </Stack>
               )}
-            </Droppable>
+            </Droppable> */}
 
             <Stack spacing={2} sx={{ pb: 3 }}>
               {open && <KanbanTaskAdd onAddTask={handleAddTask} onCloseAddTask={handleCloseAddTask} />}
