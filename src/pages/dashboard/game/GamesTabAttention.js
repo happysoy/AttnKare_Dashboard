@@ -33,21 +33,21 @@ export default function GamesTabAttention() {
       <Grid item xs={12} md={6} lg={8}>
         <AppAreaInstalled
           title="주의력 평가"
-          subheader="(+43%) than last year"
-          chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
+          subheader="(+2%) than last week"
+          chartLabels={['1주차', '2주차', '3주차', '4주차', '5주차']}
           chartData={[
             {
-              year: '2019',
+              year: '8월',
               data: [
-                { name: 'Asia', data: [10, 41, 35, 51, 49, 62, 69, 91, 148] },
-                { name: 'America', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
+                { name: '정반응 수', data: [10, 41, 35, 51, 49] },
+                { name: '정반응 시간', data: [12, 14, 15, 20, 30] },
               ],
             },
             {
-              year: '2020',
+              year: '7월',
               data: [
-                { name: 'Asia', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                { name: 'America', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
+                { name: '정반응 수', data: [10, 41, 35, 51, 49] },
+                { name: '정반응 시간', data: [10, 41, 35, 51, 49] },
               ],
             },
           ]}
@@ -67,60 +67,6 @@ export default function GamesTabAttention() {
             theme.palette.chart.blue[0],
             theme.palette.chart.violet[0],
             theme.palette.chart.yellow[0],
-          ]}
-        />
-      </Grid>
-      <Grid item xs={12} md={6} lg={8}>
-        <EcommerceYearlySales
-          title="점수"
-          subheader="(+43%) than last week"
-          chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
-          chartData={[
-            {
-              year: '2019',
-              data: [
-                { name: 'Total Income', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
-                { name: 'Total Expenses', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
-              ],
-            },
-            {
-              year: '2020',
-              data: [
-                { name: 'Total Income', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                { name: 'Total Expenses', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
-              ],
-            },
-          ]}
-        />
-      </Grid>
-
-      <Grid item xs={12} md={8}>
-        <BankingBalanceStatistics
-          title="주간 성취율"
-          subheader="(+43% Income | +12% Expense) than last year"
-          chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
-          chartData={[
-            {
-              year: 'Week',
-              data: [
-                { name: 'Income', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
-                { name: 'Expenses', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
-              ],
-            },
-            {
-              year: 'Month',
-              data: [
-                { name: 'Income', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                { name: 'Expenses', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
-              ],
-            },
-            {
-              year: 'Year',
-              data: [
-                { name: 'Income', data: [76, 42, 29, 41, 27, 138, 117, 86, 63] },
-                { name: 'Expenses', data: [80, 55, 34, 114, 80, 130, 15, 28, 55] },
-              ],
-            },
           ]}
         />
       </Grid>

@@ -17,7 +17,7 @@ AppAreaInstalled.propTypes = {
 };
 
 export default function AppAreaInstalled({ title, subheader, chartLabels, chartData, ...other }) {
-  const [seriesData, setSeriesData] = useState('2019');
+  const [seriesData, setSeriesData] = useState('8월');
 
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);

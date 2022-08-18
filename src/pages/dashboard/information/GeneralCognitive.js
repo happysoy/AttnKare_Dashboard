@@ -19,31 +19,31 @@ export default function GeneralCognitive() {
           <Grid item xs={12} md={8}>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
               <BankingWidgetSummary
-                title="Income"
+                title="게임 포인트 획득"
                 icon={'eva:diagonal-arrow-left-down-fill'}
-                percent={2.6}
-                total={18765}
-                chartData={[111, 136, 76, 108, 74, 54, 57, 84]}
+                percent={-3.1}
+                total="6,100"
+                chartData={[110, 120, 50, 330]}
               />
 
               <BankingWidgetSummary
-                title="Expenses"
-                color="warning"
+                title="포인트 사용"
+                color="error"
                 icon={'eva:diagonal-arrow-right-up-fill'}
-                percent={-0.5}
-                total={8938}
-                chartData={[111, 136, 76, 108, 74, 54, 57, 84]}
+                percent={+5.0}
+                total="22,000"
+                chartData={[1000, 1200]}
               />
             </Stack>
           </Grid>
           <Grid item xs={12} md={8}>
             <BankingRecentTransitions
-              title="Recent Transitions"
+              title="포인트 거래내역"
               tableData={_bankingRecentTransitions}
               tableLabels={[
-                { id: 'description', label: 'Description' },
-                { id: 'date', label: 'Date' },
-                { id: 'amount', label: 'Amount' },
+                { id: 'description', label: '분야' },
+                { id: 'date', label: '날짜' },
+                { id: 'amount', label: '금액' },
                 { id: '' },
               ]}
             />

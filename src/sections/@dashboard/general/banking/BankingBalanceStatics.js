@@ -34,8 +34,25 @@ export default function BankingBalanceStatistics({ title, subheader, chartLabels
     },
     tooltip: {
       y: {
-        formatter: (val) => `$${val}`,
+        formatter: (val) => `${val}`,
       },
+    },
+    chart: {
+      stacked: true,
+    },
+    fill: {
+      colors: ['#8dc63f', '#ff6c0f'],
+    },
+    markers: {
+      colors: ['#8dc63f', '#ff6c0f'],
+    },
+    dataLabels: {
+      style: {
+        colors: ['#8dc63f', '#ff6c0f'],
+      },
+    },
+    legend: {
+      show: false,
     },
   });
 

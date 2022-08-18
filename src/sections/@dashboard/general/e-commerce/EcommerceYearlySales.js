@@ -17,7 +17,7 @@ EcommerceYearlySales.propTypes = {
 };
 
 export default function EcommerceYearlySales({ title, subheader, chartLabels, chartData, ...other }) {
-  const [seriesData, setSeriesData] = useState('2022');
+  const [seriesData, setSeriesData] = useState('8월');
   // const legendItem = document.querySelector('.apexcharts-legend-series:nth-child(2)');
   // legendItem.dispatchEvent(new Event('click'));
   // console.log(legendItem);

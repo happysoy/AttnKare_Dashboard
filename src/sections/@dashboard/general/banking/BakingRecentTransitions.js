@@ -120,11 +120,12 @@ function BankingRecentTransitionsRow({ row }) {
     <TableRow>
       <TableCell>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box sx={{ position: 'relative' }}>
-            {renderAvatar(row.category, row.avatar)}
+          <Box sx={{ position: 'relative', ml: 3 }}>
             <Box
               sx={{
                 right: 0,
+                top: 0,
+                margin: 'auto',
                 bottom: 0,
                 width: 18,
                 height: 18,
@@ -147,7 +148,7 @@ function BankingRecentTransitionsRow({ row }) {
               />
             </Box>
           </Box>
-          <Box sx={{ ml: 2 }}>
+          <Box sx={{ ml: 4 }}>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               {row.message}
             </Typography>
