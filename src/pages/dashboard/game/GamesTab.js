@@ -29,37 +29,48 @@ export default function GamesTab() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={6} lg={8}>
+      <Grid item xs={12} md={9} lg={9}>
         <EcommerceYearlySales
           title="탭 종합 점수"
           subheader="(+43%) than last week"
-          chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']}
+          chartLabels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']}
           chartData={[
             {
               year: '2021',
               data: [
-                { name: '집중력', data: [10, 41, 35, 151, 49, 62, 69, 91, 48] },
-                { name: '작업기억력', data: [10, 34, 13, 56, 77, 88, 99, 77, 45] },
+                { name: '종합점수', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '집중력', data: [148, 91, 69, 62, 49, 51, 35, 41] },
+                { name: '작업기억력', data: [45, 77, 99, 88, 77, 56, 13, 34] },
+                { name: '실행기능', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '행동조절', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '사회성', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '충동성', data: [10, 34, 13, 56, 77, 88, 99, 77] },
               ],
             },
             {
               year: '2022',
               data: [
-                { name: '집중력', data: [148, 91, 69, 62, 49, 51, 35, 41, 10] },
-                { name: '작업기억력', data: [45, 77, 99, 88, 77, 56, 13, 34, 10] },
+                { name: '종합점수', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '집중력', data: [148, 91, 69, 62, 49, 51, 35, 41] },
+                { name: '작업기억력', data: [45, 77, 99, 88, 77, 56, 13, 34] },
+                { name: '실행기능', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '행동조절', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '사회성', data: [10, 34, 13, 56, 77, 88, 99, 77] },
+                { name: '충동성', data: [10, 34, 13, 56, 77, 88, 99, 77] },
               ],
             },
           ]}
         />
       </Grid>
-      <Grid item xs={12} md={6} lg={4}>
+      <Grid item xs={12} md={3} lg={3}>
         <AnalyticsCurrentVisits
           title="게임 플레이 시간"
           chartData={[
-            { label: 'America', value: 4344 },
-            { label: 'Asia', value: 5435 },
-            { label: 'Europe', value: 1443 },
-            { label: 'Africa', value: 4443 },
+            { label: '탭', value: 24 },
+            { label: '비즈', value: 15 },
+            { label: '방정리', value: 8 },
+            { label: '의미카드', value: 10 },
+            { label: '레이싱', value: 46 },
           ]}
           chartColors={[
             theme.palette.primary.main,
@@ -69,9 +80,9 @@ export default function GamesTab() {
           ]}
         />
       </Grid>
-      <Grid item xs={12} md={8}>
+      <Grid item xs={12} md={9}>
         <BankingBalanceStatistics
-          title="주간 성취율"
+          title="성취율"
           subheader="(+43% Income | +12% Expense) than last year"
           chartLabels={['일', '월', '화', '수', '목', '금', '토', '일']}
           chartData={[

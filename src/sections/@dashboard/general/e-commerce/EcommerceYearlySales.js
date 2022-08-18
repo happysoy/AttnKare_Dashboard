@@ -1,6 +1,6 @@
+import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
-import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 // @mui
 import { Card, CardHeader, Box, TextField } from '@mui/material';
@@ -18,6 +18,19 @@ EcommerceYearlySales.propTypes = {
 
 export default function EcommerceYearlySales({ title, subheader, chartLabels, chartData, ...other }) {
   const [seriesData, setSeriesData] = useState('2022');
+  // const legendItem = document.querySelector('.apexcharts-legend-series:nth-child(2)');
+  // legendItem.dispatchEvent(new Event('click'));
+  // console.log(legendItem);
+  const charRef = useRef();
+
+  useEffect(() => {
+    charRef?.current?.chart.toggleSeries('집중력');
+    charRef?.current?.chart.toggleSeries('작업기억력');
+    charRef?.current?.chart.toggleSeries('실행기능');
+    charRef?.current?.chart.toggleSeries('행동조절');
+    charRef?.current?.chart.toggleSeries('사회성');
+    charRef?.current?.chart.toggleSeries('충동성');
+  });
 
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);
@@ -28,8 +41,14 @@ export default function EcommerceYearlySales({ title, subheader, chartLabels, ch
     xaxis: {
       categories: chartLabels,
     },
+    labels: {
+      enabled: false,
+    },
+    dataLabels: {
+      enabled: true,
+      enabledOnSeries: [0],
+    },
   });
-
   return (
     <Card {...other}>
       <CardHeader
@@ -61,7 +80,7 @@ export default function EcommerceYearlySales({ title, subheader, chartLabels, ch
       {chartData.map((item) => (
         <Box key={item.year} sx={{ mt: 3, mx: 3 }} dir="ltr">
           {item.year === seriesData && (
-            <ReactApexChart type="area" series={item.data} options={chartOptions} height={364} />
+            <ReactApexChart ref={charRef} type="area" series={item.data} options={chartOptions} height={364} />
           )}
         </Box>
       ))}

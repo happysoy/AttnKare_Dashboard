@@ -59,7 +59,7 @@ export default function BankingRecentTransitions({ title, subheader, tableLabels
 
       <Box sx={{ p: 2, textAlign: 'right' }}>
         <Button size="small" color="inherit" endIcon={<Iconify icon={'eva:arrow-ios-forward-fill'} />}>
-          View All
+          모두 보기
         </Button>
       </Box>
     </Card>
@@ -165,14 +165,14 @@ function BankingRecentTransitionsRow({ row }) {
 
       <TableCell>{fCurrency(row.amount)}</TableCell>
 
-      <TableCell>
+      {/* <TableCell>
         <Label
           variant={isLight ? 'ghost' : 'filled'}
-          color={(row.status === 'completed' && 'success') || (row.status === 'in_progress' && 'warning') || 'error'}
+          // color={(row.status === 'completed' && 'success') || (row.status === 'in_progress' && 'warning') || 'error'}
         >
           {sentenceCase(row.status)}
         </Label>
-      </TableCell>
+      </TableCell> */}
 
       <TableCell align="right">
         <TableMoreMenu
