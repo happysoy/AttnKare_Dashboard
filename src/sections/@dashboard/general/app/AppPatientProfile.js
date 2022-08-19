@@ -12,9 +12,11 @@ import Iconify from 'src/components/Iconify';
 import useTabs from 'src/hooks/useTabs';
 // components
 import Page from 'src/components/Page';
-import GamesTab from 'src/pages/dashboard/game/GamesTab';
-import GamesTabAttention from 'src/pages/dashboard/game/GamesTabAttention';
-import GamesTabAnalytics from 'src/pages/dashboard/game/GamesTabAnalytics';
+import GamesTab from 'src/pages/dashboard/game/Tab/GamesTab';
+import GamesTabAttention from 'src/pages/dashboard/game/Tab/GamesTabAttention';
+// import GamesTabAnalytics from 'src/pages/dashboard/game/Tab/GamesTabAnalytics';
+import GamesTabMemory from 'src/pages/dashboard/game/Tab/GamesTabMemory';
+import GamesTabImpulsivity from 'src/pages/dashboard/game/Tab/GamesTabImpulsivity';
 import GamesBiz from 'src/pages/dashboard/game/GamesBiz';
 import GamesBizAnalytics from 'src/pages/dashboard/game/GamesBizAnalytics';
 import GamesBizAttention from 'src/pages/dashboard/game/GamesBizAttention';
@@ -60,15 +62,25 @@ export default function AppPatientProfile() {
       icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
       component: <GamesTab />,
     },
+    // {
+    //   value: '점수 분석',
+    //   icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+    //   component: <GamesTabAnalytics />,
+    // },
     {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesTabAnalytics />,
-    },
-    {
-      value: '주의력 평가',
+      value: '집중력 평가',
       icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
       component: <GamesTabAttention />,
+    },
+    {
+      value: '작업기억력 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesTabMemory />,
+    },
+    {
+      value: '충동성 평가',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesTabImpulsivity />,
     },
   ];
 

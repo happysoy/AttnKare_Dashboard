@@ -1,67 +1,65 @@
-import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
+import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 // @mui
+import { useTheme, styled } from '@mui/material/styles';
 import { Card, CardHeader, Box, TextField } from '@mui/material';
 // components
 import { BaseOptionChart } from '../../../../components/chart';
 
 // ----------------------------------------------------------------------
 
-EcommerceYearlySales.propTypes = {
+CompareLastVisit.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
   chartData: PropTypes.array.isRequired,
   chartLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default function EcommerceYearlySales({ title, index, subheader, chartLabels, chartData, ...other }) {
+export default function CompareLastVisit({ title, subheader, chartLabels, chartData, ...other }) {
   const [seriesData, setSeriesData] = useState('주간');
-  // const legendItem = document.querySelector('.apexcharts-legend-series:nth-child(2)');
-  // legendItem.dispatchEvent(new Event('click'));
-  // console.log(legendItem);
-  const charRef = useRef();
-
-  useEffect(() => {
-    if (index === 'tab') {
-      charRef?.current?.chart?.toggleSeries('집중력');
-      charRef?.current?.chart?.toggleSeries('작업기억력');
-      charRef?.current?.chart?.toggleSeries('충동성');
-    } else if (index === 'biz') {
-      charRef?.current?.chart?.toggleSeries('집중력');
-      charRef?.current?.chart?.toggleSeries('행동조절');
-    } else if (index === 'room') {
-      charRef?.current?.chart?.toggleSeries('집중력');
-      charRef?.current?.chart?.toggleSeries('집행기능');
-    } else if (index === 'card') {
-      charRef?.current?.chart?.toggleSeries('집중력');
-      charRef?.current?.chart?.toggleSeries('충동성');
-    } else if (index === 'racing') {
-      charRef?.current?.chart?.toggleSeries('집중력');
-      charRef?.current?.chart?.toggleSeries('작업기억력');
-      charRef?.current?.chart?.toggleSeries('집행기능');
-      charRef?.current?.chart?.toggleSeries('행동조절');
-    }
-  });
+  const theme = useTheme();
 
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);
   };
 
   const chartOptions = merge(BaseOptionChart(), {
-    legend: { position: 'top', horizontalAlign: 'right' },
+    stroke: {
+      show: true,
+      width: 2,
+      colors: ['transparent'],
+    },
+    chart: {
+      type: 'bar',
+      // height: 200,
+      stacked: true,
+    },
+    colors: [`${theme.palette.primary.main}`, `${theme.palette.primary.light}`],
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        // barHegith: '50%',
+      },
+    },
+    tooltip: {
+      fillSeriesColor: false,
+      y: {
+        formatter: (seriesName) => `${seriesName}%`,
+      },
+    },
     xaxis: {
-      categories: chartLabels,
-    },
-    labels: {
-      enabled: false,
-    },
-    dataLabels: {
-      enabled: true,
-      enabledOnSeries: [0],
+      categories: ['8주차', '7주차', '6주차', '5주차', '4주차', '3주차', '2주차', '1주차'],
+      title: {
+        text: 'Percent',
+      },
+      labels: {
+        formatter: (seriesName) => `${seriesName}%`,
+      },
     },
   });
+
   return (
     <Card {...other}>
       <CardHeader
@@ -93,7 +91,7 @@ export default function EcommerceYearlySales({ title, index, subheader, chartLab
       {chartData.map((item) => (
         <Box key={item.year} sx={{ mt: 3, mx: 3 }} dir="ltr">
           {item.year === seriesData && (
-            <ReactApexChart ref={charRef} type="area" series={item.data} options={chartOptions} height={364} />
+            <ReactApexChart type="bar" series={item.data} options={chartOptions} height={364} />
           )}
         </Box>
       ))}
