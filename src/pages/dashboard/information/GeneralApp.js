@@ -32,7 +32,7 @@ export default function GeneralApp() {
             <AppWidgetSummary
               title="외래 방문 주기"
               text="최근 변경"
-              date={22220608}
+              date={1648956398369}
               total={2}
               totalText="주"
               chartColor={theme.palette.primary.main}
@@ -45,7 +45,7 @@ export default function GeneralApp() {
             <AppWidgetSummary
               title="약물 처방 일수"
               text="최근 변경"
-              date={20220608}
+              date={1648956398369}
               total={10}
               totalText="주"
               chartColor={theme.palette.primary.main}
@@ -58,7 +58,7 @@ export default function GeneralApp() {
             <AppWidgetSummary
               title="AttnKare-T 처방일수"
               text="최근 변경"
-              date={20220608}
+              date={1648956398369}
               total={15}
               totalText="주"
               chartColor={theme.palette.primary.main}
@@ -113,7 +113,7 @@ export default function GeneralApp() {
             />
           </Grid>
 
-          <Grid item xs={12} md={6} lg={4}>
+          {/* <Grid item xs={12} md={6} lg={4}>
             <Stack spacing={3}>
               <AppWidget title="Conversion" total={38566} icon={'eva:person-fill'} chartData={48} />
               <AppWidget title="Applications" total={55566} icon={'eva:email-fill'} color="warning" chartData={75} />
@@ -139,7 +139,7 @@ export default function GeneralApp() {
 
           <Grid item xs={12} md={4}>
             <AppFeatured list={_appFeatured} />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </Page>

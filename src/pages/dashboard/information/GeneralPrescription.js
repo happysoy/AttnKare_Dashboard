@@ -34,8 +34,8 @@ export default function GeneralApp() {
               title="AttnKare-D 진단 결과"
               chartLabels={['집중력', '작업기억력', '실행기능', '행동조절', '사회성', '충동성']}
               chartData={[
-                { name: '2022.04.05', data: [80, 50, 30, 40, 100, 20] },
-                { name: '2022.08.16', data: [44, 76, 78, 13, 43, 10] },
+                { name: '2022.04.05', data: [44, 76, 78, 13, 43, 10] },
+                { name: '2022.08.16', data: [80, 100, 80, 40, 50, 20] },
               ]}
               chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
             />

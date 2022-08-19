@@ -11,8 +11,8 @@ import { BaseOptionChart } from '../../../../components/chart';
 
 // ----------------------------------------------------------------------
 
-const CHART_HEIGHT = 210;
-const LEGEND_HEIGHT = 50;
+const CHART_HEIGHT = 250;
+const LEGEND_HEIGHT = 80;
 
 const ChartWrapperStyle = styled('div')(({ theme }) => ({
   height: CHART_HEIGHT,
@@ -28,6 +28,7 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
     borderTop: `solid 1px ${theme.palette.divider}`,
     top: `calc(${CHART_HEIGHT - LEGEND_HEIGHT}px) !important`,
   },
+  display: 'fixed',
 }));
 
 // ----------------------------------------------------------------------

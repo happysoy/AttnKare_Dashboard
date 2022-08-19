@@ -13,14 +13,16 @@ export const _analyticPost = [...Array(5)].map((_, index) => ({
   postedAt: _mock.time(index),
 }));
 
-export const _analyticOrderTimeline = [...Array(5)].map((_, index) => ({
+export const _analyticOrderTimeline = [...Array(7)].map((_, index) => ({
   id: _mock.id(index),
   title: [
-    '1983, orders, $4220',
-    '12 Invoices have been paid',
-    'Order #37745 from September',
-    'New order placed #XF-2356',
-    'New order placed #XF-2346',
+    '게임 완료 7분 18초 ',
+    '게임 중도 포기',
+    '게임 완료',
+    '게임 일시 정지 - 게임완료',
+    '게임 중도 포기',
+    '게임 중도 포기',
+    '게임 중도 포기',
   ][index],
   type: `order${index + 1}`,
   time: _mock.time(index),

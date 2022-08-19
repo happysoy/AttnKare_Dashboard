@@ -12,9 +12,10 @@ import Iconify from 'src/components/Iconify';
 import useTabs from 'src/hooks/useTabs';
 // components
 import Page from 'src/components/Page';
-import GamesTab from 'src/pages/dashboard/game/GamesTab';
-import GamesTabAttention from 'src/pages/dashboard/game/GamesTabAttention';
-import GamesTabAnalytics from 'src/pages/dashboard/game/GamesTabAnalytics';
+import GamesTab from 'src/pages/dashboard/game/Tab/GamesTab';
+import GamesTabDetect from 'src/pages/dashboard/game/Tab/GamesTabDetect';
+import GamesTabError from 'src/pages/dashboard/game/Tab/GamesTabError';
+import GamesTabRTS from 'src/pages/dashboard/game/Tab/GamesTabRTS';
 import GamesBiz from 'src/pages/dashboard/game/GamesBiz';
 import GamesBizAnalytics from 'src/pages/dashboard/game/GamesBizAnalytics';
 import GamesBizAttention from 'src/pages/dashboard/game/GamesBizAttention';
@@ -61,14 +62,20 @@ export default function AppPatientProfile() {
       component: <GamesTab />,
     },
     {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesTabAnalytics />,
+      value: 'Detectability',
+      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      component: <GamesTabDetect />,
     },
     {
-      value: '주의력 평가',
+      value: 'Error Type',
+      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      component: <GamesTabError />,
+    },
+
+    {
+      value: 'Reaction Time Statistics',
       icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesTabAttention />,
+      component: <GamesTabRTS />,
     },
   ];
 

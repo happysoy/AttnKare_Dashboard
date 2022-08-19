@@ -65,7 +65,7 @@ export default function KanbanColumn({ column, index }) {
         >
           <Stack spacing={3} {...provided.dragHandleProps}>
             <KanbanColumnToolBar columnName={name} onDelete={handleDeleteColumn} onUpdate={handleUpdateColumn} />
-            {/* 
+
             <Droppable droppableId={id} type="task">
               {(provided) => (
                 <Stack ref={provided.innerRef} {...provided.droppableProps} spacing={2} width={280}>
@@ -80,7 +80,7 @@ export default function KanbanColumn({ column, index }) {
                   {provided.placeholder}
                 </Stack>
               )}
-            </Droppable> */}
+            </Droppable>
 
             <Stack spacing={2} sx={{ pb: 3 }}>
               {open && <KanbanTaskAdd onAddTask={handleAddTask} onCloseAddTask={handleCloseAddTask} />}
