@@ -8,8 +8,6 @@ import Scrollbar from 'src/components/Scrollbar';
 // components
 import Page from 'src/components/Page';
 
-import { DragDropContext } from 'react-beautiful-dnd';
-
 import EcommerceYearlySales from '../e-commerce/EcommerceYearlySales';
 import BankingBalanceStatistics from '../banking/BankingBalanceStatics';
 import AnalyticsCurrentVisits from '../analytics/AnalyticsCurrentVisit';
@@ -96,20 +94,16 @@ export default function AppPatientProfile() {
           </Stack>
         </Scrollbar>
       </Card>
-
       <Grid container spacing={3}>
         <Grid item xs={12} md={6} lg={6}>
           <EcommerceYearlySales
             title="탭 종합 점수"
             index="tab"
             subheader="(+14%) than last week"
-            chartLabels={
-              (['1주차', '2주차', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차'],
-              ['월', '화', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차'])
-            }
+            chartLabels={['1주차', '2주차', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차']}
             chartData={[
               {
-                year: '주간',
+                year: '주차별',
                 data: [
                   { name: '종합점수', data: [22, 30, 35, 44, 50, 55, 49, 51] },
                   { name: '집중력', data: [14, 5, 15, 45, 46, 26, 47, 50] },
@@ -118,18 +112,18 @@ export default function AppPatientProfile() {
                 ],
               },
               {
-                year: '월간',
+                year: '지난주',
                 data: [
-                  { name: '종합점수', data: [22, 30, 35, 44, 50, 55, 49, 51] },
-                  { name: '집중력', data: [14, 5, 15, 45, 46, 26, 47, 50] },
-                  { name: '작업기억력', data: [5, 7, 10, 12, 15, 12, 23, 20] },
-                  { name: '충동성', data: [50, 45, 33, 30, 25, 30, 35, 36] },
+                  { name: '종합점수', data: [22, 30, 35, 44, 50, 55, 49] },
+                  { name: '집중력', data: [14, 5, 15, 45, 46, 26, 47] },
+                  { name: '작업기억력', data: [5, 7, 10, 12, 15, 12, 23] },
+                  { name: '충동성', data: [50, 45, 33, 30, 25, 30, 35] },
                 ],
               },
             ]}
           />
         </Grid>
-        <Grid item xs={12} md={6} lg={6}>
+        {/* <Grid item xs={12} md={6} lg={6}>
           <EcommerceYearlySales
             title="비즈 종합 점수"
             index="biz"
@@ -236,7 +230,7 @@ export default function AppPatientProfile() {
               },
             ]}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </Page>
   );

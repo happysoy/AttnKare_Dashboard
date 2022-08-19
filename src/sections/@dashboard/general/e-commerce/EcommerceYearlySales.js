@@ -17,7 +17,8 @@ EcommerceYearlySales.propTypes = {
 };
 
 export default function EcommerceYearlySales({ title, index, subheader, chartLabels, chartData, ...other }) {
-  const [seriesData, setSeriesData] = useState('주간');
+  const [seriesData, setSeriesData] = useState('주차별');
+  const [labels, setLabels] = useState([]);
   // const legendItem = document.querySelector('.apexcharts-legend-series:nth-child(2)');
   // legendItem.dispatchEvent(new Event('click'));
   // console.log(legendItem);
@@ -52,7 +53,7 @@ export default function EcommerceYearlySales({ title, index, subheader, chartLab
   const chartOptions = merge(BaseOptionChart(), {
     legend: { position: 'top', horizontalAlign: 'right' },
     xaxis: {
-      categories: chartLabels[1],
+      categories: chartLabels,
     },
     labels: {
       enabled: false,

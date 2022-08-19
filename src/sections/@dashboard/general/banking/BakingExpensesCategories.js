@@ -1,15 +1,15 @@
-/* eslint no-else-return: "error" */
-
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import ReactApexChart from 'react-apexcharts';
+import Label from 'src/components/Label';
 // @mui
-import { useTheme, styled } from '@mui/material/styles';
+import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Stack, Divider, CardHeader, Typography } from '@mui/material';
 // hooks
 import useResponsive from '../../../../hooks/useResponsive';
 // components
 import { BaseOptionChart } from '../../../../components/chart';
+import Iconify from '../../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -29,6 +29,16 @@ const RootStyle = styled(Card)(({ theme }) => ({
 }));
 
 // ----------------------------------------------------------------------
+const IconWrapperStyle = styled('div')(({ theme }) => ({
+  width: 24,
+  height: 24,
+  display: 'flex',
+  borderRadius: '50%',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: theme.palette.success.main,
+  backgroundColor: alpha(theme.palette.success.main, 0.16),
+}));
 
 BankingExpensesCategories.propTypes = {
   title: PropTypes.string,
@@ -42,7 +52,6 @@ export default function BankingExpensesCategories({ title, chartColors, color, d
   const isDesktop = useResponsive('up', 'sm');
 
   const chartLabels = chartData.map((i) => i.label);
-
   const chartSeries = chartData.map((i) => i.value);
 
   const chartOptions = merge(BaseOptionChart(), {
@@ -70,11 +79,43 @@ export default function BankingExpensesCategories({ title, chartColors, color, d
     <RootStyle {...other}>
       <CardHeader title={title} subheader={subheader} />
       <Divider sx={{ mt: 2 }} />
+
       <Stack direction="row" divider={<Divider orientation="vertical" flexItem />}>
         {chartData.map((i) => (
           <Box key={i.label} sx={{ py: 2, width: 1, textAlign: 'center' }}>
             <Typography sx={{ mb: 1, typography: 'h5', color: 'text.primary' }}>{i.label}</Typography>
-            <Typography sx={{ typography: 'body1' }}>{i.desc}</Typography>
+            <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2, justifyContent: 'center' }}>
+              <IconWrapperStyle
+                sx={{
+                  ...(i.percent >= 0 && {
+                    color: 'error.main',
+                    bgcolor: alpha(theme.palette.error.main, 0.16),
+                  }),
+                }}
+              >
+                <Iconify
+                  width={16}
+                  height={16}
+                  icon={i.percent >= 0 ? 'eva:trending-up-fill' : 'eva:trending-down-fill'}
+                />
+              </IconWrapperStyle>
+              <Typography component="span" variant="subtitle2">
+                {i.percent > 0 && '+'}
+                {i.percent} %
+              </Typography>
+            </Stack>
+
+            <Label
+              color={
+                (i.desc === 'Average' && 'primary') ||
+                (i.desc === 'Average' && 'info') ||
+                (i.desc === 'Low' && 'success') ||
+                (i.desc === 'High Average' && 'warning') ||
+                (i.desc === 'Very Elevated' && 'error')
+              }
+            >
+              {i.desc}
+            </Label>
           </Box>
         ))}
       </Stack>

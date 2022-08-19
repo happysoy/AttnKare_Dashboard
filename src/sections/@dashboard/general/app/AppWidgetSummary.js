@@ -1,102 +1,96 @@
 import PropTypes from 'prop-types';
-import merge from 'lodash/merge';
 import ReactApexChart from 'react-apexcharts';
 // @mui
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import { Box, Card, Typography, Stack } from '@mui/material';
+import Label from 'src/components/Label';
 // utils
 import { fNumber, fPercent } from '../../../../utils/formatNumber';
-import { fDate } from '../../../../utils/formatTime';
-
-import { BaseOptionChart } from '../../../../components/chart';
+// components
+import Iconify from '../../../../components/Iconify';
 
 // ----------------------------------------------------------------------
+
+const IconWrapperStyle = styled('div')(({ theme }) => ({
+  width: 24,
+  height: 24,
+  display: 'flex',
+  borderRadius: '50%',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: theme.palette.success.main,
+  backgroundColor: alpha(theme.palette.success.main, 0.16),
+}));
 
 // ----------------------------------------------------------------------
 
 AppWidgetSummary.propTypes = {
   chartColor: PropTypes.string.isRequired,
-  chartData: PropTypes.number.isRequired,
-  date: PropTypes.number.isRequired,
+  chartData: PropTypes.arrayOf(PropTypes.number).isRequired,
+  percent: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
-  totalText: PropTypes.string.isRequired,
-  innerDays: PropTypes.string.isRequired,
-  innerText: PropTypes.string.isRequired,
+  total: PropTypes.string.isRequired,
   sx: PropTypes.object,
 };
 
-export default function AppWidgetSummary({
-  title,
-  text,
-  date,
-  total,
-  totalText,
-  innerText,
-  innerDays,
-  color = 'primary',
-  chartColor,
-  chartData,
-  sx,
-  ...other
-}) {
+export default function AppWidgetSummary({ title, percent, total, chartColor, chartData, sx, ...other }) {
   const theme = useTheme();
 
-  const chartOptions = merge(BaseOptionChart(), {
+  const chartOptions = {
+    colors: [chartColor],
     chart: { sparkline: { enabled: true } },
-    grid: {
-      padding: {
-        top: -9,
-        bottom: -9,
-      },
-    },
-    legend: { show: false },
-    plotOptions: {
-      radialBar: {
-        hollow: { size: '70%' },
-        track: { margin: 0 },
-        dataLabels: {
-          name: {
-            formatter: () => {
-              const tmp = `${innerText}`;
-              return tmp;
-            },
-            offsetY: 22,
-          },
-          value: {
-            fontSize: theme.typography.h3.fontSize,
-            offsetY: -13,
-          },
-          total: {
-            formatter: () => {
-              const tmp = `${innerDays}`;
-              return tmp;
-            },
-            fontSize: theme.typography.caption.fontSize,
-            color: theme.palette.grey,
-          },
+    plotOptions: { bar: { columnWidth: '68%', borderRadius: 2 } },
+    tooltip: {
+      x: { show: false },
+      y: {
+        formatter: (seriesName) => fNumber(seriesName),
+        title: {
+          formatter: (seriesName) => `@${seriesName}`,
         },
       },
+      marker: { show: false },
     },
-  });
+    stroke: {
+      curve: 'smooth',
+    },
+  };
+
   return (
     <Card sx={{ display: 'flex', alignItems: 'center', p: 3, ...sx }} {...other}>
       <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="subtitle1">{title}</Typography>
-        <Typography sx={{ mt: 2 }} variant="h3">
-          {fNumber(total)} {totalText}
-        </Typography>
+        <Typography variant="h6">{title}</Typography>
 
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 1, mb: 1 }}>
-          <Typography component="span" variant="subtitle3">
-            {text} {fDate(date)}
+        <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 2, mb: 1 }}>
+          <IconWrapperStyle
+            sx={{
+              ...(percent >= 0 && {
+                color: 'error.main',
+                bgcolor: alpha(theme.palette.error.main, 0.16),
+              }),
+            }}
+          >
+            <Iconify width={16} height={16} icon={percent >= 0 ? 'eva:trending-up-fill' : 'eva:trending-down-fill'} />
+          </IconWrapperStyle>
+          <Typography component="span" variant="subtitle2">
+            {percent > 0 && '+'}
+            {fPercent(percent)}
           </Typography>
         </Stack>
+        <Label
+          color={
+            (total === 'Average' && 'primary') ||
+            (total === 'Average' && 'info') ||
+            (total === 'Low' && 'success') ||
+            (total === 'High Average' && 'warning') ||
+            (total === 'Very Elevated' && 'error')
+          }
+        >
+          {total}
+        </Label>
+        {/* <Typography variant="subtitle1">{total}</Typography> */}
       </Box>
-      <ReactApexChart type="radialBar" series={[chartData]} options={chartOptions} width={140} height={140} />
 
-      {/* <ReactApexChart type="bar" series={[{ data: chartData }]} options={chartOptions} width={60} height={36} /> */}
+      <ReactApexChart type="line" series={[{ data: chartData }]} options={chartOptions} width={60} height={36} />
     </Card>
   );
 }
