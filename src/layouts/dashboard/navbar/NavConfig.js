@@ -39,6 +39,7 @@ const navConfig = [
   {
     subheader: 'games',
     items: [
+      { title: '종합평가', path: 'total', icon: ICONS.dashboard },
       { title: '탭', path: 'tab', icon: ICONS.dashboard },
       { title: '비즈', path: 'biz', icon: ICONS.ecommerce },
       { title: '방정리', path: 'room', icon: ICONS.analytics },

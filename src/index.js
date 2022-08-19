@@ -8,8 +8,13 @@ import 'slick-carousel/slick/slick-theme.css';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Provider as ReduxProvider } from 'react-redux';
+// @mui
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+// redux
+import { store, persistor } from './redux/store';
 // contexts
-// import { SettingsProvider } from './contexts/SettingsContext';
 import { CollapseDrawerProvider } from './contexts/CollapseDrawerContext';
 
 import App from './App';
@@ -19,11 +24,15 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <HelmetProvider>
-    <CollapseDrawerProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </CollapseDrawerProvider>
+    <ReduxProvider store={store}>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <CollapseDrawerProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </CollapseDrawerProvider>
+      </LocalizationProvider>
+    </ReduxProvider>
   </HelmetProvider>
 );
 

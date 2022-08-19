@@ -34,8 +34,24 @@ const InfoStyle = styled('div')(({ theme }) => ({
     right: 'auto',
     display: 'flex',
     alignItems: 'center',
-    left: theme.spacing(3),
-    bottom: theme.spacing(3),
+    left: theme.spacing(6),
+    bottom: theme.spacing(13.5),
+  },
+}));
+
+const DetailStyle = styled('div')(({ theme }) => ({
+  left: 0,
+  right: 0,
+  zIndex: 99,
+  position: 'absolute',
+  display: 'none',
+  color: 'white',
+  [theme.breakpoints.up('md')]: {
+    right: 'auto',
+    display: 'flex',
+    alignItems: 'center',
+    left: theme.spacing(25),
+    bottom: theme.spacing(9),
   },
 }));
 
@@ -66,15 +82,33 @@ export default function ProfileCover({ myProfile }) {
         <Box
           sx={{
             ml: { md: 3 },
-            mt: { xs: 1, md: 0 },
+            mt: { xs: 1, md: -5 },
             color: 'common.white',
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
           <Typography variant="h4">오세훈</Typography>
-          <Typography sx={{ opacity: 0.72 }}>{position}</Typography>
+          <Typography sx={{ opacity: 0.8 }}>{position}</Typography>
         </Box>
       </InfoStyle>
+      <DetailStyle>
+        <Box sx={{ wordBreak: 'break-all' }}>
+          <Typography variant="h6">지능</Typography>
+          <Typography sx={{ opacity: 0.8 }}>98</Typography>
+        </Box>
+        <Box sx={{ marginLeft: '50px' }}>
+          <Typography variant="h6">작업기억력</Typography>
+          <Typography sx={{ opacity: 0.8 }}>평균 하</Typography>
+        </Box>
+        <Box sx={{ marginLeft: '50px' }}>
+          <Typography variant="h6">공존질환 / 읽기 장애 유무</Typography>
+          <Typography sx={{ opacity: 0.8 }}>틱 장애 / 무</Typography>
+        </Box>
+        <Box sx={{ marginLeft: '50px' }}>
+          <Typography variant="h6">ADHD 하위유형</Typography>
+          <Typography sx={{ opacity: 0.8 }}>충돌우세형</Typography>
+        </Box>
+      </DetailStyle>
       <Image alt="profile cover" src={cover} sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
     </RootStyle>
   );

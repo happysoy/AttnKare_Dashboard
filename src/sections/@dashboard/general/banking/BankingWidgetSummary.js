@@ -32,7 +32,7 @@ BankingWidgetSummary.propTypes = {
   icon: PropTypes.string.isRequired,
   percent: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  total: PropTypes.number.isRequired,
+  total: PropTypes.string.isRequired,
   sx: PropTypes.object,
 };
 
@@ -59,7 +59,6 @@ export default function BankingWidgetSummary({
     tooltip: {
       marker: { show: false },
       y: {
-        formatter: (seriesName) => fCurrency(seriesName),
         title: {
           formatter: () => '',
         },
@@ -91,7 +90,7 @@ export default function BankingWidgetSummary({
       <Stack spacing={1} sx={{ p: 3 }}>
         <Typography sx={{ typography: 'subtitle2' }}>{title}</Typography>
 
-        <Typography sx={{ typography: 'h3' }}>{fCurrency(total)}</Typography>
+        <Typography sx={{ typography: 'h3' }}>{total}₩</Typography>
         <Stack direction="row" alignItems="center" flexWrap="wrap">
           <Iconify width={20} height={20} icon={percent >= 0 ? 'eva:trending-up-fill' : 'eva:trending-down-fill'} />
 

@@ -59,7 +59,7 @@ export default function BankingRecentTransitions({ title, subheader, tableLabels
 
       <Box sx={{ p: 2, textAlign: 'right' }}>
         <Button size="small" color="inherit" endIcon={<Iconify icon={'eva:arrow-ios-forward-fill'} />}>
-          View All
+          모두 보기
         </Button>
       </Box>
     </Card>
@@ -120,11 +120,12 @@ function BankingRecentTransitionsRow({ row }) {
     <TableRow>
       <TableCell>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Box sx={{ position: 'relative' }}>
-            {renderAvatar(row.category, row.avatar)}
+          <Box sx={{ position: 'relative', ml: 3 }}>
             <Box
               sx={{
                 right: 0,
+                top: 0,
+                margin: 'auto',
                 bottom: 0,
                 width: 18,
                 height: 18,
@@ -147,7 +148,7 @@ function BankingRecentTransitionsRow({ row }) {
               />
             </Box>
           </Box>
-          <Box sx={{ ml: 2 }}>
+          <Box sx={{ ml: 4 }}>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
               {row.message}
             </Typography>
@@ -165,14 +166,14 @@ function BankingRecentTransitionsRow({ row }) {
 
       <TableCell>{fCurrency(row.amount)}</TableCell>
 
-      <TableCell>
+      {/* <TableCell>
         <Label
           variant={isLight ? 'ghost' : 'filled'}
-          color={(row.status === 'completed' && 'success') || (row.status === 'in_progress' && 'warning') || 'error'}
+          // color={(row.status === 'completed' && 'success') || (row.status === 'in_progress' && 'warning') || 'error'}
         >
           {sentenceCase(row.status)}
         </Label>
-      </TableCell>
+      </TableCell> */}
 
       <TableCell align="right">
         <TableMoreMenu

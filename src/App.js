@@ -6,16 +6,20 @@ import ThemeProvider from './theme';
 import { ChartStyle } from './components/chart';
 import ScrollToTop from './components/ScrollToTop';
 import { ProgressBarStyle } from './components/ProgressBar';
+import NotificationsPopover from './layouts/dashboard/header/NotificationsPopover';
 import MotionLazyContainer from './components/animate/MotionLazyContainer';
+import NotistackProvider from './components/NotistackProvider';
 
 export default function App() {
   return (
     <MotionLazyContainer>
       <ThemeProvider>
-        <ProgressBarStyle />
-        <ChartStyle />
-        <ScrollToTop />
-        <Router />
+        <NotistackProvider>
+          <ProgressBarStyle />
+          <ChartStyle />
+          <ScrollToTop />
+          <Router />
+        </NotistackProvider>
       </ThemeProvider>
     </MotionLazyContainer>
   );

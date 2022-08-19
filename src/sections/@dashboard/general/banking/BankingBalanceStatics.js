@@ -4,10 +4,24 @@ import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 // @mui
 import { Card, CardHeader, Box, TextField } from '@mui/material';
+import { useTheme, styled } from '@mui/material/styles';
 // components
 import { BaseOptionChart } from '../../../../components/chart';
 
 // ----------------------------------------------------------------------
+
+// const CHART_HEIGHT = 100;
+
+// const ChartWrapperStyle = styled('div')(({ theme }) => ({
+//   height: CHART_HEIGHT,
+//   // marginTop: theme.spacing(2),
+//   '& .apexcharts-canvas svg': { height: CHART_HEIGHT, width: '800px' },
+//   '& .apexcharts-canvas svg,.apexcharts-canvas foreignObject': {
+//     overflow: 'visible',
+//   },
+
+//   display: 'fixed',
+// }));
 
 BankingBalanceStatistics.propTypes = {
   title: PropTypes.string,
@@ -17,7 +31,7 @@ BankingBalanceStatistics.propTypes = {
 };
 
 export default function BankingBalanceStatistics({ title, subheader, chartLabels, chartData, ...other }) {
-  const [seriesData, setSeriesData] = useState('Year');
+  const [seriesData, setSeriesData] = useState('주간');
 
   const handleChangeSeriesData = (event) => {
     setSeriesData(event.target.value);
@@ -34,8 +48,25 @@ export default function BankingBalanceStatistics({ title, subheader, chartLabels
     },
     tooltip: {
       y: {
-        formatter: (val) => `$${val}`,
+        formatter: (val) => `${val}`,
       },
+    },
+    chart: {
+      stacked: true,
+    },
+    // fill: {
+    //   colors: ['#8dc63f', '#ff6c0f'],
+    // },
+    // markers: {
+    //   colors: ['#8dc63f', '#ff6c0f'],
+    // },
+    // dataLabels: {
+    //   style: {
+    //     colors: ['#8dc63f', '#ff6c0f'],
+    //   },
+    // },
+    legend: {
+      show: false,
     },
   });
 
@@ -69,9 +100,11 @@ export default function BankingBalanceStatistics({ title, subheader, chartLabels
 
       {chartData.map((item) => (
         <Box key={item.year} sx={{ mt: 3, mx: 3 }} dir="ltr">
+          {/* <ChartWrapperStyle dir="ltr"> */}
           {item.year === seriesData && (
-            <ReactApexChart type="bar" series={item.data} options={chartOptions} height={364} />
+            <ReactApexChart type="bar" series={item.data} options={chartOptions} height={180} />
           )}
+          {/* </ChartWrapperStyle> */}
         </Box>
       ))}
     </Card>
