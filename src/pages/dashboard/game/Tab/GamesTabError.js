@@ -11,6 +11,8 @@ import TabOmissionsLog from 'src/sections/@dashboard/general/banking/TabOmission
 import TabPerseverationsLog from 'src/sections/@dashboard/general/banking/TabPerseverationsLog';
 // import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
 import BankingExpensesCategories from 'src/sections/@dashboard/general/banking/BakingExpensesCategories';
+import BankingBalanceStatistics from 'src/sections/@dashboard/general/banking/BankingBalanceStatics';
+import InvoiceList from 'src/sections/@dashboard/invoce/InvoiceList';
 // mock
 import { _appFeatured, _analyticPost, _analyticOrderTimeline } from '../../../../_mock';
 
@@ -28,55 +30,91 @@ export default function GamesTabError() {
 
   return (
     <Grid container spacing={3}>
-      {/* <Grid item xs={12} md={4}>
-        <AppWidgetSummary
-          title="누락 오류"
-          percent={-2.6}
-          total={'High Average'}
-          chartColor={theme.palette.primary.main}
-          chartData={[1, 2, 3, 4, 5, 4, 3, 2, 1]}
-        />
-      </Grid>
-
-      <Grid item xs={12} md={4}>
-        <AppWidgetSummary
-          title="오경보 오류"
-          percent={-0.2}
-          total={'High Average'}
-          chartColor={theme.palette.chart.blue[0]}
-          chartData={[0, 0, 1, 3, 5, 12, 15, 12, 5, 3, 1, 0, 0]}
-        />
-      </Grid>
-
-      <Grid item xs={12} md={4}>
-        <AppWidgetSummary
-          title="보속 반응"
-          percent={0.1}
-          total={'Very Elevated'}
-          chartColor={theme.palette.chart.red[0]}
-          chartData={[1, 2, 3, 4, 5, 4, 3, 2, 1]}
-        />
-      </Grid> */}
       <Grid item xs={12} md={12}>
         <BankingExpensesCategories
-          title="지난 주 Error Type"
+          title="지난 방문 대비"
           chartData={[
-            { label: '누락 오류', value: 72, desc: 'Very Elevated', percent: -2.6 },
-            { label: '오경보 오류', value: 63, desc: 'High Average', percent: -1 },
-            { label: '보속 반응', value: 45, desc: 'Average', percent: 0.1 },
+            { label: 'Omissions', value: 76, desc: 'Very Elevated', percent: -2.6 },
+            { label: 'Commissions', value: 63, desc: 'High Average', percent: -1 },
+            { label: 'Perseverations', value: 29, desc: 'Average', percent: 0.1 },
           ]}
-          chartColors={[theme.palette.chart.red[0], theme.palette.chart.blue[0], theme.palette.chart.green[0]]}
+          chartColors={[theme.palette.chart.violet[1], theme.palette.chart.blue[0], theme.palette.chart.green[0]]}
         />
       </Grid>
-
+      <Grid item xs={4} md={6} lg={4}>
+        <BankingBalanceStatistics
+          title="Omissions"
+          chartLabels={['월', '화', '수', '목', '금', '토', '일']}
+          chartData={[
+            {
+              year: '일별',
+              data: [{ name: 'Error Rates', data: [0, 0, 0, 62, 60, 0, 58] }],
+            },
+            {
+              year: '주별',
+              data: [{ name: 'Error Rates', data: [80, 81, 78, 75, 60, 62, 57, 60] }],
+            },
+            {
+              year: '월별',
+              data: [{ name: 'Error Rates', data: [76, 42, 29, 41, 27, 138, 117, 86, 63] }],
+            },
+          ]}
+          chartColors={theme.palette.chart.violet[1]}
+        />
+      </Grid>
+      <Grid item xs={4} md={6} lg={4}>
+        <BankingBalanceStatistics
+          title="Commissions"
+          chartLabels={['월', '화', '수', '목', '금', '토', '일']}
+          chartData={[
+            {
+              year: '일별',
+              data: [{ name: 'Error Rates', data: [0, 0, 0, 62, 60, 0, 58] }],
+            },
+            {
+              year: '주별',
+              data: [{ name: 'Error Rates', data: [80, 81, 78, 75, 60, 62, 57, 60] }],
+            },
+            {
+              year: '월별',
+              data: [{ name: 'Error Rates', data: [76, 42, 29, 41, 27, 138, 117, 86, 63] }],
+            },
+          ]}
+          chartColors={theme.palette.chart.blue[0]}
+        />
+      </Grid>
+      <Grid item xs={4} md={6} lg={4}>
+        <BankingBalanceStatistics
+          title="Perseverations"
+          chartLabels={['월', '화', '수', '목', '금', '토', '일']}
+          chartData={[
+            {
+              year: '일별',
+              data: [{ name: 'Error Rates', data: [0, 0, 0, 62, 60, 0, 58] }],
+            },
+            {
+              year: '주별',
+              data: [{ name: 'Error Rates', data: [80, 81, 78, 75, 60, 62, 57, 60] }],
+            },
+            {
+              year: '월별',
+              data: [{ name: 'Error Rates', data: [76, 42, 29, 41, 27, 138, 117, 86, 63] }],
+            },
+          ]}
+          chartColors={theme.palette.chart.green[0]}
+        />
+      </Grid>
+      {/* <Grid item xs={4} md={6} lg={8}>
+        <TabOmissionsLog title="Omissions Error Interpretation" />
+      </Grid>
       <Grid item xs={4} md={6} lg={6}>
         <TabCommissionsLog title="Commission Error Interpretation" />
       </Grid>
       <Grid item xs={4} md={6} lg={6}>
-        <TabOmissionsLog title="Omissions Error Interpretation" />
-      </Grid>
-      <Grid item xs={4} md={6} lg={6}>
         <TabPerseverationsLog title="Perseverations Error Interpretation" />
+      </Grid> */}
+      <Grid item xs={12} md={12} lg={12}>
+        <InvoiceList />
       </Grid>
     </Grid>
   );

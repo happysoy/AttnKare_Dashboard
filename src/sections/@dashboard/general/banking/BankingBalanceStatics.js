@@ -30,15 +30,17 @@ BankingBalanceStatistics.propTypes = {
   chartLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default function BankingBalanceStatistics({ title, subheader, chartLabels, chartData, ...other }) {
-  const [seriesData, setSeriesData] = useState('주차별');
+export default function BankingBalanceStatistics({ title, subheader, chartColors, chartLabels, chartData, ...other }) {
+  const [seriesData, setSeriesData] = useState('일별');
   const [labels, setLabels] = useState([]);
 
   useEffect(() => {
-    if (seriesData === '주차별') {
+    if (seriesData === '일별') {
       setLabels(chartLabels);
-    } else if (seriesData === '지난주') {
-      setLabels(['월', '화', '수', '목', '금', '토', '일']);
+    } else if (seriesData === '주별') {
+      setLabels(['1', '2', '3', '4', '5', '6', '7', '8']);
+    } else if (seriesData === '월별') {
+      setLabels(['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']);
     }
   }, [seriesData]);
 
@@ -55,6 +57,7 @@ export default function BankingBalanceStatistics({ title, subheader, chartLabels
     xaxis: {
       categories: labels,
     },
+    colors: chartColors,
 
     tooltip: {
       y: {
@@ -112,7 +115,7 @@ export default function BankingBalanceStatistics({ title, subheader, chartLabels
         <Box key={item.year} sx={{ mt: 3, mx: 3 }} dir="ltr">
           {/* <ChartWrapperStyle dir="ltr"> */}
           {item.year === seriesData && (
-            <ReactApexChart type="bar" series={item.data} options={chartOptions} height={280} />
+            <ReactApexChart type="bar" series={item.data} options={chartOptions} height={180} />
           )}
           {/* </ChartWrapperStyle> */}
         </Box>

@@ -184,7 +184,7 @@ export default function AppPatientProfile() {
         <Card
           sx={{
             mb: 3,
-            height: 280,
+            height: 250,
             position: 'relative',
           }}
         >

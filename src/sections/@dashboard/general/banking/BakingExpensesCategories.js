@@ -73,6 +73,15 @@ export default function BankingExpensesCategories({ title, chartColors, color, d
         return `${chartLabels[seriesIndex]} `;
       },
     },
+    tooltip: {
+      fillSeriesColor: false,
+      y: {
+        formatter: (seriesName) => `${seriesName}th`,
+        title: {
+          formatter: (seriesName) => `${seriesName}`,
+        },
+      },
+    },
   });
 
   return (
@@ -124,6 +133,11 @@ export default function BankingExpensesCategories({ title, chartColors, color, d
 
       <Box sx={{ my: 5 }} dir="ltr">
         <ReactApexChart type="polarArea" series={chartSeries} options={chartOptions} height={isDesktop ? 240 : 360} />
+      </Box>
+      <Box sx={{ justifyContent: 'center', m: 4, mt: -4 }}>
+        <Typography variant="body1" display="flex" sx={{ justifyContent: 'center', color: '#666666' }}>
+          [ Percentile ]
+        </Typography>
       </Box>
     </RootStyle>
   );
