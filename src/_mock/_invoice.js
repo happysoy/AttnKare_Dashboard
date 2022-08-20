@@ -9,7 +9,7 @@ export const _invoices = [...Array(20)].map((_, index) => ({
   invoiceNumber: `${17048 + index}`,
   taxes: 5,
   discount: 10,
-  sent: randomNumberRange(1, 10),
+  sent: randomNumberRange(1, 30),
   subTotalPrice: _mock.number.price(index + 1),
   totalPrice: _mock.number.price(index + 1),
   createDate: add(new Date(), { days: index, hours: index }),

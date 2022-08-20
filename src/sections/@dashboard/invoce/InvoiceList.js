@@ -1,5 +1,5 @@
 import sumBy from 'lodash/sumBy';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 // @mui
 import { useTheme } from '@mui/material/styles';
@@ -40,16 +40,39 @@ import { _invoices } from '../../../_mock';
 
 // ----------------------------------------------------------------------
 
-const SERVICE_OPTIONS = ['all', '1단계', '2단계', '3단계', '4단계', '5단계'];
+const SERVICE_OPTIONS = ['모든 단계', '1단계', '2단계', '3단계', '4단계', '5단계'];
 
 const TABLE_HEAD = [
-  { id: 'status', label: 'Status', align: 'left' },
-  { id: 'invoiceNumber', label: 'Client', align: 'left' },
-  { id: 'date', label: 'Date', align: 'left' },
-  { id: 'price', label: 'T-score', align: 'center', width: 140 },
-  { id: 'sent', label: 'Sent', align: 'center', width: 140 },
-  { id: 'guildlines', label: 'Guidelines', align: 'left' },
+  // { id: 'invoiceNumber', label: 'Client', align: 'left' },
+  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'createDate', label: 'Description', align: 'left', width: 300 },
+  { id: 'price', label: 'Date', align: 'center', width: 140 },
   { id: '' },
+  { id: 'sent', label: 'T-score', align: 'center', width: 140 },
+];
+const TABLE_OMISSIONS_HEAD = [
+  // { id: 'invoiceNumber', label: 'Client', align: 'left' },
+  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'createDate', label: 'Description', align: 'left' },
+  { id: 'price', label: 'Date', align: 'center', width: 140 },
+  { id: 'sent', label: 'Reaction Time', align: 'center', width: 160 },
+  { id: 'tScore', label: 'T-score', align: 'center', width: 140 },
+];
+const TABLE_COMMISSIONS_HEAD = [
+  // { id: 'invoiceNumber', label: 'Client', align: 'left' },
+  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'createDate', label: 'Description', align: 'left' },
+  { id: 'price', label: 'Date', align: 'center', width: 140 },
+  { id: 'sent', label: 'Reaction Time', align: 'center', width: 160 },
+  { id: 'tScore', label: 'T-score', align: 'center', width: 140 },
+];
+const TABLE_PERSEVERATIONS_HEAD = [
+  // { id: 'invoiceNumber', label: 'Client', align: 'left' },
+  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'createDate', label: 'Description', align: 'left' },
+  { id: 'price', label: 'Date', align: 'center', width: 140 },
+  { id: 'sent', label: '보속반응비율', align: 'center', width: 160 },
+  { id: 'tScore', label: 'T-score', align: 'center', width: 140 },
 ];
 
 // ----------------------------------------------------------------------
@@ -84,7 +107,7 @@ export default function InvoiceList() {
 
   const [filterName, setFilterName] = useState('');
 
-  const [filterService, setFilterService] = useState('all');
+  const [filterService, setFilterService] = useState('모든 단계');
 
   const [filterStartDate, setFilterStartDate] = useState(null);
 
@@ -136,7 +159,18 @@ export default function InvoiceList() {
     { value: 'commissions', label: 'Commissions', color: 'warning', count: getLengthByStatus('commissions') },
     { value: 'perseverations', label: 'Perseverations', color: 'error', count: getLengthByStatus('perseverations') },
   ];
-
+  const [currentToolbar, setCurrentToolbar] = useState([]);
+  useEffect(() => {
+    if (filterStatus === 'all') {
+      setCurrentToolbar(TABLE_HEAD);
+    } else if (filterStatus === 'omissions') {
+      setCurrentToolbar(TABLE_OMISSIONS_HEAD);
+    } else if (filterStatus === 'commissions') {
+      setCurrentToolbar(TABLE_COMMISSIONS_HEAD);
+    } else if (filterStatus === 'perseverations') {
+      setCurrentToolbar(TABLE_PERSEVERATIONS_HEAD);
+    }
+  }, [filterStatus]);
   return (
     <Page title="Invoice: List">
       <Container maxWidth={themeStretch ? false : 'lg'}>
@@ -197,7 +231,7 @@ export default function InvoiceList() {
                 <TableHeadCustom
                   order={order}
                   orderBy={orderBy}
-                  headLabel={TABLE_HEAD}
+                  headLabel={currentToolbar}
                   rowCount={tableData.length}
                   numSelected={selected.length}
                   onSort={onSort}
@@ -216,6 +250,7 @@ export default function InvoiceList() {
                       row={row}
                       selected={selected.includes(row.id)}
                       onSelectRow={() => onSelectRow(row.id)}
+                      filterStatus={filterStatus}
                     />
                   ))}
 
@@ -283,7 +318,7 @@ function applySortFilter({
     tableData = tableData.filter((item) => item.status === filterStatus);
   }
 
-  if (filterService !== 'all') {
+  if (filterService !== '모든 단계') {
     tableData = tableData.filter((item) => item.items.some((c) => c.service === filterService));
   }
 

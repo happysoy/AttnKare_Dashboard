@@ -67,7 +67,7 @@ export default function InvoiceTableToolbar({
       </TextField>
 
       <DatePicker
-        label="Select date"
+        label="Start date"
         value={filterStartDate}
         onChange={onFilterStartDate}
         renderInput={(params) => (
@@ -80,12 +80,25 @@ export default function InvoiceTableToolbar({
           />
         )}
       />
-
+      <DatePicker
+        label="End date"
+        value={filterEndDate}
+        onChange={onFilterEndDate}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            fullWidth
+            sx={{
+              maxWidth: { md: INPUT_WIDTH },
+            }}
+          />
+        )}
+      />
       <TextField
         fullWidth
         value={filterName}
         onChange={(event) => onFilterName(event.target.value)}
-        placeholder="Search client or invoice number..."
+        placeholder="Search Description"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
