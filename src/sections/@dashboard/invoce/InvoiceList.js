@@ -1,6 +1,6 @@
 import sumBy from 'lodash/sumBy';
 import { useEffect, useState } from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as useNavigate } from 'react-router-dom';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import {
@@ -9,14 +9,10 @@ import {
   Tabs,
   Card,
   Table,
-  Stack,
   Switch,
-  Button,
-  Tooltip,
   Divider,
   TableBody,
   Container,
-  IconButton,
   TableContainer,
   TablePagination,
   FormControlLabel,
@@ -29,11 +25,9 @@ import Label from 'src/components/Label';
 
 // components
 import Page from 'src/components/Page';
-import Iconify from 'src/components/Iconify';
 import Scrollbar from 'src/components/Scrollbar';
 import { TableNoData, TableEmptyRows, TableHeadCustom, TableSelectedActions } from 'src/components/table';
 // sections
-import InvoiceAnalytic from './InvoiceAnalytic';
 import { InvoiceTableRow, InvoiceTableToolbar } from './list';
 // _mock_
 import { _invoices } from '../../../_mock';
@@ -44,33 +38,33 @@ const SERVICE_OPTIONS = ['모든 단계', '1단계', '2단계', '3단계', '4단
 
 const TABLE_HEAD = [
   // { id: 'invoiceNumber', label: 'Client', align: 'left' },
-  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'status', label: 'Type', align: 'left', width: 140 },
   { id: 'createDate', label: 'Description', align: 'left', width: 300 },
-  { id: 'price', label: 'Date', align: 'center', width: 140 },
+  { id: 'price', label: 'Date', align: 'center', width: 180 },
   { id: '' },
   { id: 'sent', label: 'T-score', align: 'center', width: 140 },
 ];
 const TABLE_OMISSIONS_HEAD = [
   // { id: 'invoiceNumber', label: 'Client', align: 'left' },
-  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'status', label: 'Type', align: 'left', width: 140 },
   { id: 'createDate', label: 'Description', align: 'left' },
-  { id: 'price', label: 'Date', align: 'center', width: 140 },
+  { id: 'price', label: 'Date', align: 'center', width: 180 },
   { id: 'sent', label: 'Reaction Time', align: 'center', width: 160 },
   { id: 'tScore', label: 'T-score', align: 'center', width: 140 },
 ];
 const TABLE_COMMISSIONS_HEAD = [
   // { id: 'invoiceNumber', label: 'Client', align: 'left' },
-  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'status', label: 'Type', align: 'left', width: 140 },
   { id: 'createDate', label: 'Description', align: 'left' },
-  { id: 'price', label: 'Date', align: 'center', width: 140 },
+  { id: 'price', label: 'Date', align: 'center', width: 180 },
   { id: 'sent', label: 'Reaction Time', align: 'center', width: 160 },
   { id: 'tScore', label: 'T-score', align: 'center', width: 140 },
 ];
 const TABLE_PERSEVERATIONS_HEAD = [
   // { id: 'invoiceNumber', label: 'Client', align: 'left' },
-  { id: 'status', label: 'Status', align: 'left', width: 140 },
+  { id: 'status', label: 'Type', align: 'left', width: 140 },
   { id: 'createDate', label: 'Description', align: 'left' },
-  { id: 'price', label: 'Date', align: 'center', width: 140 },
+  { id: 'price', label: 'Date', align: 'center', width: 180 },
   { id: 'sent', label: '보속반응비율', align: 'center', width: 160 },
   { id: 'tScore', label: 'T-score', align: 'center', width: 140 },
 ];
@@ -78,11 +72,7 @@ const TABLE_PERSEVERATIONS_HEAD = [
 // ----------------------------------------------------------------------
 
 export default function InvoiceList() {
-  const theme = useTheme();
-
   const { themeStretch } = useSettings();
-
-  const navigate = useNavigate();
 
   const {
     dense,
@@ -93,7 +83,6 @@ export default function InvoiceList() {
     setPage,
     //
     selected,
-    setSelected,
     onSelectRow,
     onSelectAllRows,
     //
@@ -145,14 +134,6 @@ export default function InvoiceList() {
 
   const getLengthByStatus = (status) => tableData.filter((item) => item.status === status).length;
 
-  const getTotalPriceByStatus = (status) =>
-    sumBy(
-      tableData.filter((item) => item.status === status),
-      'totalPrice'
-    );
-
-  const getPercentByStatus = (status) => (getLengthByStatus(status) / tableData.length) * 100;
-
   const TABS = [
     { value: 'all', label: 'All', color: 'info', count: tableData.length },
     { value: 'omissions', label: 'Omissions', color: 'success', count: getLengthByStatus('omissions') },
@@ -188,7 +169,7 @@ export default function InvoiceList() {
                 disableRipple
                 key={tab.value}
                 value={tab.value}
-                icon={<Label color={tab.color}> {tab.count} </Label>}
+                icon={<Label>{tab.count}</Label>}
                 label={tab.label}
               />
             ))}

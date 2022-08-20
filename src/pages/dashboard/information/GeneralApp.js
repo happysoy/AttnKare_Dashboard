@@ -81,7 +81,7 @@ export default function GeneralApp() {
           <Grid item xs={12} md={6} lg={8}>
             <AnalyticsWebsiteVisits
               title="AttnKare-T Tracking"
-              subheader="(+4%) than last week"
+              subheader="(46%) completed"
               chartLabels={[
                 '01/01/2022',
                 '02/01/2022',
@@ -97,14 +97,14 @@ export default function GeneralApp() {
               ]}
               chartData={[
                 {
-                  name: '주별 완료 일수',
+                  name: '성취율',
                   type: 'column',
                   fill: 'solid',
                   data: [23, 23, 22, 27, 13, 22, 37, 21, 44, 22, 30],
                 },
 
                 {
-                  name: '주별 처방 일수',
+                  name: '권장량',
                   type: 'line',
                   fill: 'solid',
                   data: [25, 25, 25, 25, 25, 35, 35, 35, 35, 40, 40],

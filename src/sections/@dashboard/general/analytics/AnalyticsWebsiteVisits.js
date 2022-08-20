@@ -20,18 +20,21 @@ export default function AnalyticsWebsiteVisits({ title, subheader, chartLabels, 
     plotOptions: { bar: { columnWidth: '30%' } },
     fill: { type: chartData.map((i) => i.fill) },
     labels: chartLabels,
-    xaxis: { type: 'datetime' },
+    // xaxis: { type: 'datetime' },
     tooltip: {
       shared: true,
       intersect: false,
       y: {
         formatter: (y) => {
           if (typeof y !== 'undefined') {
-            return `${y.toFixed(0)} visits`;
+            return `${y.toFixed(0)} %`;
           }
           return y;
         },
       },
+    },
+    legend: {
+      show: false,
     },
   });
 

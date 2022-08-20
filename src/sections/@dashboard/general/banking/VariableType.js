@@ -12,7 +12,7 @@ import { BaseOptionChart } from '../../../../components/chart';
 // ----------------------------------------------------------------------
 
 const CHART_HEIGHT = 372;
-const LEGEND_HEIGHT = 72;
+const LEGEND_HEIGHT = 100;
 
 const ChartWrapperStyle = styled('div')(({ theme }) => ({
   height: CHART_HEIGHT,
@@ -71,7 +71,7 @@ export default function VariableType({ title, subheader, chartColors, chartData,
       <CardHeader title={title} subheader={subheader} />
 
       <ChartWrapperStyle dir="ltr">
-        <ReactApexChart type="pie" series={chartSeries} options={chartOptions} height={280} />
+        <ReactApexChart type="pie" series={chartSeries} options={chartOptions} height={250} />
       </ChartWrapperStyle>
     </Card>
   );

@@ -95,7 +95,7 @@ export default function AppPatientProfile() {
         </Scrollbar>
       </Card>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={6} lg={6}>
+        <Grid item xs={12} md={6} lg={4}>
           <EcommerceYearlySales
             title="탭 종합 점수"
             index="tab"
@@ -113,7 +113,7 @@ export default function AppPatientProfile() {
             ]}
           />
         </Grid>
-        <Grid item xs={12} md={6} lg={6}>
+        <Grid item xs={12} md={6} lg={4}>
           <EcommerceYearlySales
             title="비즈 종합 점수"
             index="biz"
@@ -130,7 +130,7 @@ export default function AppPatientProfile() {
             ]}
           />
         </Grid>
-        <Grid item xs={12} md={6} lg={6}>
+        <Grid item xs={12} md={6} lg={4}>
           <EcommerceYearlySales
             title="방정리 종합 점수"
             index="room"

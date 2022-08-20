@@ -115,7 +115,7 @@ export default function BankingBalanceStatistics({ title, subheader, chartColors
         <Box key={item.year} sx={{ mt: 3, mx: 3 }} dir="ltr">
           {/* <ChartWrapperStyle dir="ltr"> */}
           {item.year === seriesData && (
-            <ReactApexChart type="bar" series={item.data} options={chartOptions} height={180} />
+            <ReactApexChart type="bar" series={item.data} options={chartOptions} height={280} />
           )}
           {/* </ChartWrapperStyle> */}
         </Box>

@@ -13,7 +13,6 @@ import useTabs from 'src/hooks/useTabs';
 // components
 import Page from 'src/components/Page';
 import GamesTab from 'src/pages/dashboard/game/Tab/GamesTab';
-import GamesTabDetect from 'src/pages/dashboard/game/Tab/GamesTabDetect';
 import GamesTabError from 'src/pages/dashboard/game/Tab/GamesTabError';
 import GamesTabRTS from 'src/pages/dashboard/game/Tab/GamesTabRTS';
 import GamesBiz from 'src/pages/dashboard/game/GamesBiz';
@@ -61,11 +60,7 @@ export default function AppPatientProfile() {
       icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
       component: <GamesTab />,
     },
-    {
-      value: 'Detectability',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesTabDetect />,
-    },
+
     {
       value: 'Error Type',
       icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,

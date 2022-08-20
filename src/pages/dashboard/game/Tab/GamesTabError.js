@@ -13,6 +13,7 @@ import TabPerseverationsLog from 'src/sections/@dashboard/general/banking/TabPer
 import BankingExpensesCategories from 'src/sections/@dashboard/general/banking/BakingExpensesCategories';
 import BankingBalanceStatistics from 'src/sections/@dashboard/general/banking/BankingBalanceStatics';
 import InvoiceList from 'src/sections/@dashboard/invoce/InvoiceList';
+import VariableType from 'src/sections/@dashboard/general/banking/VariableType';
 // mock
 import { _appFeatured, _analyticPost, _analyticOrderTimeline } from '../../../../_mock';
 
@@ -30,17 +31,6 @@ export default function GamesTabError() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={12}>
-        <BankingExpensesCategories
-          title="지난 방문 대비"
-          chartData={[
-            { label: 'Omissions', value: 76, desc: 'Very Elevated', percent: -2.6 },
-            { label: 'Commissions', value: 63, desc: 'High Average', percent: -1 },
-            { label: 'Perseverations', value: 29, desc: 'Average', percent: 0.1 },
-          ]}
-          chartColors={[theme.palette.chart.violet[1], theme.palette.chart.blue[0], theme.palette.chart.green[0]]}
-        />
-      </Grid>
       <Grid item xs={4} md={4} lg={4}>
         <BankingBalanceStatistics
           title="Omissions"
