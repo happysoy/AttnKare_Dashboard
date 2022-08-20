@@ -40,22 +40,15 @@ import { _invoices } from '../../../_mock';
 
 // ----------------------------------------------------------------------
 
-const SERVICE_OPTIONS = [
-  'all',
-  'full stack development',
-  'backend development',
-  'ui design',
-  'ui/ux design',
-  'front end development',
-];
+const SERVICE_OPTIONS = ['all', '1단계', '2단계', '3단계', '4단계', '5단계'];
 
 const TABLE_HEAD = [
-  { id: 'invoiceNumber', label: 'Client', align: 'left' },
-  { id: 'createDate', label: 'Create', align: 'left' },
-  { id: 'dueDate', label: 'Due', align: 'left' },
-  { id: 'price', label: 'Amount', align: 'center', width: 140 },
-  { id: 'sent', label: 'Sent', align: 'center', width: 140 },
   { id: 'status', label: 'Status', align: 'left' },
+  { id: 'invoiceNumber', label: 'Client', align: 'left' },
+  { id: 'date', label: 'Date', align: 'left' },
+  { id: 'price', label: 'T-score', align: 'center', width: 140 },
+  { id: 'sent', label: 'Sent', align: 'center', width: 140 },
+  { id: 'guildlines', label: 'Guidelines', align: 'left' },
   { id: '' },
 ];
 
@@ -139,10 +132,9 @@ export default function InvoiceList() {
 
   const TABS = [
     { value: 'all', label: 'All', color: 'info', count: tableData.length },
-    { value: 'paid', label: 'Paid', color: 'success', count: getLengthByStatus('paid') },
-    { value: 'unpaid', label: 'Unpaid', color: 'warning', count: getLengthByStatus('unpaid') },
-    { value: 'overdue', label: 'Overdue', color: 'error', count: getLengthByStatus('overdue') },
-    { value: 'draft', label: 'Draft', color: 'default', count: getLengthByStatus('draft') },
+    { value: 'omissions', label: 'Omissions', color: 'success', count: getLengthByStatus('omissions') },
+    { value: 'commissions', label: 'Commissions', color: 'warning', count: getLengthByStatus('commissions') },
+    { value: 'perseverations', label: 'Perseverations', color: 'error', count: getLengthByStatus('perseverations') },
   ];
 
   return (
@@ -201,7 +193,6 @@ export default function InvoiceList() {
                   }
                 />
               )}
-
               <Table size={dense ? 'small' : 'medium'}>
                 <TableHeadCustom
                   order={order}

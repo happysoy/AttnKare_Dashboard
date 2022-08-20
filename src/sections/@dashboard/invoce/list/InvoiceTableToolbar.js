@@ -36,7 +36,7 @@ export default function InvoiceTableToolbar({
       <TextField
         fullWidth
         select
-        label="Service type"
+        label="Select Level"
         value={filterService}
         onChange={onFilterService}
         SelectProps={{
@@ -67,24 +67,9 @@ export default function InvoiceTableToolbar({
       </TextField>
 
       <DatePicker
-        label="Start date"
+        label="Select date"
         value={filterStartDate}
         onChange={onFilterStartDate}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            fullWidth
-            sx={{
-              maxWidth: { md: INPUT_WIDTH },
-            }}
-          />
-        )}
-      />
-
-      <DatePicker
-        label="End date"
-        value={filterEndDate}
-        onChange={onFilterEndDate}
         renderInput={(params) => (
           <TextField
             {...params}

@@ -27,7 +27,7 @@ InvoiceTableRow.propTypes = {
 export default function InvoiceTableRow({ row, selected, onSelectRow, onViewRow, onEditRow, onDeleteRow }) {
   const theme = useTheme();
 
-  const { sent, invoiceNumber, createDate, dueDate, status, invoiceTo, totalPrice } = row;
+  const { sent, variables, invoiceNumber, createDate, dueDate, status, invoiceTo, totalPrice } = row;
 
   const [openMenu, setOpenMenuActions] = useState(null);
 
@@ -44,33 +44,6 @@ export default function InvoiceTableRow({ row, selected, onSelectRow, onViewRow,
       <TableCell padding="checkbox">
         <Checkbox checked={selected} onClick={onSelectRow} />
       </TableCell>
-
-      <TableCell sx={{ display: 'flex', alignItems: 'center' }}>
-        <Avatar alt={invoiceTo.name} color={createAvatar(invoiceTo.name).color} sx={{ mr: 2 }}>
-          {createAvatar(invoiceTo.name).name}
-        </Avatar>
-
-        <Stack>
-          <Typography variant="subtitle2" noWrap>
-            {invoiceTo.name}
-          </Typography>
-
-          <Link noWrap variant="body2" onClick={onViewRow} sx={{ color: 'text.disabled', cursor: 'pointer' }}>
-            {`INV-${invoiceNumber}`}
-          </Link>
-        </Stack>
-      </TableCell>
-
-      <TableCell align="left">{fDate(createDate)}</TableCell>
-
-      <TableCell align="left">{fDate(dueDate)}</TableCell>
-
-      <TableCell align="center">{fCurrency(totalPrice)}</TableCell>
-
-      <TableCell align="center" sx={{ textTransform: 'capitalize' }}>
-        {sent}
-      </TableCell>
-
       <TableCell align="left">
         <Label
           variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
@@ -83,6 +56,38 @@ export default function InvoiceTableRow({ row, selected, onSelectRow, onViewRow,
           sx={{ textTransform: 'capitalize' }}
         >
           {status}
+        </Label>
+      </TableCell>
+      <TableCell sx={{ display: 'flex', alignItems: 'center' }}>
+        <Stack>
+          <Typography variant="subtitle2" noWrap>
+            {invoiceTo.name}
+          </Typography>
+        </Stack>
+      </TableCell>
+
+      <TableCell align="left">{fDate(createDate)}</TableCell>
+
+      <TableCell align="center">{totalPrice}</TableCell>
+
+      <TableCell align="center" sx={{ textTransform: 'capitalize' }}>
+        {sent}
+      </TableCell>
+
+      <TableCell align="left">
+        <Label
+          variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
+          color={
+            (variables === 'low' && 'success') ||
+            (variables === 'average' && 'info') ||
+            (variables === 'high average' && 'primary') ||
+            (variables === 'elevated' && 'warning') ||
+            (variables === 'very elevated' && 'error') ||
+            'default'
+          }
+          sx={{ textTransform: 'capitalize' }}
+        >
+          {variables}
         </Label>
       </TableCell>
 

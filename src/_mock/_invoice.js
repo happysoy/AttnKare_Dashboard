@@ -14,7 +14,8 @@ export const _invoices = [...Array(20)].map((_, index) => ({
   totalPrice: _mock.number.price(index + 1),
   createDate: add(new Date(), { days: index, hours: index }),
   dueDate: add(new Date(), { days: index + 15, hours: index }),
-  status: randomInArray(['paid', 'unpaid', 'overdue', 'draft']),
+  status: randomInArray(['omissions', 'commissions', 'perseverations']),
+  variables: randomInArray(['very elevated', 'elevated', 'high average', 'average', 'low']),
   invoiceFrom: {
     id: _mock.id(index),
     name: _mock.name.fullName(index),
@@ -38,13 +39,7 @@ export const _invoices = [...Array(20)].map((_, index) => ({
     quantity: 5,
     price: _mock.number.price(index),
     total: _mock.number.price(index),
-    service: randomInArray([
-      'full stack development',
-      'backend development',
-      'ui design',
-      'ui/ux design',
-      'front end development',
-    ]),
+    service: randomInArray(['1단계', '2단계', '3단계', '4단계', '5단계']),
   })),
 }));
 
