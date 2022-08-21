@@ -3,6 +3,9 @@ import { useTheme } from '@mui/material/styles';
 import { Container, Grid, Button, Stack } from '@mui/material';
 import VariableType from 'src/sections/@dashboard/general/banking/VariableType';
 import BankingExpensesCategories from 'src/sections/@dashboard/general/banking/BakingExpensesCategories';
+import AnalyticsConversionRates from 'src/sections/@dashboard/general/analytics/AnalyticsConversionRates';
+import CompareLastVisit from 'src/sections/@dashboard/general/banking/CompareLastVisit';
+import AppWidget from 'src/sections/@dashboard/general/app/AppWidget';
 
 export default function GamesTab() {
   const theme = useTheme();
@@ -42,6 +45,27 @@ export default function GamesTab() {
           ]}
           chartColors={[theme.palette.chart.violet[2], theme.palette.chart.blue[0], theme.palette.chart.green[0]]}
         />
+      </Grid>
+
+      <Grid item xs={3} md={6} lg={8}>
+        <CompareLastVisit
+          title="Analyze"
+          // subheader="(+4%)  than last week"
+          chartLabels={['HRT', 'Error Rates']}
+          chartData={[
+            {
+              year: '주간',
+              data: [
+                { name: 'HRT', data: [-0.8, -0.8, -1.05, -1.06, -1.18, -1.4, -2, -2.2] },
+                { name: 'Error Rates', data: [0.5, 0.4, 0.65, 0.76, 0.88, 1.5, 1.6, 2.0] },
+              ],
+            },
+          ]}
+        />
+      </Grid>
+
+      <Grid item xs={12} md={6} lg={4}>
+        <h3>탭 게임 난이도 / 횟수 조절</h3>
       </Grid>
     </Grid>
   );

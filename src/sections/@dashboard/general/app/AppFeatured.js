@@ -122,7 +122,7 @@ function CarouselItem({ item, isActive }) {
       >
         <m.div variants={varFade().inRight}>
           <Typography variant="overline" component="div" sx={{ mb: 1, opacity: 0.48 }}>
-            Featured App
+            미션 수행 완료
           </Typography>
         </m.div>
 

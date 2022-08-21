@@ -31,15 +31,13 @@ const navConfig = [
     subheader: 'information',
     items: [
       { title: 'Overview', path: 'app', icon: ICONS.dashboard },
-      { title: '진단', path: 'prescription', icon: ICONS.ecommerce },
-      { title: '치료', path: 'treatment', icon: ICONS.analytics },
-      { title: '인지기능', path: 'cognitive', icon: ICONS.banking },
+      { title: '종합평가', path: 'total', icon: ICONS.analytics },
+      { title: '포인트', path: 'cognitive', icon: ICONS.ecommerce },
     ],
   },
   {
     subheader: 'games',
     items: [
-      { title: '종합평가', path: 'total', icon: ICONS.dashboard },
       { title: '탭', path: 'tab', icon: ICONS.dashboard },
       { title: '비즈', path: 'biz', icon: ICONS.ecommerce },
       { title: '방정리', path: 'room', icon: ICONS.analytics },

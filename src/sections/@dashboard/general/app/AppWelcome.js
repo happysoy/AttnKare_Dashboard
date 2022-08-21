@@ -1,12 +1,13 @@
 // @mui
 import PropTypes from 'prop-types';
-import { styled } from '@mui/material/styles';
-import { Typography, Card, CardContent } from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+import { Typography, Card, CardContent, Box } from '@mui/material';
+import Label from 'src/components/Label';
 
 const RootStyle = styled(Card)(({ theme }) => ({
   boxShadow: 'none',
   textAlign: 'center',
-  backgroundColor: theme.palette.primary.lighter,
+  backgroundColor: ' #F4F6F8',
   [theme.breakpoints.up('md')]: {
     height: '100%',
     display: 'flex',
@@ -24,6 +25,7 @@ AppWelcome.propTypes = {
 };
 
 export default function AppWelcome({ title, description, action, img, ...other }) {
+  const theme = useTheme();
   return (
     <RootStyle {...other}>
       <CardContent
@@ -33,14 +35,34 @@ export default function AppWelcome({ title, description, action, img, ...other }
           color: 'grey.800',
         }}
       >
-        <Typography gutterBottom variant="h4" sx={{ whiteSpace: 'pre-line' }}>
+        <Typography gutterBottom variant="h4" sx={{ mt: 3, mb: 1, whiteSpace: 'pre-line' }}>
           {title}
         </Typography>
-
-        <Typography variant="body2" sx={{ pb: { xs: 3, xl: 5 }, maxWidth: 480, mx: 'auto' }}>
-          {description}
-        </Typography>
-
+        <Box sx={{ pb: { xs: 3 }, mx: 'auto' }}>
+          <Typography variant="overline" display="block" sx={{ mt: 1, mb: 0.5 }}>
+            진단명
+          </Typography>
+          <Label sx={{ mr: 1 }}>Attention-Deficit/Hyperactivity Disorder</Label>
+          <Label sx={{ mt: 0.5 }}>Transient Tic Disorder</Label>
+          <Box sx={{ mt: 2 }}>
+            <Typography variant="overline" display="block" sx={{ mb: 0.5 }}>
+              가족력
+            </Typography>
+            <Label>부 / Chronic Motor Tic Disorder</Label>
+          </Box>
+          <Box sx={{ mt: 2 }} display="inline-block">
+            <Typography variant="overline" display="block" sx={{ mb: 0.5 }}>
+              지능
+            </Typography>
+            <Label color="success">평균</Label>
+          </Box>
+          <Box sx={{ mt: 1, ml: 10 }} display="inline-block">
+            <Typography variant="overline" display="block" sx={{ mb: 0.5 }}>
+              작업기억력
+            </Typography>
+            <Label color="error">평균 하</Label>
+          </Box>
+        </Box>
         {action && action}
       </CardContent>
 

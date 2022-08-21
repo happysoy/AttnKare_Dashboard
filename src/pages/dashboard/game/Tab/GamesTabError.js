@@ -38,7 +38,7 @@ export default function GamesTabError() {
           chartData={[
             {
               year: '일별',
-              data: [{ name: 'Error Rates', data: [0, 0, 0, 62, 60, 0, 58] }],
+              data: [{ name: 'Error Rates', data: [0, 0, 0, 60, 48, 0, 48] }],
             },
             {
               year: '주별',
@@ -63,7 +63,7 @@ export default function GamesTabError() {
             },
             {
               year: '주별',
-              data: [{ name: 'Error Rates', data: [80, 81, 78, 75, 60, 62, 57, 60] }],
+              data: [{ name: 'Error Rates', data: [90, 95, 93, 80, 60, 58, 57, 50] }],
             },
             {
               year: '월별',
@@ -80,11 +80,11 @@ export default function GamesTabError() {
           chartData={[
             {
               year: '일별',
-              data: [{ name: 'Error Rates', data: [0, 0, 0, 62, 60, 0, 58] }],
+              data: [{ name: 'Error Rates', data: [0, 0, 0, 62, 58, 0, 55] }],
             },
             {
               year: '주별',
-              data: [{ name: 'Error Rates', data: [80, 81, 78, 75, 60, 62, 57, 60] }],
+              data: [{ name: 'Error Rates', data: [80, 78, 70, 65, 62, 50, 45, 40] }],
             },
             {
               year: '월별',

@@ -8,6 +8,8 @@ import AppWidget from 'src/sections/@dashboard/general/app/AppWidget';
 import AnalyticsWebsiteVisits from 'src/sections/@dashboard/general/analytics/AnalyticsWebsiteVisits';
 // import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
 import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/BankingWidgetSummary';
+import AnalyticsCurrentSubject from 'src/sections/@dashboard/general/analytics/AnalyticsCurrentSubject';
+import RadialBar from 'src/sections/@dashboard/general/banking/RadialBar';
 // import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
 // mock
 import { _appFeatured } from '../../../_mock';
@@ -28,6 +30,23 @@ export default function GeneralApp() {
     <Page title="patient | Dashboard">
       <Container maxWidth="xl">
         <Grid container spacing={3}>
+          <Grid item xs={12} md={8}>
+            <AppWelcome
+              title="Patient Profile"
+              img={
+                <RadialBar
+                  chartData={[
+                    {
+                      data: [76],
+                    },
+                  ]}
+                />
+              }
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <AppFeatured list={_appFeatured} />
+          </Grid>
           <Grid item xs={12} md={4}>
             <AppWidgetSummary
               title="외래 방문 주기"
@@ -81,7 +100,7 @@ export default function GeneralApp() {
           <Grid item xs={12} md={6} lg={8}>
             <AnalyticsWebsiteVisits
               title="AttnKare-T Tracking"
-              subheader="(46%) completed"
+              subheader="(+4%) than last week"
               chartLabels={[
                 '01/01/2022',
                 '02/01/2022',
@@ -97,14 +116,14 @@ export default function GeneralApp() {
               ]}
               chartData={[
                 {
-                  name: '성취율',
+                  name: '주별 완료 일수',
                   type: 'column',
                   fill: 'solid',
                   data: [23, 23, 22, 27, 13, 22, 37, 21, 44, 22, 30],
                 },
 
                 {
-                  name: '권장량',
+                  name: '주별 처방 일수',
                   type: 'line',
                   fill: 'solid',
                   data: [25, 25, 25, 25, 25, 35, 35, 35, 35, 40, 40],
@@ -112,34 +131,24 @@ export default function GeneralApp() {
               ]}
             />
           </Grid>
-
+          <Grid item xs={12} md={6} lg={6}>
+            <AnalyticsCurrentSubject
+              title="AttnKare-D 진단 결과"
+              chartLabels={['집중력', '작업기억력', '실행기능', '행동조절', '사회성', '충동성']}
+              chartData={[
+                { name: '2022.04.05', data: [44, 76, 78, 13, 43, 10] },
+                { name: '2022.08.16', data: [80, 100, 80, 40, 50, 20] },
+              ]}
+              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
+            />
+          </Grid>
           {/* <Grid item xs={12} md={6} lg={4}>
             <Stack spacing={3}>
               <AppWidget title="Conversion" total={38566} icon={'eva:person-fill'} chartData={48} />
               <AppWidget title="Applications" total={55566} icon={'eva:email-fill'} color="warning" chartData={75} />
             </Stack>
           </Grid>
-
-          <Grid item xs={12} md={8}>
-            <AppWelcome
-              title={`백시안 아동`}
-              description="Lorem ipsum dolor sit amet, A Sed hendrerit ultricies arcu, sed tristique tortor volutpat at. Proin et justo congue, maximus nunc eget, ultricies metus. Donec sed libero quis nunc lobortis viverra id sed quam. Nullam purus lorem, consequat nec dictum at, pulvinar ac erat. Nulla eget sodales metus. Nunc lectus tortor, imperdiet vel purus in, porttitor pellentesque massa."
-              img={
-                <SeoIllustration
-                  sx={{
-                    p: 3,
-                    width: 360,
-                    margin: { xs: 'auto', md: 'inherit' },
-                  }}
-                />
-              }
-              action={<Button variant="contained">자세히 보기</Button>}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <AppFeatured list={_appFeatured} />
-          </Grid> */}
+*/}
         </Grid>
       </Container>
     </Page>

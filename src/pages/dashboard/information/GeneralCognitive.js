@@ -16,8 +16,8 @@ export default function GeneralCognitive() {
     <Page title="patient | Treatment">
       <Container maxWidth="xl">
         <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
+          <Grid item xs={12} md={4}>
+            <Stack direction="column" spacing={3}>
               <BankingWidgetSummary
                 title="게임 포인트 획득"
                 icon={'eva:diagonal-arrow-left-down-fill'}
