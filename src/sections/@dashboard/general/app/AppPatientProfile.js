@@ -74,98 +74,92 @@ export default function AppPatientProfile() {
   const GAMES_BIZ = [
     {
       value: '종합 평가',
-      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
-      component: <GamesBiz />,
+      icon: <Iconify icon={'ant-design:line-chart-outlined'} width={20} height={20} />,
+      component: <GamesTab />,
     },
 
     {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesBizAnalytics />,
+      value: 'Error Type',
+      icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
+      component: <GamesTabError />,
     },
+
     {
-      value: '주의력 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesBizAttention />,
-      // component: <ProfileFollowers followers={_userFollowers} />,
+      value: 'Reaction Time Statistics',
+      icon: <Iconify icon={'arcticons:reactiontraining'} width={25} height={25} />,
+      component: <GamesTabRTS />,
     },
   ];
 
   const GAMES_ROOM = [
     {
       value: '종합 평가',
-      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
-      component: <GamesRoom />,
+      icon: <Iconify icon={'ant-design:line-chart-outlined'} width={20} height={20} />,
+      component: <GamesTab />,
     },
+
     {
-      value: '점수 분석',
+      value: 'Error Type',
       icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
-      component: <GamesRoomAnalytics />,
-      // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
+      component: <GamesTabError />,
     },
+
     {
-      value: '주의력 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesRoomAttention />,
-      // component: <ProfileFollowers followers={_userFollowers} />,
+      value: 'Reaction Time Statistics',
+      icon: <Iconify icon={'arcticons:reactiontraining'} width={25} height={25} />,
+      component: <GamesTabRTS />,
     },
   ];
   const GAMES_CARD = [
     {
       value: '종합 평가',
-      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
-      component: <GamesCard />,
+      icon: <Iconify icon={'ant-design:line-chart-outlined'} width={20} height={20} />,
+      component: <GamesTab />,
     },
+
     {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesCardAnalytics />,
+      value: 'Error Type',
+      icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
+      component: <GamesTabError />,
     },
+
     {
-      value: '주의력 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesCardAttention />,
-    },
-    {
-      value: '인지적 충동성 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesCardImpulsivity />,
+      value: 'Reaction Time Statistics',
+      icon: <Iconify icon={'arcticons:reactiontraining'} width={25} height={25} />,
+      component: <GamesTabRTS />,
     },
   ];
 
   const GAMES_RACING = [
     {
       value: '종합 평가',
-      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
-      component: <GamesRacing />,
+      icon: <Iconify icon={'ant-design:line-chart-outlined'} width={20} height={20} />,
+      component: <GamesTab />,
     },
+
     {
-      value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-      component: <GamesRacingAnalytics />,
+      value: 'Error Type',
+      icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
+      component: <GamesTabError />,
     },
+
     {
-      value: '주의력 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesRacingAttention />,
-    },
-    {
-      value: '인지적 충동성 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesRacingImpulsivity />,
+      value: 'Reaction Time Statistics',
+      icon: <Iconify icon={'arcticons:reactiontraining'} width={25} height={25} />,
+      component: <GamesTabRTS />,
     },
   ];
   const path = window.location.pathname;
   useEffect(() => {
-    if (path === '/dashboard/tab') {
+    if (path === '/tab') {
       setCurrentPage(GAMES_TABS);
-    } else if (path === '/dashboard/biz') {
+    } else if (path === '/biz') {
       setCurrentPage(GAMES_BIZ);
-    } else if (path === '/dashboard/room') {
+    } else if (path === '/room') {
       setCurrentPage(GAMES_ROOM);
-    } else if (path === '/dashboard/card') {
+    } else if (path === '/card') {
       setCurrentPage(GAMES_CARD);
-    } else if (path === '/dashboard/racing') {
+    } else if (path === '/racing') {
       setCurrentPage(GAMES_RACING);
     }
   }, [path]);

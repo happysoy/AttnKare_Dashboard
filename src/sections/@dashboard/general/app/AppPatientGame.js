@@ -24,7 +24,7 @@ export default function AppPatientProfile() {
   const [tableData, setTableData] = useState(_invoices);
 
   return (
-    <Page title="Dashboard | Evaluation">
+    <Page title="Dashboard | Total">
       <Card sx={{ mb: 5 }}>
         <Scrollbar>
           <Stack
