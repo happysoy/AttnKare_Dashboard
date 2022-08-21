@@ -2631,7 +2631,7 @@
     "deepmerge" "^4.2.2"
     "svgo" "^2.8.0"
 
-"@svgr/webpack@^6.2.1":
+"@svgr/webpack@^5.5.0", "@svgr/webpack@^6.2.1":
   "integrity" "sha512-eODxwIUShLxSMaRjzJtrj9wg89D75JLczvWg9SaB5W+OtVTkiC1vdGd8+t+pf5fTlBOy4RRXAq7x1E3DUl3D0A=="
   "resolved" "https://registry.npmjs.org/@svgr/webpack/-/webpack-6.3.1.tgz"
   "version" "6.3.1"
