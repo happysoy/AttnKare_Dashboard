@@ -1,16 +1,12 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Button, Stack, Card } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 
 // component
 import AppCurrentDownload from 'src/sections/@dashboard/general/app/AppCurrentDownload';
-import AppWidget from 'src/sections/@dashboard/general/app/AppWidget';
 import AnalyticsWebsiteVisits from 'src/sections/@dashboard/general/analytics/AnalyticsWebsiteVisits';
-// import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
-import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/BankingWidgetSummary';
 import AnalyticsCurrentSubject from 'src/sections/@dashboard/general/analytics/AnalyticsCurrentSubject';
 import RadialBar from 'src/sections/@dashboard/general/banking/RadialBar';
-// import AppPatientProfile from 'src/sections/@dashboard/general/app/AppPatientProfile';
 // mock
 import { _appFeatured } from '../../../_mock';
 
@@ -21,13 +17,12 @@ import AppWelcome from '../../../sections/@dashboard/general/app/AppWelcome';
 import AppFeatured from '../../../sections/@dashboard/general/app/AppFeatured';
 import AppWidgetSummary from '../../../sections/@dashboard/general/app/AppWidgetSummary';
 // assets
-import { SeoIllustration } from '../../../assets';
 
 export default function GeneralApp() {
   const theme = useTheme();
 
   return (
-    <Page title="patient | Dashboard">
+    <Page title="Dashboard | Overview">
       <Container maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={12} md={8}>

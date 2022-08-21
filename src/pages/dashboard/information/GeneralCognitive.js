@@ -1,6 +1,5 @@
 // @mui
-import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Button, Stack } from '@mui/material';
+import { Container, Grid, Stack } from '@mui/material';
 import BankingWidgetSummary from 'src/sections/@dashboard/general/banking/BankingWidgetSummary';
 import BankingRecentTransitions from 'src/sections/@dashboard/general/banking/BakingRecentTransitions';
 
@@ -10,14 +9,12 @@ import { _bankingRecentTransitions } from 'src/_mock';
 import Page from '../../../components/Page';
 
 export default function GeneralCognitive() {
-  const theme = useTheme();
-
   return (
-    <Page title="patient | Treatment">
+    <Page title="Dashboard | Point">
       <Container maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>
-            <Stack direction="column" spacing={3}>
+            <Stack direction={{ xs: 'row', md: 'column', lg: 'column' }} spacing={3}>
               <BankingWidgetSummary
                 title="게임 포인트 획득"
                 icon={'eva:diagonal-arrow-left-down-fill'}
