@@ -33,7 +33,7 @@ export default function GamesTab() {
         />
       </Grid>
 
-      <Grid item xs={6} md={6} lg={4}>
+      <Grid item xs={12} md={6} lg={4}>
         <VariableType
           title="Total Error Type Percentage"
           chartData={[
@@ -45,7 +45,7 @@ export default function GamesTab() {
         />
       </Grid>
 
-      <Grid item xs={6} md={6} lg={8}>
+      <Grid item xs={12} md={6} lg={8}>
         <CompareLastVisit
           title="Analyze"
           // subheader="(+4%)  than last week"

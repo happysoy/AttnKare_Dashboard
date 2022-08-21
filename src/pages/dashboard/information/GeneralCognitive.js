@@ -14,9 +14,10 @@ export default function GeneralCognitive() {
       <Container maxWidth="xl">
         <Grid container spacing={3}>
           <Grid item xs={12} md={4}>
-            <Stack direction={{ xs: 'row', md: 'column', lg: 'column' }} spacing={3}>
+            <Stack direction={{ xs: 'column', md: 'column', lg: 'column' }} spacing={3}>
               <BankingWidgetSummary
                 title="게임 포인트 획득"
+                color="success"
                 icon={'eva:diagonal-arrow-left-down-fill'}
                 percent={-3.1}
                 total="6,100"

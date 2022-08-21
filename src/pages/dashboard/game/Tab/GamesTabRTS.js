@@ -11,7 +11,7 @@ export default function GamesTabRTS() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4} md={4} lg={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
           title="HRT"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
@@ -33,7 +33,7 @@ export default function GamesTabRTS() {
         />
       </Grid>
 
-      <Grid item xs={8} md={8} lg={8}>
+      <Grid item xs={12} md={8} lg={8}>
         <BoxPlot
           title="HRT by Scene"
           subheader="가장 최근 플레이"

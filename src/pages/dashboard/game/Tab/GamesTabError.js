@@ -31,7 +31,7 @@ export default function GamesTabError() {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={4} md={4} lg={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
           title="Omissions"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
@@ -52,7 +52,7 @@ export default function GamesTabError() {
           chartColors={theme.palette.chart.violet[1]}
         />
       </Grid>
-      <Grid item xs={4} md={4} lg={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
           title="Commissions"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
@@ -73,7 +73,7 @@ export default function GamesTabError() {
           chartColors={theme.palette.chart.blue[0]}
         />
       </Grid>
-      <Grid item xs={4} md={4} lg={4}>
+      <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
           title="Perseverations"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
