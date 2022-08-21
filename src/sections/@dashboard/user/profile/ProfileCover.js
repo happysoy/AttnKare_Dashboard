@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
+import PatientAvatar from 'src/components/PatientAvatar';
 // utils
 import cssStyles from '../../../../utils/cssStyles';
 // hooks
 // import useAuth from '../../../../hooks/useAuth';
 // components
-import MyAvatar from '../../../../components/MyAvatar';
 import Image from '../../../../components/Image';
 
 // ----------------------------------------------------------------------
@@ -69,7 +69,7 @@ export default function ProfileCover({ myProfile }) {
   return (
     <RootStyle>
       <InfoStyle>
-        <MyAvatar
+        <PatientAvatar
           sx={{
             mx: 'auto',
             borderWidth: 2,
@@ -87,7 +87,7 @@ export default function ProfileCover({ myProfile }) {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h4">오세훈</Typography>
+          <Typography variant="h4">백시안</Typography>
           <Typography sx={{ opacity: 0.8 }}>{position}</Typography>
         </Box>
       </InfoStyle>

@@ -34,7 +34,7 @@ export default function BoxPlot({ title, subheader, chartData, ...other }) {
       y: {
         formatter: undefined,
         title: {
-          formatter: (seriesName) => seriesName,
+          formatter: () => 'HRT(ms)',
         },
       },
       z: {

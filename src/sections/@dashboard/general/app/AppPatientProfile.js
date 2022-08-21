@@ -57,19 +57,19 @@ export default function AppPatientProfile() {
   const GAMES_TABS = [
     {
       value: '종합 평가',
-      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      icon: <Iconify icon={'ant-design:line-chart-outlined'} width={20} height={20} />,
       component: <GamesTab />,
     },
 
     {
       value: 'Error Type',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
       component: <GamesTabError />,
     },
 
     {
       value: 'Reaction Time Statistics',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
+      icon: <Iconify icon={'arcticons:reactiontraining'} width={25} height={25} />,
       component: <GamesTabRTS />,
     },
   ];
@@ -102,7 +102,7 @@ export default function AppPatientProfile() {
     },
     {
       value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
       component: <GamesRoomAnalytics />,
       // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
     },

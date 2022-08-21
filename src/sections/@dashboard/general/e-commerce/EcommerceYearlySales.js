@@ -50,6 +50,10 @@ export default function EcommerceYearlySales({ title, index, subheader, chartLab
     xaxis: {
       categories: chartLabels,
     },
+    yaxis: {
+      min: 0,
+      max: 100,
+    },
     labels: {
       enabled: false,
     },
