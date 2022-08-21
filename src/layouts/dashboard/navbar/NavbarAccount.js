@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { Box, Link, Typography } from '@mui/material';
 // components
-import MyAvatar from '../../../components/MyAvatar';
+import PatientAvatar from 'src/components/PatientAvatar';
 
 // ----------------------------------------------------------------------
 
@@ -35,8 +35,7 @@ export default function NavbarAccount({ isCollapse }) {
           }),
         }}
       >
-        <MyAvatar />
-
+        <PatientAvatar />
         <Box
           sx={{
             ml: 2,
@@ -51,10 +50,10 @@ export default function NavbarAccount({ isCollapse }) {
           }}
         >
           <Typography variant="subtitle2" noWrap>
-            {'오세훈'}
+            {'백시안'}
           </Typography>
           <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
-            {'28세 / 남'}
+            {'7세 / 남'}
           </Typography>
         </Box>
       </RootStyle>

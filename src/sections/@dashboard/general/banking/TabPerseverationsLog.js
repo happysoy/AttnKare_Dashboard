@@ -39,7 +39,7 @@ function a11yProps(index) {
   };
 }
 
-export default function TabCommissionsLog({ title }) {
+export default function TabPerseverationsLog({ title }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -77,25 +77,16 @@ export default function TabCommissionsLog({ title }) {
           <TabPanel value={value} index={0}>
             <Box sx={{ marginBottom: 5 }}>
               <Typography component="div" variant="h5">
-                2022.08.21(일)
+                2022.08.13
               </Typography>
               <Typography component="div" variant="body2">
                 수행 완료
               </Typography>
               <Typography component="span" />
             </Box>
-            <Box sx={{ marginBottom: 5 }}>
+            <Box>
               <Typography component="div" variant="h5">
-                2022.08.19(금)
-              </Typography>
-              <Typography component="div" variant="body2">
-                수행 완료
-              </Typography>
-              <Typography component="span" />
-            </Box>
-            <Box sx={{ marginBottom: 5 }}>
-              <Typography component="div" variant="h5">
-                2022.08.18(목)
+                2022.08.07
               </Typography>
               <Typography component="div" variant="body2">
                 수행 완료

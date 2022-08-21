@@ -46,13 +46,13 @@ export default function CompareLastVisit({ title, subheader, chartLabels, chartD
     tooltip: {
       fillSeriesColor: false,
       y: {
-        formatter: (seriesName) => `${seriesName}%`,
+        formatter: (seriesName) => `${seriesName}`,
       },
     },
     xaxis: {
       categories: ['8주차', '7주차', '6주차', '5주차', '4주차', '3주차', '2주차', '1주차'],
       title: {
-        text: 'Percent',
+        text: 'T-score',
       },
       labels: {
         formatter: (seriesName) => `${seriesName}%`,

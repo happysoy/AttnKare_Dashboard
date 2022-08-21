@@ -56,7 +56,7 @@ export default function TabOmissionsLog({ title }) {
           },
         }}
       >
-        <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 350 }}>
+        <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 320 }}>
           <Tabs
             orientation="vertical"
             variant="scrollable"
@@ -77,16 +77,27 @@ export default function TabOmissionsLog({ title }) {
           <TabPanel value={value} index={0}>
             <Box sx={{ marginBottom: 5 }}>
               <Typography component="div" variant="h5">
-                2022.08.13
+                2022.08.21(일)
+              </Typography>
+              <Typography component="div" variant="body2">
+                1단계 : 0, 2단계 : 24, 3단계 : 35, <br />
+                4단계 : 44, 5단계 : 56, 6단계 : 62, <br />
+              </Typography>
+
+              <Typography component="span" />
+            </Box>
+            <Box sx={{ marginBottom: 5 }}>
+              <Typography component="div" variant="h5">
+                2022.08.19(금)
               </Typography>
               <Typography component="div" variant="body2">
                 수행 완료
               </Typography>
               <Typography component="span" />
             </Box>
-            <Box>
+            <Box sx={{ marginBottom: 5 }}>
               <Typography component="div" variant="h5">
-                2022.08.07
+                2022.08.18(목)
               </Typography>
               <Typography component="div" variant="body2">
                 수행 완료

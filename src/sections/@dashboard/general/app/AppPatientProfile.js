@@ -13,10 +13,8 @@ import useTabs from 'src/hooks/useTabs';
 // components
 import Page from 'src/components/Page';
 import GamesTab from 'src/pages/dashboard/game/Tab/GamesTab';
-import GamesTabAttention from 'src/pages/dashboard/game/Tab/GamesTabAttention';
-// import GamesTabAnalytics from 'src/pages/dashboard/game/Tab/GamesTabAnalytics';
-import GamesTabMemory from 'src/pages/dashboard/game/Tab/GamesTabMemory';
-import GamesTabImpulsivity from 'src/pages/dashboard/game/Tab/GamesTabImpulsivity';
+import GamesTabError from 'src/pages/dashboard/game/Tab/GamesTabError';
+import GamesTabRTS from 'src/pages/dashboard/game/Tab/GamesTabRTS';
 import GamesBiz from 'src/pages/dashboard/game/GamesBiz';
 import GamesBizAnalytics from 'src/pages/dashboard/game/GamesBizAnalytics';
 import GamesBizAttention from 'src/pages/dashboard/game/GamesBizAttention';
@@ -59,28 +57,20 @@ export default function AppPatientProfile() {
   const GAMES_TABS = [
     {
       value: '종합 평가',
-      icon: <Iconify icon={'ic:round-account-box'} width={20} height={20} />,
+      icon: <Iconify icon={'ant-design:line-chart-outlined'} width={20} height={20} />,
       component: <GamesTab />,
     },
-    // {
-    //   value: '점수 분석',
-    //   icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
-    //   component: <GamesTabAnalytics />,
-    // },
+
     {
-      value: '집중력 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesTabAttention />,
+      value: 'Error Type',
+      icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
+      component: <GamesTabError />,
     },
+
     {
-      value: '작업기억력 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesTabMemory />,
-    },
-    {
-      value: '충동성 평가',
-      icon: <Iconify icon={'eva:heart-fill'} width={20} height={20} />,
-      component: <GamesTabImpulsivity />,
+      value: 'Reaction Time Statistics',
+      icon: <Iconify icon={'arcticons:reactiontraining'} width={25} height={25} />,
+      component: <GamesTabRTS />,
     },
   ];
 
@@ -112,7 +102,7 @@ export default function AppPatientProfile() {
     },
     {
       value: '점수 분석',
-      icon: <Iconify icon={'eva:people-fill'} width={20} height={20} />,
+      icon: <Iconify icon={'bx:message-alt-error'} width={20} height={20} />,
       component: <GamesRoomAnalytics />,
       // component: <ProfileFriends friends={_userFriends} findFriends={findFriends} onFindFriends={handleFindFriends} />,
     },
@@ -189,7 +179,7 @@ export default function AppPatientProfile() {
         <Card
           sx={{
             mb: 3,
-            height: 280,
+            height: 250,
             position: 'relative',
           }}
         >

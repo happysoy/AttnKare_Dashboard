@@ -82,10 +82,10 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {'정재현'}
+            {'정소연'}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {'jh@gmail.com'}
+            {'soyeon0130@g.skku.edu'}
           </Typography>
         </Box>
 

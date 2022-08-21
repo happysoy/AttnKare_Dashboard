@@ -2,7 +2,6 @@
 import Label from '../../../components/Label';
 import Iconify from '../../../components/Iconify';
 import SvgIconStyle from '../../../components/SvgIconStyle';
-
 // ----------------------------------------------------------------------
 
 const getIcon = (name) => <SvgIconStyle src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />;
@@ -30,21 +29,27 @@ const navConfig = [
   {
     subheader: 'information',
     items: [
-      { title: 'Overview', path: 'app', icon: ICONS.dashboard },
-      { title: '진단', path: 'prescription', icon: ICONS.ecommerce },
-      { title: '치료', path: 'treatment', icon: ICONS.analytics },
-      { title: '인지기능', path: 'cognitive', icon: ICONS.banking },
+      {
+        title: 'Overview',
+        path: 'app',
+        icon: <Iconify icon={'akar-icons:person'} width={25} height={25} />,
+      },
+      {
+        title: '종합평가',
+        path: 'total',
+        icon: <Iconify icon={'tabler:device-desktop-analytics'} width={25} height={25} />,
+      },
+      { title: '포인트', path: 'cognitive', icon: <Iconify icon={'iconoir:coin'} width={25} height={25} /> },
     ],
   },
   {
     subheader: 'games',
     items: [
-      { title: '종합평가', path: 'total', icon: ICONS.dashboard },
-      { title: '탭', path: 'tab', icon: ICONS.dashboard },
-      { title: '비즈', path: 'biz', icon: ICONS.ecommerce },
-      { title: '방정리', path: 'room', icon: ICONS.analytics },
-      { title: '의미카드', path: 'card', icon: ICONS.banking },
-      { title: '레이싱', path: 'racing', icon: ICONS.banking },
+      { title: '탭', path: 'tab', icon: <Iconify icon={'fluent:board-split-28-regular'} width={25} height={25} /> },
+      { title: '비즈', path: 'biz', icon: <Iconify icon={'ph:butterfly'} width={25} height={25} /> },
+      { title: '방정리', path: 'room', icon: <Iconify icon={'carbon:clean'} width={25} height={25} /> },
+      { title: '의미카드', path: 'card', icon: <Iconify icon={'bx:book-content'} width={25} height={25} /> },
+      { title: '레이싱', path: 'racing', icon: <Iconify icon={'ant-design:car-outlined'} width={25} height={25} /> },
     ],
   },
 

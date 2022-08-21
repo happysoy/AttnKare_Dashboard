@@ -12,26 +12,38 @@ AnalyticsWebsiteVisits.propTypes = {
   title: PropTypes.string,
   subheader: PropTypes.string,
   chartData: PropTypes.array.isRequired,
-  chartLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // chartLabels: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-export default function AnalyticsWebsiteVisits({ title, subheader, chartLabels, chartData, ...other }) {
+export default function AnalyticsWebsiteVisits({ title, subheader, chartColors, chartLabels, chartData, ...other }) {
   const chartOptions = merge(BaseOptionChart(), {
     plotOptions: { bar: { columnWidth: '30%' } },
     fill: { type: chartData.map((i) => i.fill) },
     labels: chartLabels,
-    xaxis: { type: 'datetime' },
+    // xaxis: { type: 'datetime' },
+    colors: chartColors,
     tooltip: {
       shared: true,
       intersect: false,
       y: {
         formatter: (y) => {
           if (typeof y !== 'undefined') {
-            return `${y.toFixed(0)} visits`;
+            return `${y.toFixed(0)} %`;
           }
           return y;
         },
       },
+    },
+    legend: {
+      show: false,
+    },
+    yaxis: {
+      min: 0,
+      max: 140,
+    },
+    chart: {
+      type: 'bar',
+      stacked: true,
     },
   });
 

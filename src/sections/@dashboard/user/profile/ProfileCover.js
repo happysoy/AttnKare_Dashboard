@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
+import PatientAvatar from 'src/components/PatientAvatar';
 // utils
 import cssStyles from '../../../../utils/cssStyles';
 // hooks
 // import useAuth from '../../../../hooks/useAuth';
 // components
-import MyAvatar from '../../../../components/MyAvatar';
 import Image from '../../../../components/Image';
 
 // ----------------------------------------------------------------------
@@ -29,12 +29,12 @@ const InfoStyle = styled('div')(({ theme }) => ({
   right: 0,
   zIndex: 99,
   position: 'absolute',
-  marginTop: theme.spacing(5),
+  marginTop: theme.spacing(6),
   [theme.breakpoints.up('md')]: {
     right: 'auto',
     display: 'flex',
     alignItems: 'center',
-    left: theme.spacing(6),
+    left: theme.spacing(3),
     bottom: theme.spacing(13.5),
   },
 }));
@@ -50,8 +50,8 @@ const DetailStyle = styled('div')(({ theme }) => ({
     right: 'auto',
     display: 'flex',
     alignItems: 'center',
-    left: theme.spacing(25),
-    bottom: theme.spacing(9),
+    left: theme.spacing(19),
+    bottom: theme.spacing(10),
   },
 }));
 
@@ -69,14 +69,14 @@ export default function ProfileCover({ myProfile }) {
   return (
     <RootStyle>
       <InfoStyle>
-        <MyAvatar
+        <PatientAvatar
           sx={{
             mx: 'auto',
             borderWidth: 2,
             borderStyle: 'solid',
             borderColor: 'common.white',
-            width: { xs: 80, md: 128 },
-            height: { xs: 80, md: 128 },
+            width: { xs: 80, md: 100 },
+            height: { xs: 80, md: 100 },
           }}
         />
         <Box
@@ -87,7 +87,7 @@ export default function ProfileCover({ myProfile }) {
             textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          <Typography variant="h4">오세훈</Typography>
+          <Typography variant="h4">백시안</Typography>
           <Typography sx={{ opacity: 0.8 }}>{position}</Typography>
         </Box>
       </InfoStyle>
@@ -101,12 +101,16 @@ export default function ProfileCover({ myProfile }) {
           <Typography sx={{ opacity: 0.8 }}>평균 하</Typography>
         </Box>
         <Box sx={{ marginLeft: '50px' }}>
-          <Typography variant="h6">공존질환 / 읽기 장애 유무</Typography>
+          <Typography variant="h6">공존질환 / 읽기 장애</Typography>
           <Typography sx={{ opacity: 0.8 }}>틱 장애 / 무</Typography>
         </Box>
         <Box sx={{ marginLeft: '50px' }}>
-          <Typography variant="h6">ADHD 하위유형</Typography>
+          <Typography variant="h6">ADHD</Typography>
           <Typography sx={{ opacity: 0.8 }}>충돌우세형</Typography>
+        </Box>
+        <Box sx={{ marginLeft: '50px' }}>
+          <Typography variant="h6">Response Style</Typography>
+          <Typography sx={{ opacity: 0.8 }}>liberal style</Typography>
         </Box>
       </DetailStyle>
       <Image alt="profile cover" src={cover} sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
