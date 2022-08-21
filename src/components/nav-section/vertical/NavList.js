@@ -18,7 +18,7 @@ NavList.propTypes = {
 export default function NavList({ data, depth, hasChildren, isCollapse = false }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const active = data.path === pathname.split('/')[2];
+  const active = data.path === pathname.split('/')[1];
   const [open, setOpen] = useState(active);
 
   const handleClickItem = () => {
