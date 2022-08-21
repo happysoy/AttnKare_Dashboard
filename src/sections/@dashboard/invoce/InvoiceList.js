@@ -1,8 +1,4 @@
-import sumBy from 'lodash/sumBy';
 import { useEffect, useState } from 'react';
-import { Link as useNavigate } from 'react-router-dom';
-// @mui
-import { useTheme } from '@mui/material/styles';
 import {
   Box,
   Tab,
@@ -24,7 +20,6 @@ import useTable, { getComparator, emptyRows } from 'src/hooks/useTable';
 import Label from 'src/components/Label';
 
 // components
-import Page from 'src/components/Page';
 import Scrollbar from 'src/components/Scrollbar';
 import { TableNoData, TableEmptyRows, TableHeadCustom, TableSelectedActions } from 'src/components/table';
 // sections
@@ -153,116 +148,108 @@ export default function InvoiceList() {
     }
   }, [filterStatus]);
   return (
-    <Page title="Invoice: List">
-      <Container maxWidth={themeStretch ? false : 'lg'}>
-        <Card>
-          <Tabs
-            allowScrollButtonsMobile
-            variant="scrollable"
-            scrollButtons="auto"
-            value={filterStatus}
-            onChange={onFilterStatus}
-            sx={{ px: 2, bgcolor: 'background.neutral' }}
-          >
-            {TABS.map((tab) => (
-              <Tab
-                disableRipple
-                key={tab.value}
-                value={tab.value}
-                icon={<Label>{tab.count}</Label>}
-                label={tab.label}
+    <Container maxWidth={themeStretch ? false : 'lg'}>
+      <Card>
+        <Tabs
+          allowScrollButtonsMobile
+          variant="scrollable"
+          scrollButtons="auto"
+          value={filterStatus}
+          onChange={onFilterStatus}
+          sx={{ px: 2, bgcolor: 'background.neutral' }}
+        >
+          {TABS.map((tab) => (
+            <Tab disableRipple key={tab.value} value={tab.value} icon={<Label>{tab.count}</Label>} label={tab.label} />
+          ))}
+        </Tabs>
+
+        <Divider />
+
+        <InvoiceTableToolbar
+          filterName={filterName}
+          filterService={filterService}
+          filterStartDate={filterStartDate}
+          filterEndDate={filterEndDate}
+          onFilterName={handleFilterName}
+          onFilterService={handleFilterService}
+          onFilterStartDate={(newValue) => {
+            setFilterStartDate(newValue);
+          }}
+          onFilterEndDate={(newValue) => {
+            setFilterEndDate(newValue);
+          }}
+          optionsService={SERVICE_OPTIONS}
+        />
+
+        <Scrollbar>
+          <TableContainer sx={{ minWidth: 800, position: 'relative' }}>
+            {selected.length > 0 && (
+              <TableSelectedActions
+                dense={dense}
+                numSelected={selected.length}
+                rowCount={tableData.length}
+                onSelectAllRows={(checked) =>
+                  onSelectAllRows(
+                    checked,
+                    tableData.map((row) => row.id)
+                  )
+                }
               />
-            ))}
-          </Tabs>
+            )}
+            <Table size={dense ? 'small' : 'medium'}>
+              <TableHeadCustom
+                order={order}
+                orderBy={orderBy}
+                headLabel={currentToolbar}
+                rowCount={tableData.length}
+                numSelected={selected.length}
+                onSort={onSort}
+                onSelectAllRows={(checked) =>
+                  onSelectAllRows(
+                    checked,
+                    tableData.map((row) => row.id)
+                  )
+                }
+              />
 
-          <Divider />
+              <TableBody>
+                {dataFiltered.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
+                  <InvoiceTableRow
+                    key={row.id}
+                    row={row}
+                    selected={selected.includes(row.id)}
+                    onSelectRow={() => onSelectRow(row.id)}
+                    filterStatus={filterStatus}
+                  />
+                ))}
 
-          <InvoiceTableToolbar
-            filterName={filterName}
-            filterService={filterService}
-            filterStartDate={filterStartDate}
-            filterEndDate={filterEndDate}
-            onFilterName={handleFilterName}
-            onFilterService={handleFilterService}
-            onFilterStartDate={(newValue) => {
-              setFilterStartDate(newValue);
-            }}
-            onFilterEndDate={(newValue) => {
-              setFilterEndDate(newValue);
-            }}
-            optionsService={SERVICE_OPTIONS}
+                <TableEmptyRows height={denseHeight} emptyRows={emptyRows(page, rowsPerPage, tableData.length)} />
+
+                <TableNoData isNotFound={isNotFound} />
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Scrollbar>
+
+        <Box sx={{ position: 'relative' }}>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={dataFiltered.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={onChangePage}
+            onRowsPerPageChange={onChangeRowsPerPage}
           />
 
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 800, position: 'relative' }}>
-              {selected.length > 0 && (
-                <TableSelectedActions
-                  dense={dense}
-                  numSelected={selected.length}
-                  rowCount={tableData.length}
-                  onSelectAllRows={(checked) =>
-                    onSelectAllRows(
-                      checked,
-                      tableData.map((row) => row.id)
-                    )
-                  }
-                />
-              )}
-              <Table size={dense ? 'small' : 'medium'}>
-                <TableHeadCustom
-                  order={order}
-                  orderBy={orderBy}
-                  headLabel={currentToolbar}
-                  rowCount={tableData.length}
-                  numSelected={selected.length}
-                  onSort={onSort}
-                  onSelectAllRows={(checked) =>
-                    onSelectAllRows(
-                      checked,
-                      tableData.map((row) => row.id)
-                    )
-                  }
-                />
-
-                <TableBody>
-                  {dataFiltered.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => (
-                    <InvoiceTableRow
-                      key={row.id}
-                      row={row}
-                      selected={selected.includes(row.id)}
-                      onSelectRow={() => onSelectRow(row.id)}
-                      filterStatus={filterStatus}
-                    />
-                  ))}
-
-                  <TableEmptyRows height={denseHeight} emptyRows={emptyRows(page, rowsPerPage, tableData.length)} />
-
-                  <TableNoData isNotFound={isNotFound} />
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Scrollbar>
-
-          <Box sx={{ position: 'relative' }}>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25]}
-              component="div"
-              count={dataFiltered.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={onChangePage}
-              onRowsPerPageChange={onChangeRowsPerPage}
-            />
-
-            <FormControlLabel
-              control={<Switch checked={dense} onChange={onChangeDense} />}
-              label="Dense"
-              sx={{ px: 3, py: 1.5, top: 0, position: { md: 'absolute' } }}
-            />
-          </Box>
-        </Card>
-      </Container>
-    </Page>
+          <FormControlLabel
+            control={<Switch checked={dense} onChange={onChangeDense} />}
+            label="Dense"
+            sx={{ px: 3, py: 1.5, top: 0, position: { md: 'absolute' } }}
+          />
+        </Box>
+      </Card>
+    </Container>
   );
 }
 

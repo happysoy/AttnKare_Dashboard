@@ -1,11 +1,9 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Button, Stack } from '@mui/material';
+import { Grid } from '@mui/material';
 import VariableType from 'src/sections/@dashboard/general/banking/VariableType';
 import BankingExpensesCategories from 'src/sections/@dashboard/general/banking/BakingExpensesCategories';
-import AnalyticsConversionRates from 'src/sections/@dashboard/general/analytics/AnalyticsConversionRates';
 import CompareLastVisit from 'src/sections/@dashboard/general/banking/CompareLastVisit';
-import AppWidget from 'src/sections/@dashboard/general/app/AppWidget';
 
 export default function GamesTab() {
   const theme = useTheme();
@@ -35,7 +33,7 @@ export default function GamesTab() {
         />
       </Grid>
 
-      <Grid item xs={12} md={6} lg={4}>
+      <Grid item xs={6} md={6} lg={4}>
         <VariableType
           title="Total Error Type Percentage"
           chartData={[
@@ -47,7 +45,7 @@ export default function GamesTab() {
         />
       </Grid>
 
-      <Grid item xs={3} md={6} lg={8}>
+      <Grid item xs={6} md={6} lg={8}>
         <CompareLastVisit
           title="Analyze"
           // subheader="(+4%)  than last week"
@@ -64,7 +62,7 @@ export default function GamesTab() {
         />
       </Grid>
 
-      <Grid item xs={12} md={6} lg={4}>
+      <Grid item xs={6} md={6} lg={4}>
         <h3>탭 게임 난이도 / 횟수 조절</h3>
       </Grid>
     </Grid>

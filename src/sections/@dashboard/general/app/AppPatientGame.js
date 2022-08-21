@@ -1,6 +1,5 @@
 import sumBy from 'lodash/sumBy';
-import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState } from 'react';
 // @mui
 import { Grid, Stack, Card, Divider } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -9,8 +8,6 @@ import Scrollbar from 'src/components/Scrollbar';
 import Page from 'src/components/Page';
 
 import EcommerceYearlySales from '../e-commerce/EcommerceYearlySales';
-import BankingBalanceStatistics from '../banking/BankingBalanceStatics';
-import AnalyticsCurrentVisits from '../analytics/AnalyticsCurrentVisit';
 import InvoiceAnalytic from '../../invoce/InvoiceAnalytic';
 // _mock_
 import { _invoices } from '../../../../_mock';
@@ -18,27 +15,16 @@ import { _invoices } from '../../../../_mock';
 export default function AppPatientProfile() {
   const theme = useTheme();
 
-  const getLengthByStatus = (status) => tableData.filter((item) => item.status === status).length;
-
   const getTotalPriceByStatus = (status) =>
     sumBy(
       tableData.filter((item) => item.status === status),
       'totalPrice'
     );
 
-  const getPercentByStatus = (status) => (getLengthByStatus(status) / tableData.length) * 100;
-
   const [tableData, setTableData] = useState(_invoices);
-  const TABS = [
-    { value: '탭', label: 'All', color: 'info', count: tableData.length },
-    { value: '비즈', label: 'Paid', color: 'success', count: getLengthByStatus('paid') },
-    { value: 'unpaid', label: 'Unpaid', color: 'warning', count: getLengthByStatus('unpaid') },
-    { value: 'overdue', label: 'Overdue', color: 'error', count: getLengthByStatus('overdue') },
-    { value: 'draft', label: 'Draft', color: 'default', count: getLengthByStatus('draft') },
-  ];
 
   return (
-    <Page title="User: Profile">
+    <Page title="Dashboard | Evaluation">
       <Card sx={{ mb: 5 }}>
         <Scrollbar>
           <Stack

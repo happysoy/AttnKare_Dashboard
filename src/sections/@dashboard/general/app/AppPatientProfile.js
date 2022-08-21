@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Tab, Box, Card, Tabs, Container } from '@mui/material';
@@ -31,9 +30,7 @@ import GamesRacingAnalytics from 'src/pages/dashboard/game/GamesRacingAnalytics'
 import GamesRacing from 'src/pages/dashboard/game/GamesRacing';
 
 import ProfileCover from '../../user/profile/ProfileCover';
-import Profile from '../../user/profile/Profile';
 
-// import Iconify from '../../../components/Iconify';
 const TabsWrapperStyle = styled('div')(({ theme }) => ({
   zIndex: 9,
   bottom: 0,
@@ -174,7 +171,7 @@ export default function AppPatientProfile() {
   }, [path]);
 
   return (
-    <Page title="User: Profile">
+    <Page title="Games | Tab">
       <Container maxWidth={'lg'}>
         <Card
           sx={{
