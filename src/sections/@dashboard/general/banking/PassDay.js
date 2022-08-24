@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import ReactApexChart from 'react-apexcharts';
@@ -5,9 +7,9 @@ import ReactApexChart from 'react-apexcharts';
 // @mui
 import { useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import { Card, Typography, Stack } from '@mui/material';
+import { Card, Typography, Stack, keyframes } from '@mui/material';
 // utils
-import { fCurrency, fPercent } from '../../../../utils/formatNumber';
+import { fPercent } from '../../../../utils/formatNumber';
 // components
 import Iconify from '../../../../components/Iconify';
 import { BaseOptionChart } from '../../../../components/chart';
@@ -30,6 +32,30 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
     paddingRight: theme.spacing(3),
   },
 }));
+const boxAnimation = keyframes`
+  0%{
+    left: 20px;
+    
+  }
+  20%{
+    transform: translateY(-20px)
+  }
+  40%{
+    transform: rotate(-20deg) translateX(50px) skewX(-5deg) skewY(-5deg);
+  }
+  60%{
+    transform: rotate(-25deg) translateX(50px) skewX(-5deg) skewY(-5deg);
+  }
+  80%{
+    transform: rotate(-30deg) translateX(50px) skewX(-5deg) skewY(-5deg);
+  }
+  100%{
+    transform: rotate(-25deg) translateX(100px) skewX(-5deg) skewY(-5deg);
+    left:420px
+    
+  }
+
+`;
 
 const BoxWrapper = styled('div')(({ theme }) => ({
   width: '100px',
@@ -38,22 +64,8 @@ const BoxWrapper = styled('div')(({ theme }) => ({
   left: theme.spacing(0),
   bottom: theme.spacing(0),
   transform: `rotate(-10deg)`,
-  transition: `all 1.5s linear`,
-  '&:hover': {
-    transform: `rotate(-20deg) translateX(${theme.spacing(10)}) skewX(-5deg) skewY(-5deg)`,
-  },
-  [theme.breakpoints.up('sm')]: {
-    left: theme.spacing(2),
-    bottom: theme.spacing(0.5),
-    '&:hover': {
-      transform: `rotate(-6deg) translateX(${theme.spacing(40)}) skewX(-5deg) skewY(-5deg)`,
-    },
-  },
+  animation: `${boxAnimation} 3s linear forwards `,
 }));
-
-//   transition: all 1s linear;
-//   transform: ${(props) => (props.rotate ? `rotate(180deg)` : '')};
-// `;
 
 // ----------------------------------------------------------------------
 
@@ -67,7 +79,7 @@ PassDay.propTypes = {
   sx: PropTypes.object,
 };
 
-export default function PassDay({ title, total, icon, percent, color = 'primary', chartData, sx, ...other }) {
+export default function PassDay({ title, total, percent, color = 'primary', chartData, sx, ...other }) {
   const theme = useTheme();
 
   const chartOptions = merge(BaseOptionChart(), {
