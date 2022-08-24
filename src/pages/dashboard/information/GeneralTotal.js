@@ -36,7 +36,7 @@ export default function GeneralTotal() {
                 icon={'eva:diagonal-arrow-left-down-fill'}
                 percent={52.8}
                 total="58"
-                chartData={[110, 120, 50, 330]}
+                chartData={[1, 3, 5, 7, 5]}
               />
             </Stack>
           </Grid>

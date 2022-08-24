@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import ReactApexChart from 'react-apexcharts';
+
 // @mui
+import { useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { Card, Typography, Stack } from '@mui/material';
 // utils
@@ -13,16 +15,45 @@ import { BaseOptionChart } from '../../../../components/chart';
 // ----------------------------------------------------------------------
 
 const IconWrapperStyle = styled('div')(({ theme }) => ({
-  width: 48,
-  height: 48,
+  // width: 48,
+  // height: 48,
   display: 'flex',
-  borderRadius: '50%',
   position: 'absolute',
-  alignItems: 'center',
-  top: theme.spacing(3),
-  right: theme.spacing(3),
-  justifyContent: 'center',
+  top: theme.spacing(12.5),
+  right: theme.spacing(5),
+  [theme.breakpoints.up('sm')]: {
+    right: theme.spacing(23),
+    top: theme.spacing(14),
+  },
+  [theme.breakpoints.up('md')]: {
+    justifyContent: 'flex-end',
+    paddingRight: theme.spacing(3),
+  },
 }));
+
+const BoxWrapper = styled('div')(({ theme }) => ({
+  width: '100px',
+  height: '100px',
+  position: 'absolute',
+  left: theme.spacing(0),
+  bottom: theme.spacing(0),
+  transform: `rotate(-10deg)`,
+  transition: `all 1.5s linear`,
+  '&:hover': {
+    transform: `rotate(-20deg) translateX(${theme.spacing(10)}) skewX(-5deg) skewY(-5deg)`,
+  },
+  [theme.breakpoints.up('sm')]: {
+    left: theme.spacing(2),
+    bottom: theme.spacing(0.5),
+    '&:hover': {
+      transform: `rotate(-6deg) translateX(${theme.spacing(40)}) skewX(-5deg) skewY(-5deg)`,
+    },
+  },
+}));
+
+//   transition: all 1s linear;
+//   transform: ${(props) => (props.rotate ? `rotate(180deg)` : '')};
+// `;
 
 // ----------------------------------------------------------------------
 
@@ -48,15 +79,37 @@ export default function PassDay({ title, total, icon, percent, color = 'primary'
     legend: { show: false },
     grid: { show: false },
     tooltip: {
-      marker: { show: false },
-      y: {
-        title: {
-          formatter: () => '',
-        },
-      },
+      enabled: false,
+      show: false,
     },
     fill: { gradient: { opacityFrom: 0.56, opacityTo: 0.56 } },
   });
+
+  const [content, setContent] = useState('');
+  useEffect(() => {
+    setTimeout(() => {
+      setContent(
+        <>
+          <IconWrapperStyle>
+            <Iconify
+              icon={'bi:flag'}
+              color={'#1939b7'}
+              width={60}
+              height={60}
+              // sx={{ position: 'absolute', right: 140, top: 88 }}
+            />
+          </IconWrapperStyle>
+          <BoxWrapper className="box" sx={{ mb: 2, ml: 1 }}>
+            <img
+              className="mario"
+              alt="마리오사진"
+              src="https://w.namu.la/s/a6318b50256b2c7d66e31b9a82001b3f6669efbbe331421c3a62d6b356bd2705d177823ad7ef100b508cf1e6474f02c11feae852c0a2677930e5fdfd1cffa20c89b30784c37c8feced196c51eeea4d8af0a986f91a5353984588ef4b970dd5c4d31475aa3d44e0540de1d701a4789761"
+            />
+          </BoxWrapper>
+        </>
+      );
+    }, 2000);
+  }, []);
 
   return (
     <Card
@@ -69,15 +122,6 @@ export default function PassDay({ title, total, icon, percent, color = 'primary'
       }}
       {...other}
     >
-      <IconWrapperStyle
-        sx={{
-          color: (theme) => theme.palette[color].lighter,
-          bgcolor: (theme) => theme.palette[color].dark,
-        }}
-      >
-        <Iconify icon={icon} width={24} height={24} />
-      </IconWrapperStyle>
-
       <Stack spacing={1} sx={{ p: 3 }}>
         <Typography sx={{ typography: 'subtitle2' }}>{title}</Typography>
 
@@ -94,14 +138,7 @@ export default function PassDay({ title, total, icon, percent, color = 'primary'
       </Stack>
 
       <ReactApexChart type="area" series={[{ data: chartData }]} options={chartOptions} height={120} />
-
-      {/* <Iconify
-        icon={'bi:flag'}
-        color={'#1939b7'}
-        width={60}
-        height={60}
-        sx={{ position: 'absolute', right: 30, top: 132 }}
-      /> */}
+      {content}
     </Card>
   );
 }
