@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import Label from 'src/components/Label';
 // @mui
 import { useTheme, styled } from '@mui/material/styles';
-import { Card, CardHeader, Box, TextField } from '@mui/material';
+import { Card, CardHeader, Box, TextField, Divider, Stack, Typography } from '@mui/material';
 // components
 import { BaseOptionChart } from '../../../../components/chart';
 
@@ -95,6 +96,21 @@ export default function CompareLastVisit({ title, subheader, chartLabels, chartD
           )}
         </Box>
       ))}
+      <Divider />
+      <Stack direction="row" alignItems="center" spacing={1} sx={{ justifyContent: 'center' }}>
+        <Typography sx={{ py: 2, mr: 6 }} component="span" variant="subtitle2">
+          slow HRT & high Error Rates
+          <Label color="primary" sx={{ ml: 2 }}>
+            부주의
+          </Label>
+        </Typography>
+        <Typography sx={{ py: 2 }} component="span" variant="subtitle2">
+          fast HRT & high Error Rates
+          <Label color="primary" sx={{ ml: 2 }}>
+            충동성
+          </Label>
+        </Typography>
+      </Stack>
     </Card>
   );
 }

@@ -116,7 +116,7 @@ export default function BankingExpensesCategories({ title, chartColors, color, d
       </Box>
       <Box sx={{ justifyContent: 'center', m: 4, mt: -4 }}>
         <Typography variant="body1" display="flex" sx={{ justifyContent: 'center', color: '#666666' }}>
-          [ Percentile ]
+          [ 백분위 수 ]
         </Typography>
       </Box>
       <Divider sx={{ mt: 2 }} />
