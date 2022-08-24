@@ -93,11 +93,15 @@ export default function ProfileCover({ myProfile }) {
       </InfoStyle>
       <DetailStyle>
         <Box sx={{ wordBreak: 'break-all' }}>
-          <Typography variant="h6">지능</Typography>
-          <Typography sx={{ opacity: 0.8 }}>98</Typography>
+          <Typography variant="h6">전체 지능</Typography>
+          <Typography sx={{ opacity: 0.8 }}>평균 하</Typography>
         </Box>
         <Box sx={{ marginLeft: '50px' }}>
-          <Typography variant="h6">작업기억력</Typography>
+          <Typography variant="h6">작업기억</Typography>
+          <Typography sx={{ opacity: 0.8 }}>경계선</Typography>
+        </Box>
+        <Box sx={{ marginLeft: '50px' }}>
+          <Typography variant="h6">처리속도</Typography>
           <Typography sx={{ opacity: 0.8 }}>평균 하</Typography>
         </Box>
         <Box sx={{ marginLeft: '50px' }}>

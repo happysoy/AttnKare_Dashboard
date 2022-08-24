@@ -54,7 +54,7 @@ export default function AppCurrentDownload({ title, subheader, chartData, chartC
     tooltip: {
       fillSeriesColor: false,
       y: {
-        formatter: (seriesName) => fNumber(seriesName),
+        formatter: (seriesName) => `${fNumber(seriesName)} 일`,
         title: {
           formatter: (seriesName) => `${seriesName}`,
         },
@@ -66,13 +66,10 @@ export default function AppCurrentDownload({ title, subheader, chartData, chartC
           size: '85%',
           labels: {
             value: {
-              formatter: (val) => fNumber(val),
+              formatter: (val) => `${fNumber(val)}일 경과`,
             },
             total: {
-              formatter: (w) => {
-                const sum = w.globals.seriesTotals.reduce((a, b) => a + b, 0);
-                return fNumber(sum);
-              },
+              formatter: () => '3 가지',
             },
           },
         },
