@@ -37,9 +37,10 @@ export default function GamesTabRTS() {
         <BoxPlot
           title="HRT by Scene"
           subheader="가장 최근 플레이"
+          // chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
             {
-              type: 'boxPlot',
+              year: '1단계',
               data: [
                 {
                   x: 'scene-1',
