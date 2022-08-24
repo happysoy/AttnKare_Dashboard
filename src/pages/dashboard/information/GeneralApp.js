@@ -86,9 +86,9 @@ export default function GeneralApp() {
               title="수행중인 치료"
               chartColors={[theme.palette.primary.light, theme.palette.primary.main, theme.palette.primary.dark]}
               chartData={[
-                { label: '약물치료', value: 45 },
-                { label: '인지행동치료', value: 20 },
-                { label: '부모교육', value: 5 },
+                { label: '약물치료', value: 101 },
+                { label: 'Attnkare', value: 60 },
+                { label: '부모교육', value: 46 },
               ]}
             />
           </Grid>
@@ -97,6 +97,7 @@ export default function GeneralApp() {
               title="AttnKare-T Tracking"
               subheader="(+4%) than last week"
               chartLabels={['1주차', '2주차', '3주차', '4주차', '5주차', '6주차', '7주차', '8주차']}
+              chartColors={[theme.palette.info.main.dark]}
               chartData={[
                 {
                   name: '주별 수행량',
