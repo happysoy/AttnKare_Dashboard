@@ -24,7 +24,7 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
   top: theme.spacing(12.5),
   right: theme.spacing(5),
   [theme.breakpoints.up('sm')]: {
-    right: theme.spacing(23),
+    right: theme.spacing(40),
     top: theme.spacing(14),
   },
   [theme.breakpoints.up('md')]: {
@@ -34,25 +34,17 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 }));
 const boxAnimation = keyframes`
   0%{
-    left: 20px;
-    
-  }
-  20%{
-    transform: translateY(-20px)
+    transform: rotate(-30deg)
   }
   40%{
-    transform: rotate(-20deg) translateX(50px) skewX(-5deg) skewY(-5deg);
-  }
-  60%{
-    transform: rotate(-25deg) translateX(50px) skewX(-5deg) skewY(-5deg);
+    transform: rotate(-20deg) translateX(100px)  skewY(-5deg)
   }
   80%{
-    transform: rotate(-30deg) translateX(50px) skewX(-5deg) skewY(-5deg);
+    transform: rotate(-25deg) translateX(120px) skewY(-5deg)
   }
   100%{
-    transform: rotate(-25deg) translateX(100px) skewX(-5deg) skewY(-5deg);
+    transform: rotate(-20deg) translateX(150px) ;
     left:420px
-    
   }
 
 `;
@@ -64,7 +56,7 @@ const BoxWrapper = styled('div')(({ theme }) => ({
   left: theme.spacing(0),
   bottom: theme.spacing(0),
   transform: `rotate(-10deg)`,
-  animation: `${boxAnimation} 3s linear forwards `,
+  animation: `${boxAnimation} 3s 1.2s linear forwards `,
 }));
 
 // ----------------------------------------------------------------------
@@ -111,7 +103,7 @@ export default function PassDay({ title, total, percent, color = 'primary', char
               // sx={{ position: 'absolute', right: 140, top: 88 }}
             />
           </IconWrapperStyle>
-          <BoxWrapper className="box" sx={{ mb: 2, ml: 1 }}>
+          <BoxWrapper className="box" sx={{ mb: -2, ml: -15 }}>
             <img
               className="mario"
               alt="마리오사진"
