@@ -13,7 +13,7 @@ export default function GamesTabRTS() {
     <Grid container spacing={3}>
       <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
-          title="HRT"
+          title="HRT T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
             {
