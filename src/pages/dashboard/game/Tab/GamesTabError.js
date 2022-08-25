@@ -33,7 +33,7 @@ export default function GamesTabError() {
     <Grid container spacing={3}>
       <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
-          title="Omissions"
+          title="Omissions T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
             {
@@ -54,7 +54,7 @@ export default function GamesTabError() {
       </Grid>
       <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
-          title="Commissions"
+          title="Commission T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
             {
@@ -75,7 +75,7 @@ export default function GamesTabError() {
       </Grid>
       <Grid item xs={12} md={4} lg={4}>
         <BankingBalanceStatistics
-          title="Perseverations"
+          title="Perseverations T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
             {
