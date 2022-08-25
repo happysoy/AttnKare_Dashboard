@@ -13,6 +13,7 @@ export default function GamesTab() {
       <Grid item xs={12} md={6}>
         <BankingExpensesCategories
           title="Error Type"
+          subheader="2022.08.23 play"
           chartData={[
             { label: 'Omissions', value: 76, desc: 'Very Elevated', percent: -2.6 },
             { label: 'Commissions', value: 63, desc: 'High Average', percent: -1 },
@@ -24,6 +25,7 @@ export default function GamesTab() {
       <Grid item xs={12} md={6}>
         <BankingExpensesCategories
           title="Reation Time Statistics"
+          subheader="2022.08.23 play"
           chartData={[
             { label: 'HRT', value: 51, desc: 'Average', percent: +0.1 },
             { label: 'HRT SD', value: 48, desc: 'Average', percent: -0.4 },
@@ -36,6 +38,7 @@ export default function GamesTab() {
       <Grid item xs={12} md={6} lg={4}>
         <VariableType
           title="Total Error Type Percentage"
+          subheader="2022.03.02 - 20.22.08.23 "
           chartData={[
             { label: 'Omissions', value: 4344 },
             { label: 'Commissions', value: 5435 },
@@ -48,6 +51,7 @@ export default function GamesTab() {
       <Grid item xs={12} md={6} lg={8}>
         <CompareLastVisit
           title="Analyze"
+          subheader="2022.03.02 - 20.22.08.23 "
           // subheader="(+4%)  than last week"
           chartLabels={['HRT', 'Error Rates']}
           chartData={[

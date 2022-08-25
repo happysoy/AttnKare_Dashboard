@@ -11,7 +11,7 @@ import { BaseOptionChart } from '../../../../components/chart';
 
 // ----------------------------------------------------------------------
 
-const CHART_HEIGHT = 372;
+const CHART_HEIGHT = 365;
 const LEGEND_HEIGHT = 100;
 
 const ChartWrapperStyle = styled('div')(({ theme }) => ({

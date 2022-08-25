@@ -93,26 +93,6 @@ export default function BankingExpensesCategories({ title, chartColors, color, d
         {chartData.map((i) => (
           <Box key={i.label} sx={{ py: 2, width: 1, textAlign: 'center' }}>
             <Typography sx={{ mb: 1, typography: 'h5', color: 'text.primary' }}>{i.label}</Typography>
-            <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 2, justifyContent: 'center' }}>
-              <IconWrapperStyle
-                sx={{
-                  ...(i.percent >= 0 && {
-                    color: 'error.main',
-                    bgcolor: alpha(theme.palette.error.main, 0.16),
-                  }),
-                }}
-              >
-                <Iconify
-                  width={16}
-                  height={16}
-                  icon={i.percent >= 0 ? 'eva:trending-up-fill' : 'eva:trending-down-fill'}
-                />
-              </IconWrapperStyle>
-              <Typography component="span" variant="subtitle2">
-                {i.percent > 0 && '+'}
-                {i.percent} %
-              </Typography>
-            </Stack>
 
             <Label
               color={
@@ -136,8 +116,55 @@ export default function BankingExpensesCategories({ title, chartColors, color, d
       </Box>
       <Box sx={{ justifyContent: 'center', m: 4, mt: -4 }}>
         <Typography variant="body1" display="flex" sx={{ justifyContent: 'center', color: '#666666' }}>
-          [ Percentile ]
+          [ 백분위 수 ]
         </Typography>
+      </Box>
+      <Divider sx={{ mt: 2 }} />
+      <Box sx={{ justifyContent: 'center', m: 4 }}>
+        <Typography variant="body1" display="flex" sx={{ justifyContent: 'center', mb: 2, color: '#666666' }}>
+          지난번 play (2022.08.18) 와 비교하였을 때
+        </Typography>
+        {chartData.map((i) => (
+          <Box
+            key={i.label}
+            sx={{ justifyContent: 'space-between', py: 2, width: 1, textAlign: 'center', display: 'flex' }}
+          >
+            <Typography component="span" variant="subtitle1">
+              {i.label}
+            </Typography>
+            <Stack direction="row" alignItems="center" spacing={1} sx={{ mr: 2, ml: 2, justifyContent: 'center' }}>
+              <IconWrapperStyle
+                sx={{
+                  ...(i.percent >= 0 && {
+                    color: 'error.main',
+                    bgcolor: alpha(theme.palette.error.main, 0.16),
+                  }),
+                }}
+              >
+                <Iconify
+                  width={16}
+                  height={16}
+                  icon={i.percent >= 0 ? 'eva:trending-up-fill' : 'eva:trending-down-fill'}
+                />
+              </IconWrapperStyle>
+              <Typography
+                sx={{ mr: 2 }}
+                component="span"
+                variant="subtitle2"
+                color={i.percent >= 0 ? 'error.main' : 'success.main'}
+              >
+                {i.percent > 0 && '+'}
+                {i.percent} %
+              </Typography>
+              <Typography component="span" variant="subtitle2">
+                {i.percent >= 0 ? '증가하여' : '감소하여'}
+              </Typography>
+              <Typography component="span" variant="subtitle2" color={i.percent >= 0 ? 'error.main' : 'success.main'}>
+                {i.percent >= 0 ? '정체' : '개선'}
+              </Typography>
+            </Stack>
+          </Box>
+        ))}
       </Box>
     </RootStyle>
   );
