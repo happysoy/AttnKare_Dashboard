@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-import useCollapseDrawer from '../../hooks/useCollapseDrawer';
+import useCollapseDrawer from 'src/hooks/useCollapseDrawer';
 // config
-import { HEADER, NAVBAR } from '../../config';
+import { HEADER, NAVBAR } from 'src/config';
 
 import DashboardHeader from './header';
 import NavbarVertical from './navbar/NavbarVertical';

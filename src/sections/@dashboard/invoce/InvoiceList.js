@@ -15,13 +15,12 @@ import {
 } from '@mui/material';
 // hooks
 import useTabs from 'src/hooks/useTabs';
-import useSettings from 'src/hooks/useSettings';
 import useTable, { getComparator, emptyRows } from 'src/hooks/useTable';
 import Label from 'src/components/Label';
 
 // components
 import Scrollbar from 'src/components/Scrollbar';
-import { TableNoData, TableEmptyRows, TableHeadCustom, TableSelectedActions } from 'src/components/table';
+import { TableEmptyRows, TableHeadCustom, TableSelectedActions } from 'src/components/table';
 // sections
 import { InvoiceTableRow, InvoiceTableToolbar } from './list';
 // _mock_
@@ -67,8 +66,6 @@ const TABLE_PERSEVERATIONS_HEAD = [
 // ----------------------------------------------------------------------
 
 export default function InvoiceList() {
-  const { themeStretch } = useSettings();
-
   const {
     dense,
     page,
@@ -118,13 +115,6 @@ export default function InvoiceList() {
     filterEndDate,
   });
 
-  const isNotFound =
-    (!dataFiltered.length && !!filterName) ||
-    (!dataFiltered.length && !!filterStatus) ||
-    (!dataFiltered.length && !!filterService) ||
-    (!dataFiltered.length && !!filterEndDate) ||
-    (!dataFiltered.length && !!filterStartDate);
-
   const denseHeight = dense ? 56 : 76;
 
   const getLengthByStatus = (status) => tableData.filter((item) => item.status === status).length;
@@ -148,7 +138,7 @@ export default function InvoiceList() {
     }
   }, [filterStatus]);
   return (
-    <Container maxWidth={themeStretch ? false : 'lg'}>
+    <Container maxWidth="lg">
       <Card>
         <Tabs
           allowScrollButtonsMobile
@@ -224,8 +214,6 @@ export default function InvoiceList() {
                 ))}
 
                 <TableEmptyRows height={denseHeight} emptyRows={emptyRows(page, rowsPerPage, tableData.length)} />
-
-                <TableNoData isNotFound={isNotFound} />
               </TableBody>
             </Table>
           </TableContainer>

@@ -6,9 +6,9 @@ import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem } from '@mui/material';
 // hooks
 // components
-import MyAvatar from '../../../components/MyAvatar';
-import MenuPopover from '../../../components/MenuPopover';
-import { IconButtonAnimate } from '../../../components/animate';
+import MyAvatar from '../../components/MyAvatar';
+import MenuPopover from '../../components/MenuPopover';
+import { IconButtonAnimate } from '../../components/animate';
 
 // ----------------------------------------------------------------------
 

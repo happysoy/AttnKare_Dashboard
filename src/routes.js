@@ -1,6 +1,6 @@
 import { useRoutes } from 'react-router-dom';
 import GeneralApp from './pages/dashboard/information/GeneralApp';
-import DashboardLayout from './layouts/dashboard';
+import DashboardLayout from './layouts';
 import AppPatientProfile from './sections/@dashboard/general/app/AppPatientProfile';
 import GeneralCognitive from './pages/dashboard/information/GeneralCognitive';
 import GeneralTotal from './pages/dashboard/information/GeneralTotal';

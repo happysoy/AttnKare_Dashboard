@@ -1,14 +1,9 @@
-import PropTypes from 'prop-types';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
 import PatientAvatar from 'src/components/PatientAvatar';
 // utils
-import cssStyles from '../../../../utils/cssStyles';
-// hooks
-// import useAuth from '../../../../hooks/useAuth';
-// components
-import Image from '../../../../components/Image';
+import cssStyles from 'src/utils/cssStyles';
 
 // ----------------------------------------------------------------------
 
@@ -57,13 +52,7 @@ const DetailStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-ProfileCover.propTypes = {
-  myProfile: PropTypes.object,
-};
-
-export default function ProfileCover({ myProfile }) {
-  // const { user } = useAuth();
-
+export default function ProfileCover() {
   return (
     <RootStyle>
       <InfoStyle>

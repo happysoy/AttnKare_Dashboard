@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import { Box, Stack, AppBar, Toolbar } from '@mui/material';
 // hooks
-import useOffSetTop from '../../../hooks/useOffSetTop';
-import useResponsive from '../../../hooks/useResponsive';
+import useOffSetTop from '../../hooks/useOffSetTop';
+import useResponsive from '../../hooks/useResponsive';
 
 // utils
-import cssStyles from '../../../utils/cssStyles';
+import cssStyles from '../../utils/cssStyles';
 // config
-import { HEADER, NAVBAR } from '../../../config';
+import { HEADER, NAVBAR } from '../../config';
 // components
-import Logo from '../../../components/Logo';
-import Iconify from '../../../components/Iconify';
-import { IconButtonAnimate } from '../../../components/animate';
+import Logo from '../../components/Logo';
+import Iconify from '../../components/Iconify';
+import { IconButtonAnimate } from '../../components/animate';
 
 import AccountPopover from './AccountPopover';
 import ContactsPopover from './ContactsPopover';

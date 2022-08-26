@@ -5,22 +5,20 @@ import { useLocation } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import { Box, Stack, Drawer } from '@mui/material';
 // hooks
-import useResponsive from '../../../hooks/useResponsive';
-import useCollapseDrawer from '../../../hooks/useCollapseDrawer';
+import useResponsive from '../../hooks/useResponsive';
+import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // utils
-import cssStyles from '../../../utils/cssStyles';
+import cssStyles from '../../utils/cssStyles';
 // config
-import { NAVBAR } from '../../../config';
+import { NAVBAR } from '../../config';
 // components
-import Logo from '../../../components/Logo';
-import Scrollbar from '../../../components/Scrollbar';
-import { NavSectionVertical } from '../../../components/nav-section';
+import Logo from '../../components/Logo';
+import Scrollbar from '../../components/Scrollbar';
+import { NavSectionVertical } from '../../components/nav-section';
 //
 import navConfig from './NavConfig';
 import NavbarAccount from './NavbarAccount';
 import CollapseButton from './CollapseButton';
-
-// ----------------------------------------------------------------------
 
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {

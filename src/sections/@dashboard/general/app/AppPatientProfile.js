@@ -3,9 +3,6 @@ import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Tab, Box, Card, Tabs, Container } from '@mui/material';
 
-// utils
-// components
-import { _userAbout } from 'src/_mock/_user';
 import Iconify from 'src/components/Iconify';
 //  hooks
 import useTabs from 'src/hooks/useTabs';
@@ -160,7 +157,7 @@ export default function AppPatientProfile() {
             position: 'relative',
           }}
         >
-          <ProfileCover myProfile={_userAbout} />
+          <ProfileCover />
 
           <TabsWrapperStyle>
             <Tabs
