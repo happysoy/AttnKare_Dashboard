@@ -3,8 +3,8 @@ import { useTheme } from '@mui/material/styles';
 import { Grid } from '@mui/material';
 
 // component
-import BankingBalanceStatistics from 'src/sections/@dashboard/general/banking/BankingBalanceStatics';
-import BoxPlot from 'src/sections/@dashboard/general/banking/BoxPlot';
+import ErrorTotalScore from 'src/sections/@dashboard/gamesErrorType/ErrorTotalTScore';
+import BoxPlot from 'src/sections/@dashboard/gamesRTS/BoxPlot';
 
 export default function GamesTabRTS() {
   const theme = useTheme();
@@ -12,7 +12,7 @@ export default function GamesTabRTS() {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={4} lg={4}>
-        <BankingBalanceStatistics
+        <ErrorTotalScore
           title="HRT T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
@@ -37,7 +37,6 @@ export default function GamesTabRTS() {
         <BoxPlot
           title="HRT by Scene"
           subheader="가장 최근 플레이"
-          // chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
             {
               year: '1단계',
