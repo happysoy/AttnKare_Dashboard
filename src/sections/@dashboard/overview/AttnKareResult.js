@@ -59,7 +59,6 @@ export default function AttnKareResult({ title, subheader, chartData, chartColor
   return (
     <Card {...other}>
       <CardHeader title={title} subheader={subheader} />
-      {console.log(chartData)}
       <ChartWrapperStyle dir="ltr">
         <ReactApexChart type="radar" series={chartData} options={chartOptions} height={340} />
       </ChartWrapperStyle>
