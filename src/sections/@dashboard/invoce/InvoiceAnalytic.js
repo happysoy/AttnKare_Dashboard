@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 // @mui
 import { Stack, Typography, Box, CircularProgress } from '@mui/material';
 // utils
-import { fShortenNumber, fCurrency } from '../../../utils/formatNumber';
 // components
 import Iconify from '../../../components/Iconify';
 
@@ -38,7 +37,7 @@ export default function InvoiceAnalytic({ title, times, total, icon, color, perc
         <Typography variant="h6">{title}</Typography>
 
         <Typography variant="subtitle2">
-          {fShortenNumber(total)}{' '}
+          {total}{' '}
           <Box component="span" sx={{ color: 'text.secondary', typography: 'body2' }}>
             times
           </Box>

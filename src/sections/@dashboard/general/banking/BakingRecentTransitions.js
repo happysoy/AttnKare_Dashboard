@@ -20,7 +20,6 @@ import {
   TableContainer,
 } from '@mui/material';
 // utils
-import { fCurrency } from '../../../../utils/formatNumber';
 // components
 import Label from '../../../../components/Label';
 import Iconify from '../../../../components/Iconify';
@@ -164,7 +163,7 @@ function BankingRecentTransitionsRow({ row }) {
         </Typography>
       </TableCell>
 
-      <TableCell>{fCurrency(row.amount)}</TableCell>
+      <TableCell>{row.amount}$</TableCell>
 
       {/* <TableCell>
         <Label

@@ -5,7 +5,7 @@ import { Tab, Box, Card, Tabs, Container } from '@mui/material';
 
 // utils
 // components
-import { _userAbout } from 'src/_mock';
+import { _userAbout } from 'src/_mock/_user';
 import Iconify from 'src/components/Iconify';
 //  hooks
 import useTabs from 'src/hooks/useTabs';
@@ -14,20 +14,6 @@ import Page from 'src/components/Page';
 import GamesTab from 'src/pages/dashboard/game/Tab/GamesTab';
 import GamesTabError from 'src/pages/dashboard/game/Tab/GamesTabError';
 import GamesTabRTS from 'src/pages/dashboard/game/Tab/GamesTabRTS';
-import GamesBiz from 'src/pages/dashboard/game/GamesBiz';
-import GamesBizAnalytics from 'src/pages/dashboard/game/GamesBizAnalytics';
-import GamesBizAttention from 'src/pages/dashboard/game/GamesBizAttention';
-import GamesRoom from 'src/pages/dashboard/game/GamesRoom';
-import GamesRoomAttention from 'src/pages/dashboard/game/GamesRoomAttention';
-import GamesRoomAnalytics from 'src/pages/dashboard/game/GamesRoomAnalytics';
-import GamesCard from 'src/pages/dashboard/game/GamesCard';
-import GamesCardAttention from 'src/pages/dashboard/game/GamesCardAttention';
-import GamesCardImpulsivity from 'src/pages/dashboard/game/GamesCardImpulsivity';
-import GamesCardAnalytics from 'src/pages/dashboard/game/GamesCardAnalytics';
-import GamesRacingImpulsivity from 'src/pages/dashboard/game/GamesRacingImpulsitivity';
-import GamesRacingAttention from 'src/pages/dashboard/game/GamesRacingAttention';
-import GamesRacingAnalytics from 'src/pages/dashboard/game/GamesRacingAnalytics';
-import GamesRacing from 'src/pages/dashboard/game/GamesRacing';
 
 import ProfileCover from '../../user/profile/ProfileCover';
 

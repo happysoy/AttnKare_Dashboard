@@ -64,8 +64,6 @@ ProfileCover.propTypes = {
 export default function ProfileCover({ myProfile }) {
   // const { user } = useAuth();
 
-  const { position, cover } = myProfile;
-
   return (
     <RootStyle>
       <InfoStyle>
@@ -88,7 +86,7 @@ export default function ProfileCover({ myProfile }) {
           }}
         >
           <Typography variant="h4">백시안</Typography>
-          <Typography sx={{ opacity: 0.8 }}>{position}</Typography>
+          <Typography sx={{ opacity: 0.8 }}>7세 남</Typography>
         </Box>
       </InfoStyle>
       <DetailStyle>
@@ -117,7 +115,6 @@ export default function ProfileCover({ myProfile }) {
           <Typography sx={{ opacity: 0.8 }}>liberal style</Typography>
         </Box>
       </DetailStyle>
-      <Image alt="profile cover" src={cover} sx={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }} />
     </RootStyle>
   );
 }
