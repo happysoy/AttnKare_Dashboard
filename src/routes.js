@@ -1,9 +1,9 @@
 import { useRoutes } from 'react-router-dom';
-import GeneralApp from './pages/dashboard/information/GeneralApp';
-import DashboardLayout from './layouts/dashboard';
-import AppPatientProfile from './sections/@dashboard/general/app/AppPatientProfile';
-import GeneralCognitive from './pages/dashboard/information/GeneralCognitive';
-import GeneralTotal from './pages/dashboard/information/GeneralTotal';
+import Overview from './pages/dashboard/information/Overview';
+import Total from './pages/dashboard/information/Total';
+import Point from './pages/dashboard/information/Point';
+import DashboardLayout from './layouts';
+import PatientProfile from './sections/@dashboard/user/profile/PatientProfile';
 
 export default function Router() {
   return useRoutes([
@@ -11,14 +11,14 @@ export default function Router() {
       path: '/',
       element: <DashboardLayout />,
       children: [
-        { path: '/', element: <GeneralApp /> },
-        { path: 'point', element: <GeneralCognitive /> },
-        { path: 'total', element: <GeneralTotal /> },
-        { path: 'tab', element: <AppPatientProfile /> },
-        { path: 'biz', element: <AppPatientProfile /> },
-        { path: 'room', element: <AppPatientProfile /> },
-        { path: 'card', element: <AppPatientProfile /> },
-        { path: 'racing', element: <AppPatientProfile /> },
+        { path: '/', element: <Overview /> },
+        { path: 'total', element: <Total /> },
+        { path: 'point', element: <Point /> },
+        { path: 'tab', element: <PatientProfile /> },
+        { path: 'biz', element: <PatientProfile /> },
+        { path: 'room', element: <PatientProfile /> },
+        { path: 'card', element: <PatientProfile /> },
+        { path: 'racing', element: <PatientProfile /> },
       ],
     },
   ]);

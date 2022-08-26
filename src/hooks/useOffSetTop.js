@@ -21,6 +21,3 @@ export default function useOffSetTop(top) {
 
   return offsetTop;
 }
-
-// Usage
-// const offset = useOffSetTop(100);

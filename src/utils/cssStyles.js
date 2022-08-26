@@ -35,18 +35,5 @@ export default function cssStyles(theme) {
         background: `linear-gradient(${direction}, ${startColor}, ${endColor});`,
       };
     },
-    bgImage: (props) => {
-      const url = props?.url || '/assets/bg_gradient.jpg';
-      const direction = getDirection(props?.direction);
-      const startColor = props?.startColor || alpha(theme?.palette.grey[900] || '#000000', 0.88);
-      const endColor = props?.endColor || alpha(theme?.palette.grey[900] || '#000000', 0.88);
-
-      return {
-        background: `linear-gradient(${direction}, ${startColor}, ${endColor}), url(${url})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
-      };
-    },
   };
 }

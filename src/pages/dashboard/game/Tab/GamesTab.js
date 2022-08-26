@@ -1,9 +1,9 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid } from '@mui/material';
-import VariableType from 'src/sections/@dashboard/general/banking/VariableType';
-import BankingExpensesCategories from 'src/sections/@dashboard/general/banking/BakingExpensesCategories';
-import CompareLastVisit from 'src/sections/@dashboard/general/banking/CompareLastVisit';
+import TotalErrorTypePercent from 'src/sections/@dashboard/gamesTotal/TotalErrorTypePercent';
+import TotalCompareLastPlay from 'src/sections/@dashboard/gamesTotal/TotalCompareLastPlay';
+import AnalyzeHRTError from 'src/sections/@dashboard/gamesTotal/AnalyzeHRTError';
 
 export default function GamesTab() {
   const theme = useTheme();
@@ -11,7 +11,7 @@ export default function GamesTab() {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={6}>
-        <BankingExpensesCategories
+        <TotalCompareLastPlay
           title="Error Type"
           subheader="2022.08.23 play"
           chartData={[
@@ -23,7 +23,7 @@ export default function GamesTab() {
         />
       </Grid>
       <Grid item xs={12} md={6}>
-        <BankingExpensesCategories
+        <TotalCompareLastPlay
           title="Reation Time Statistics"
           subheader="2022.08.23 play"
           chartData={[
@@ -36,7 +36,7 @@ export default function GamesTab() {
       </Grid>
 
       <Grid item xs={12} md={6} lg={4}>
-        <VariableType
+        <TotalErrorTypePercent
           title="Total Error Type Percentage"
           subheader="2022.03.02 - 20.22.08.23 "
           chartData={[
@@ -49,7 +49,7 @@ export default function GamesTab() {
       </Grid>
 
       <Grid item xs={12} md={6} lg={8}>
-        <CompareLastVisit
+        <AnalyzeHRTError
           title="Analyze"
           subheader="2022.03.02 - 20.22.08.23 "
           // subheader="(+4%)  than last week"

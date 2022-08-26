@@ -1,5 +1,3 @@
-export const HOST_API = 'https://minimal-assets-api-dev.vercel.app';
-
 export const HEADER = {
   MOBILE_HEIGHT: 64,
   MAIN_DESKTOP_HEIGHT: 88,

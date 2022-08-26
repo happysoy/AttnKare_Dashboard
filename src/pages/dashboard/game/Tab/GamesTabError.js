@@ -1,30 +1,12 @@
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Container, Grid, Button, Stack, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 
 // component
-import AppCurrentDownload from 'src/sections/@dashboard/general/app/AppCurrentDownload';
-import AppWidget from 'src/sections/@dashboard/general/app/AppWidget';
-import AnalyticsWebsiteVisits from 'src/sections/@dashboard/general/analytics/AnalyticsWebsiteVisits';
-import TabCommissionsLog from 'src/sections/@dashboard/general/banking/TabCommissionsLog';
-import TabOmissionsLog from 'src/sections/@dashboard/general/banking/TabOmissionsLog';
-import TabPerseverationsLog from 'src/sections/@dashboard/general/banking/TabPerseverationsLog';
-// import BookingCheckInWidgets from 'src/sections/@dashboard/general/booking/BookingCheckInWidgets';
-import BankingExpensesCategories from 'src/sections/@dashboard/general/banking/BakingExpensesCategories';
-import BankingBalanceStatistics from 'src/sections/@dashboard/general/banking/BankingBalanceStatics';
-import InvoiceList from 'src/sections/@dashboard/invoce/InvoiceList';
-import VariableType from 'src/sections/@dashboard/general/banking/VariableType';
+import ErrorTotalTScore from 'src/sections/@dashboard/gamesErrorType/ErrorTotalTScore';
+import ErrorReasonAnalyze from 'src/sections/@dashboard/gamesErrorType/ErrorReasonAnalyze';
 // mock
-import { _appFeatured, _analyticPost, _analyticOrderTimeline } from '../../../../_mock';
-
-import Page from '../../../../components/Page';
-
-// sections
-import AppWidgetSummary from '../../../../sections/@dashboard/general/app/AppWidgetSummary';
-import AppWelcome from '../../../../sections/@dashboard/general/app/AppWelcome';
-import AppFeatured from '../../../../sections/@dashboard/general/app/AppFeatured';
-// assets
-import { SeoIllustration } from '../../../../assets';
+import { _appFeatured, _analyticPost, _analyticOrderTimeline } from 'src/_mock';
 
 export default function GamesTabError() {
   const theme = useTheme();
@@ -32,7 +14,7 @@ export default function GamesTabError() {
   return (
     <Grid container spacing={3}>
       <Grid item xs={12} md={4} lg={4}>
-        <BankingBalanceStatistics
+        <ErrorTotalTScore
           title="Omissions T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
@@ -53,7 +35,7 @@ export default function GamesTabError() {
         />
       </Grid>
       <Grid item xs={12} md={4} lg={4}>
-        <BankingBalanceStatistics
+        <ErrorTotalTScore
           title="Commission T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
@@ -74,7 +56,7 @@ export default function GamesTabError() {
         />
       </Grid>
       <Grid item xs={12} md={4} lg={4}>
-        <BankingBalanceStatistics
+        <ErrorTotalTScore
           title="Perseverations T-score"
           chartLabels={['월', '화', '수', '목', '금', '토', '일']}
           chartData={[
@@ -94,17 +76,9 @@ export default function GamesTabError() {
           chartColors={theme.palette.chart.green[0]}
         />
       </Grid>
-      {/* <Grid item xs={4} md={6} lg={8}>
-        <TabOmissionsLog title="Omissions Error Interpretation" />
-      </Grid>
-      <Grid item xs={4} md={6} lg={6}>
-        <TabCommissionsLog title="Commission Error Interpretation" />
-      </Grid>
-      <Grid item xs={4} md={6} lg={6}>
-        <TabPerseverationsLog title="Perseverations Error Interpretation" />
-      </Grid> */}
+
       <Grid item xs={12} md={12} lg={12}>
-        <InvoiceList />
+        <ErrorReasonAnalyze />
       </Grid>
     </Grid>
   );
